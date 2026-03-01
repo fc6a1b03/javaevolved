@@ -14,4 +14,4 @@ whyModernWins:
     title: Standardowy format
     desc: Produkuje wynik PEM zgodny z RFC 7468.
 support:
-  description: Podgląd w JDK 25 (JEP 470). Wymaga --enable-preview.
+  description: Podgląd w JDK 25 (JEP 470). Wymaga --enable-preview

@@ -14,4 +14,4 @@ whyModernWins:
     title: Ujednolicone API
     desc: Jeden interfejs obejmuje Random, ThreadLocalRandom, SplittableRandom i więcej.
 support:
-  description: Dostępne od JDK 17 (wrzesień 2021, JEP 356).
+  description: Dostępne od JDK 17 (wrzesień 2021, JEP 356)

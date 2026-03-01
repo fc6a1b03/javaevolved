@@ -14,4 +14,4 @@ whyModernWins:
     title: Rozszerzalny
     desc: Pisz niestandardowe gatherery do dowolnej pośredniej transformacji.
 support:
-  description: Sfinalizowane w JDK 24 (JEP 485, marzec 2025).
+  description: Sfinalizowane w JDK 24 (JEP 485, marzec 2025)

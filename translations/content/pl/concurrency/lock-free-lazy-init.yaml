@@ -14,4 +14,4 @@ whyModernWins:
     title: Dowodliwa poprawność
     desc: Żadnych subtelnych błędów kolejności — JVM to obsługuje.
 support:
-  description: Podgląd w JDK 25 (JEP 502, StableValue). Wymaga --enable-preview.
+  description: Podgląd w JDK 25 (JEP 502, StableValue). Wymaga --enable-preview

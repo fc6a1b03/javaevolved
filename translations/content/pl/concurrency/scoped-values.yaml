@@ -14,4 +14,4 @@ whyModernWins:
     title: Bezpieczny dla wątków wirtualnych
     desc: Działa efektywnie z milionami wątków wirtualnych.
 support:
-  description: Sfinalizowane w JDK 25 LTS (JEP 506, wrzesień 2025).
+  description: Sfinalizowane w JDK 25 LTS (JEP 506, wrzesień 2025)

@@ -12,6 +12,6 @@ whyModernWins:
     desc: Brak ryzyka przypadkowego przekazania mikrosekund jako milisekund.
   - icon: 🧩
     title: Kompozycyjność
-    desc: Operacje na Duration: plus(), multipliedBy() itp.
+    desc: "Operacje na Duration: plus(), multipliedBy() itp."
 support:
   description: Szeroko dostępne od JDK 19 (wrzesień 2022)

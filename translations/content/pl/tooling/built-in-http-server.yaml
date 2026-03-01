@@ -2,10 +2,10 @@ title: Wbudowany serwer HTTP
 oldApproach: Zewnętrzny serwer / Framework
 modernApproach: CLI jwebserver
 summary: Java 18 zawiera wbudowany minimalny serwer HTTP do prototypowania i serwowania plików.
-explanation: JDK 18 dodał prosty serwer plików HTTP bez zależności, dostępny przez narzędzie wiersza poleceń jwebserver lub API SimpleFileServer. Serwuje pliki statyczne z podanego katalogu bez konfiguracji. Narzędzie CLI jest idealne do szybkiego prototypowania, testowania i ad-hoc udostępniania plików — bez zewnętrznych zależności ani frameworków.
+explanation: JDK 18 dodał prosty serwer plików HTTP bez zależności, dostępny przez narzędzie wiersza poleceń jwebserver lub API SimpleFileServer. Serwuje pliki statyczne z podanego katalogu bez konfiguracji. Narzędzie CLI jest idealne do szybkiego prototypowania, testowania i ad-hoc udostępniania plików — bez zewnętrznych zależności ani frameworków. API umożliwia programistyczne użycie z konfigurowalnymi handlerami i poziomami wyjścia.
 whyModernWins:
   - icon: 🚀
-    title: Zero konfiguracji
+    title: Zero przygotowań
     desc: Uruchom jwebserver w dowolnym katalogu — bez instalacji, konfiguracji ani zależności.
   - icon: 📦
     title: Wbudowany w JDK

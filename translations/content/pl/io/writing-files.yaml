@@ -6,7 +6,7 @@ explanation: Files.writeString() zapisuje zawartość do pliku domyślnie z kodo
 whyModernWins:
   - icon: 📏
     title: Jedna linia
-    desc: Bez owijania writerów ani try-with-resources.
+    desc: Bez opakowywania writerów ani try-with-resources.
   - icon: 🛡️
     title: Bezpieczne ustawienia domyślne
     desc: Kodowanie UTF-8, właściwe zwalnianie uchwytu pliku.

@@ -14,4 +14,4 @@ whyModernWins:
     title: Gwarantowane jednokrotne wykonanie
     desc: Dostawca uruchamia się dokładnie raz, nawet przy rywalizacji.
 support:
-  description: Podgląd w JDK 25 (JEP 502). Wymaga --enable-preview.
+  description: Podgląd w JDK 25 (JEP 502). Wymaga --enable-preview

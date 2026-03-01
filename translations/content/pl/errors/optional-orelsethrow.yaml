@@ -14,4 +14,4 @@ whyModernWins:
     title: Mniej boilerplate
     desc: Nie trzeba przekazywać dostawcy dla domyślnego NoSuchElementException.
 support:
-  description: Dostępne od JDK 10 (marzec 2018).
+  description: Dostępne od JDK 10 (marzec 2018)

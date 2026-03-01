@@ -12,6 +12,6 @@ whyModernWins:
     desc: Twórz miliony wątków — bez potrzeby dobierania rozmiaru puli.
   - icon: 🧹
     title: Prosty model
-    desc: Pisz blokowalny kod, który skaluje jak kod asynchroniczny.
+    desc: Pisz blokujący kod, który skaluje się jak kod asynchroniczny.
 support:
   description: Szeroko dostępne od JDK 21 LTS (wrzesień 2023)

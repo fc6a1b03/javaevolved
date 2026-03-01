@@ -2,7 +2,7 @@ title: HexFormat
 oldApproach: Ręczna konwersja hex
 modernApproach: HexFormat
 summary: Konwertuj między ciągami hex a tablicami bajtów za pomocą HexFormat.
-explanation: HexFormat zapewnia dwukierunkowe kodowanie/dekodowanie hex dla bajtów, intów i tablic. Konfiguruj separatory, prefiks, sufiks i wielkość liter. Koniec z ręcznym formatowaniem i parsowaniem.
+explanation: HexFormat zapewnia dwukierunkowe kodowanie/dekodowanie hex dla bajtów, liczb całkowitych i tablic. Konfiguruj separatory, prefiks, sufiks i wielkość liter. Koniec z ręcznym formatowaniem i parsowaniem.
 whyModernWins:
   - icon: 📐
     title: Dwukierunkowy

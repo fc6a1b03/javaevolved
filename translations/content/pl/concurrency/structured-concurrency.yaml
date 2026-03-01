@@ -14,4 +14,4 @@ whyModernWins:
     title: Przejrzysta struktura
     desc: Czas życia zadania odpowiada leksykalnemu zasięgowi w kodzie.
 support:
-  description: Podgląd w JDK 25 (piąty podgląd, JEP 505). Wymaga --enable-preview.
+  description: Podgląd w JDK 25 (piąty podgląd, JEP 505). Wymaga --enable-preview

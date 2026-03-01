@@ -14,4 +14,4 @@ whyModernWins:
     title: Wyższa gęstość
     desc: Więcej obiektów w tym samym rozmiarze sterty.
 support:
-  description: Sfinalizowane w JDK 25 LTS (JEP 519, wrzesień 2025).
+  description: Sfinalizowane w JDK 25 LTS (JEP 519, wrzesień 2025)

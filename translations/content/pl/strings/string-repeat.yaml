@@ -12,6 +12,6 @@ whyModernWins:
     desc: Wewnętrzna implementacja zoptymalizowana dla dużych powtórzeń.
   - icon: 📖
     title: Jasna intencja
-    desc: repeat(3) natychmiast przekazuje cel.
+    desc: repeat(3) od razu jasno wyraża intencję.
 support:
   description: Szeroko dostępne od JDK 11 (wrzesień 2018)

@@ -14,4 +14,4 @@ whyModernWins:
     title: Czyta się naturalnie
     desc: Predicate.not(String::isBlank) czyta się jak angielski.
 support:
-  description: Dostępne od JDK 11 (wrzesień 2018).
+  description: Dostępne od JDK 11 (wrzesień 2018)
