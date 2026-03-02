@@ -175,9 +175,7 @@ nav {
   font-weight: 700;
   font-size: 1.15rem;
   color: var(--text);
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  display: inline;
 }
 
 .logo span {
