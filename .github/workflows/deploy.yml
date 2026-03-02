@@ -9,6 +9,7 @@ on:
       - 'templates/**'
       - 'site/**'
       - 'html-generators/generateog.java'
+      - 'html-generators/og/**'
   workflow_run:
     workflows: ['Build Generator JARs']
     types: [completed]
@@ -36,13 +37,14 @@ jobs:
       - name: Detect changed paths
         id: changes
         run: |
+          # OG images are gitignored and must always be regenerated
+          echo "og=true" >> "$GITHUB_OUTPUT"
+
           if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
             echo "generate=true" >> "$GITHUB_OUTPUT"
-            echo "og=true" >> "$GITHUB_OUTPUT"
           elif [[ "${{ github.event_name }}" == "workflow_run" ]]; then
-            # Generator JAR was rebuilt — regenerate HTML, skip OG
+            # Generator JAR was rebuilt — regenerate HTML
             echo "generate=true" >> "$GITHUB_OUTPUT"
-            echo "og=false" >> "$GITHUB_OUTPUT"
           else
             # Push event — check which files changed
             CHANGED=$(git diff --name-only HEAD~1 HEAD)
@@ -50,18 +52,12 @@ jobs:
             echo "$CHANGED"
 
             NEEDS_GENERATE=false
-            NEEDS_OG=false
 
             if echo "$CHANGED" | grep -qE '^(content/|translations/|templates/)'; then
               NEEDS_GENERATE=true
-              NEEDS_OG=true
-            fi
-            if echo "$CHANGED" | grep -qE '^html-generators/generateog\.java$'; then
-              NEEDS_OG=true
             fi
 
             echo "generate=$NEEDS_GENERATE" >> "$GITHUB_OUTPUT"
-            echo "og=$NEEDS_OG" >> "$GITHUB_OUTPUT"
           fi
           echo "Summary: generate=${{ steps.changes.outputs.generate || 'pending' }}, og=${{ steps.changes.outputs.og || 'pending' }}"
 
