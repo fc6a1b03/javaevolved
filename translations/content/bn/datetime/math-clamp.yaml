@@ -1,0 +1,18 @@
+---
+title: Math.clamp()
+oldApproach: নেস্টেড min/max
+modernApproach: Math.clamp()
+summary: একটি মাত্র পরিষ্কার কল (call) ব্যবহার করে একটি ভ্যালুকে নির্দিষ্ট বাউন্ডের (bounds) মধ্যে রাখুন (clamp)।
+explanation: Math.clamp(value, min, max) মেথডটি একটি ভ্যালুকে [min, max] রেঞ্জের মধ্যে সীমাবদ্ধ রাখে। এটি নেস্টেড Math.min/Math.max ব্যবহারের চেয়ে অনেক বেশি সুস্পষ্ট এবং int, long, float, এবং double টাইপের জন্য উপলব্ধ।
+whyModernWins:
+- icon: "📖"
+  title: স্ব-ডকুমেন্টিং (Self-documenting)
+  desc: clamp(value, min, max) মেথডটি দ্ব্যর্থহীন (unambiguous)।
+- icon: "🛡️"
+  title: কম ত্রুটি-প্রবণ (Less Error-prone)
+  desc: ভুলবশত min/max-এর অর্ডার অদলবদল (swapping) করার ঝুঁকি থাকে না।
+- icon: "🎯"
+  title: সব নিউমেরিক টাইপ (All Numeric Types)
+  desc: int, long, float, এবং double সহ সব নিউমেরিক টাইপের সাথে কাজ করে।
+support:
+  description: JDK 21 LTS (সেপ্টেম্বর 2023) থেকে ব্যাপকভাবে উপলব্ধ

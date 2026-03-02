@@ -1,0 +1,18 @@
+---
+title: লিস্টের আইটারেশন উল্টো দিক থেকে (Reverse List Iteration)
+oldApproach: ম্যানুয়াল ListIterator
+modernApproach: reversed()
+summary: একটি পরিষ্কার for-each লুপ ব্যবহার করে লিস্টের উপাদানগুলোকে উল্টো দিক থেকে আইটারেট করুন।
+explanation: SequencedCollection-এর reversed() মেথডটি লিস্টের একটি রিভার্স-অর্ডারড ভিউ (reverse-ordered view) প্রদান করে। এই ভিউটি মূল লিস্টের ওপর ভিত্তি করে তৈরি হয়, তাই কোনো কপি করা হয় না। উন্নত for লুপ সিনট্যাক্স (enhanced for loop syntax) ব্যবহার করে রিভার্স আইটারেশনকে ফরোয়ার্ড আইটারেশনের মতোই পঠনযোগ্য করে তোলে।
+whyModernWins:
+- icon: "📖"
+  title: স্বাভাবিক সিনট্যাক্স
+  desc: verbose ListIterator-এর পরিবর্তে সহজবোধ্য for-each লুপ ব্যবহার করা হয়।
+- icon: "⚡"
+  title: কোনো কপি হয় না
+  desc: reversed() একটি ভিউ রিটার্ন করে, তাই পারফরম্যান্সের ওপর কোনো অতিরিক্ত চাপ (overhead) পড়ে না।
+- icon: "🧩"
+  title: সামঞ্জস্যপূর্ণ API
+  desc: List, Deque, এবং SortedSet-এর মতো কালেকশনগুলোতে একইভাবে কাজ করে।
+support:
+  description: JDK 21 LTS (সেপ্টেম্বর 2023) থেকে ব্যাপকভাবে উপলব্ধ

@@ -1,0 +1,18 @@
+---
+title: মাল্টি-ক্যাচ এক্সেপশন হ্যান্ডলিং (Multi-catch Exception Handling)
+oldApproach: আলাদা ক্যাচ ব্লক
+modernApproach: মাল্টি-ক্যাচ
+summary: একটি সিঙ্গেল ক্যাচ ব্লকে একাধিক এক্সেপশন টাইপ (exception types) হ্যান্ডেল করুন।
+explanation: মাল্টি-ক্যাচ (Multi-catch) একই কোড ব্যবহার করে একাধিক এক্সেপশন টাইপ হ্যান্ডেল করতে পারে। এখানে এক্সেপশন ভ্যারিয়েবলটি এফেক্টিভলি ফাইনাল (effectively final) থাকে, তাই আপনি কোনো র‍্যাপিং ছাড়াই এটি রিথ্রো (rethrow) করতে পারবেন।
+whyModernWins:
+- icon: "📏"
+  title: DRY (Don't Repeat Yourself)
+  desc: একই হ্যান্ডলিং লজিক তিনবারের পরিবর্তে একবার লেখা হয়।
+- icon: "🔄"
+  title: রিথ্রোয়েবল (Rethrowable)
+  desc: ক্যাচ করা এক্সেপশনটিকে তার সঠিক টাইপ সহ পুনরায় থ্রো করা যায়।
+- icon: "📖"
+  title: স্ক্যানেবল (Scannable)
+  desc: সব হ্যান্ডেল করা টাইপ এক জায়গায় স্পষ্টভাবে দেখা যায়।
+support:
+  description: JDK 7 (জুলাই 2011) থেকে ব্যাপকভাবে উপলব্ধ

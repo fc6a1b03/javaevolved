@@ -1,0 +1,18 @@
+---
+title: Map.entry() ফ্যাক্টরি
+oldApproach: SimpleEntry
+modernApproach: Map.entry()
+summary: একটি পরিষ্কার ফ্যাক্টরি মেথড ব্যবহার করে ম্যাপ এন্ট্রি (map entries) তৈরি করুন।
+explanation: Map.entry() মেথডটি verbose AbstractMap.SimpleEntry কনস্ট্রাক্টরের (constructor) বিকল্প হিসাবে কাজ করে। এটি একটি ইমিউটেবল (immutable) এন্ট্রি রিটার্ন করে, যা Map.ofEntries() এবং স্ট্রিম অপারেশনগুলির জন্য খুবই উপযোগী।
+whyModernWins:
+- icon: "📏"
+  title: সুসংক্ষিপ্ত
+  desc: তিনটি লাইনের পরিবর্তে একটি মাত্র লাইন, যা এর উদ্দেশ্যকে আরও পরিষ্কার করে।
+- icon: "🔒"
+  title: ইমিউটেবল
+  desc: তৈরি করা এন্ট্রিটি পরিবর্তন করা যাবে না।
+- icon: "🧩"
+  title: কম্পোজেবল
+  desc: বড় ম্যাপ তৈরির জন্য Map.ofEntries() এর সাথে এটি দারুণভাবে কাজ করে।
+support:
+  description: JDK 9 (সেপ্টেম্বর 2017) থেকে ব্যাপকভাবে উপলব্ধ

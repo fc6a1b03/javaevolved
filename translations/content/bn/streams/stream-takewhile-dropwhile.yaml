@@ -1,0 +1,18 @@
+---
+title: Stream takeWhile / dropWhile
+oldApproach: ম্যানুয়াল লুপ
+modernApproach: takeWhile/dropWhile
+summary: একটি প্রেডিকেটের (predicate) উপর ভিত্তি করে একটি স্ট্রিম থেকে এলিমেন্ট নিন বা বাদ দিন।
+explanation: takeWhile() মেথডটি প্রেডিকেট সত্য (true) হওয়া পর্যন্ত এলিমেন্ট রিটার্ন করে এবং প্রথম মিথ্যা (false) তে পৌঁছালে থামা। dropWhile() মেথডটি প্রেডিকেট সত্য থাকা পর্যন্ত এলিমেন্ট স্কিপ করে এবং বাকিগুলো রিটার্ন করে। উভয় মেথডই অর্ডারড স্ট্রিমগুলোতে (ordered streams) সবচেয়ে ভালো কাজ করে।
+whyModernWins:
+- icon: "🎯"
+  title: শর্ট-সার্কিট (Short-circuit)
+  desc: প্রেডিকেট ব্যর্থ হওয়ার সাথে সাথে প্রসেসিং বন্ধ হয়ে যায়।
+- icon: "🔗"
+  title: পাইপলাইন-ফ্রেন্ডলি (Pipeline-friendly)
+  desc: অন্যান্য স্ট্রিম অপারেশনগুলোর সাথে স্বাভাবিকভাবে চেইন হয়।
+- icon: "📖"
+  title: ডিক্লারেটিভ (Declarative)
+  desc: takeWhile মেথডটি '১০০ এর কম হলে নাও' এর মতো করে পঠনযোগ্য।
+support:
+  description: JDK 9 (সেপ্টেম্বর 2017) থেকে ব্যাপকভাবে উপলব্ধ

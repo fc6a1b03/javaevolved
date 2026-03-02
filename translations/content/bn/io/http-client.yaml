@@ -1,0 +1,18 @@
+---
+title: মডার্ন HTTP ক্লায়েন্ট (Modern HTTP client)
+oldApproach: HttpURLConnection
+modernApproach: HttpClient
+summary: পরিষ্কার, আধুনিক HTTP রিকোয়েস্টের (requests) জন্য বিল্ট-ইন HttpClient ব্যবহার করুন।
+explanation: HttpClient HTTP/1.1 এবং HTTP/2, অ্যাসিঙ্ক রিকোয়েস্ট, WebSocket, কাস্টম এক্সিকিউটর এবং কানেকশন পুলিং (connection pooling) সাপোর্ট করে। এর ফলে URLConnection কাস্ট করা বা InputStream ম্যানুয়ালি রিড করার আর প্রয়োজন নেই।
+whyModernWins:
+- icon: "📐"
+  title: বিল্ডার API (Builder API)
+  desc: রিকোয়েস্ট, হেডার এবং টাইমআউটের জন্য ফ্লুয়েন্ট বিল্ডার।
+- icon: "🔄"
+  title: HTTP/2 সাপোর্ট
+  desc: মাল্টিপ্লেক্সিং (multiplexing) এবং সার্ভার পুশ সহ বিল্ট-ইন HTTP/2।
+- icon: "⚡"
+  title: অ্যাসিঙ্ক রেডি (Async Ready)
+  desc: sendAsync() মেথডটি CompletableFuture রিটার্ন করে।
+support:
+  description: JDK 11 (সেপ্টেম্বর 2018) থেকে ব্যাপকভাবে উপলব্ধ

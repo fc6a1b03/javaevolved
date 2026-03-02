@@ -1,0 +1,18 @@
+---
+title: Duration এবং Period
+oldApproach: মিলিসেকেন্ড ম্যাথ (Millisecond Math)
+modernApproach: Duration / Period
+summary: টাইপ-সেফ Duration এবং Period ব্যবহার করে সময়ের পার্থক্য হিসাব করুন।
+explanation: Duration মেথডটি সময়-ভিত্তিক পরিমাণ (যেমন ঘন্টা, মিনিট, সেকেন্ড) এর জন্য ব্যবহৃত হয়। অন্যদিকে, Period মেথডটি তারিখ-ভিত্তিক পরিমাণ (যেমন বছর, মাস, দিন) এর জন্য ব্যবহৃত হয়। ChronoUnit.between() মেথড দিয়ে সহজভাবে পার্থক্য নির্ণয় করা যায়। এই সকল মেথড এজি কেসগুলো সঠিকভাবে হ্যান্ডেল করে।
+whyModernWins:
+- icon: "🎯"
+  title: টাইপ-সেফ (Type-safe)
+  desc: সময়ের জন্য Duration এবং তারিখের জন্য Period ব্যবহার করা হয় – কোনো বিভ্রান্তি থাকে না।
+- icon: "🛡️"
+  title: সঠিক গণনা (Correct Math)
+  desc: DST ট্রানজিশন, লিপ ইয়ার (leap years) এবং লিপ সেকেন্ড (leap seconds) সঠিকভাবে হ্যান্ডেল করে।
+- icon: "📖"
+  title: পঠনযোগ্য
+  desc: ChronoUnit.DAYS.between() মেথডটি ইংরেজি বাক্যের মতোই সহজবোধ্য।
+support:
+  description: JDK 8 (মার্চ 2014) থেকে ব্যাপকভাবে উপলব্ধ

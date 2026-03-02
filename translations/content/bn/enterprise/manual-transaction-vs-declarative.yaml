@@ -1,0 +1,18 @@
+---
+title: ম্যানুয়াল JPA ট্রানজাকশন বনাম ডিক্লারেটিভ @Transactional
+oldApproach: ম্যানুয়াল ট্রানজাকশন
+modernApproach: "@Transactional"
+summary: একটি সিঙ্গেল @Transactional অ্যানোটেশন ব্যবহার করে ভার্বোস begin/commit/rollback ব্লকগুলো প্রতিস্থাপন করুন।
+explanation: ম্যানুয়াল ট্রানজাকশন ম্যানেজমেন্টের (transaction management) জন্য begin(), commit(), এবং rollback() কলগুলোকে ট্রাই-ক্যাচ ব্লক (try-catch blocks)-এর মধ্যে এক্সপ্লিসিটভাবে (explicitly) ব্যবহার করতে হয় – প্রতিটি সার্ভিস মেথডে এই বয়লারপ্লেট (boilerplate) কোড রিপিট করতে হয়। @Transactional অ্যানোটেশন লাইফসাইকেল ম্যানেজমেন্টকে কন্টেইনারের কাছে ডেলিগেট করে। এটি মেথডের আগে একটি ট্রানজাকশন শুরু করে, সফল হলে কমিট করে এবং RuntimeException ঘটলে স্বয়ংক্রিয়ভাবে রোলব্যাক (roll back) করে।
+whyModernWins:
+- icon: "🗑️"
+  title: বয়লারপ্লেট নেই
+  desc: একটি অ্যানোটেশন রিপিটেটিভ begin/commit/rollback ট্রাই-ক্যাচ ব্লকগুলোকে প্রতিস্থাপন করে।
+- icon: "🛡️"
+  title: নিরাপদ রোলব্যাক (Safer Rollback)
+  desc: কন্টেইনার আনচেকড এক্সেপশন (unchecked exceptions) ঘটলে রোলব্যাক নিশ্চিত করে – ক্যাচ ব্লক ভুলে যাওয়ার কোনো ঝুঁকি থাকে না।
+- icon: "📐"
+  title: ডিক্লারেটিভ কন্ট্রোল (Declarative Control)
+  desc: প্রোপাগেশন (propagation), আইসোলেশন (isolation) এবং রোলব্যাক নিয়মগুলো অ্যানোটেশন অ্যাট্রিবিউট (annotation attributes) হিসাবে প্রকাশ করা হয়।
+support:
+  description: জাকার্তা EE 8 / Java 11 থেকে ব্যাপকভাবে উপলব্ধ৷

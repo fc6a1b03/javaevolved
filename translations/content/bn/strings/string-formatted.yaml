@@ -1,0 +1,18 @@
+---
+title: String.formatted()
+oldApproach: String.format()
+modernApproach: formatted()
+summary: টেমপ্লেট স্ট্রিং-এর উপর সরাসরি formatted() মেথডটি কল করুন।
+explanation: String.formatted() মেথডটি String.format()-এর একটি ইনস্ট্যান্স মেথড ইকুইভ্যালেন্ট, যা ফরম্যাট স্ট্রিং এর উপর কল করা হয়। এটি বাম থেকে ডানে (left-to-right) আরও স্বাভাবিকভাবে পঠনযোগ্য।
+whyModernWins:
+- icon: "📖"
+  title: স্বাভাবিকভাবে পঠনযোগ্য
+  desc: Template.formatted(args) মেথডটি String.format(template, args)-এর চেয়ে বেশি ফ্লুয়েন্ট।
+- icon: "🔗"
+  title: চেইনেবল (Chainable)
+  desc: অন্যান্য স্ট্রিং মেথডগুলোর সাথে চেইন করা যায়।
+- icon: "📏"
+  title: কম ভার্বোস (Less Verbose)
+  desc: অপ্রয়োজনীয় String.format() স্ট্যাটিক কলকে বাদ দেয়।
+support:
+  description: JDK 15 (সেপ্টেম্বর 2020) থেকে ব্যাপকভাবে উপলব্ধ

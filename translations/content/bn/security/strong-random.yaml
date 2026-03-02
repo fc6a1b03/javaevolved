@@ -1,0 +1,18 @@
+---
+title: স্ট্রং র‍্যান্ডম জেনারেশন (Strong Random Generation)
+oldApproach: new SecureRandom()
+modernApproach: getInstanceStrong()
+summary: প্ল্যাটফর্মের সবচেয়ে স্ট্রং SecureRandom ইমপ্লিমেন্টেশনটি পান।
+explanation: getInstanceStrong() মেথডটি প্ল্যাটফর্মে সবচেয়ে শক্তিশালী হিসাবে কনফিগার করা SecureRandom ইমপ্লিমেন্টেশনটি রিটার্ন করে। এটি securerandom.strongAlgorithms সিকিউরিটি প্রোপার্টি (security property) দ্বারা নিয়ন্ত্রিত হয়।
+whyModernWins:
+- icon: "🛡️"
+  title: সবচেয়ে শক্তিশালী উপলব্ধ
+  desc: প্ল্যাটফর্মের জন্য স্বয়ংক্রিয়ভাবে সেরা অ্যালগরিদম নির্বাচন করে।
+- icon: "📖"
+  title: সুস্পষ্ট উদ্দেশ্য
+  desc: স্পষ্টভাবে কমিউনিকেট করে যে স্ট্রং র‍্যান্ডমনেস (randomness) প্রয়োজন।
+- icon: "🔧"
+  title: কনফিগারযোগ্য (Configurable)
+  desc: অ্যাডমিনিস্ট্রেটররা সিকিউরিটি প্রোপার্টিগুলোর (security properties) মাধ্যমে স্ট্রং অ্যালগরিদম পরিবর্তন করতে পারে।
+support:
+  description: JDK 9 (সেপ্টেম্বর 2017) থেকে ব্যাপকভাবে উপলব্ধ

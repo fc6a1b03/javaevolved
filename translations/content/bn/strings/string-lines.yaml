@@ -1,0 +1,18 @@
+---
+title: লাইন স্প্লিটিংয়ের জন্য String.lines()
+oldApproach: split("\n")
+modernApproach: lines()
+summary: regex ওভারহেড (overhead) ছাড়াই টেক্সটকে স্ট্রিম অব লাইনসে (stream of lines) বিভক্ত করতে String.lines() ব্যবহার করুন।
+explanation: String.lines() মেথডটি \n, \r, বা \r\n দ্বারা বিভক্ত লাইনগুলোর Stream<String> রিটার্ন করে। এটি split() মেথডের চেয়ে বেশি লেজি (lazy) এবং ইফিশিয়েন্ট, regex কম্পাইলেশন এড়িয়ে যায় এবং আরও প্রসেসিংয়ের জন্য Stream API এর সাথে স্বাভাবিকভাবে ইন্টিগ্রেট করে।
+whyModernWins:
+- icon: "⚡"
+  title: লেজি স্ট্রিমিং (Lazy Streaming)
+  desc: লাইনগুলো ডিমান্ড অনুযায়ী তৈরি হয়, split() এর মতো সব একসাথে নয়।
+- icon: "🔧"
+  title: ইউনিভার্সাল লাইন এন্ডিং (Universal Line Endings)
+  desc: regex ছাড়াই স্বয়ংক্রিয়ভাবে \n, \r, এবং \r\n হ্যান্ডেল করে।
+- icon: "🔗"
+  title: স্ট্রিম ইন্টিগ্রেশন (Stream Integration)
+  desc: filter, map, collect-এর সাথে সরাসরি ব্যবহারের জন্য একটি Stream রিটার্ন করে।
+support:
+  description: JDK 11 (সেপ্টেম্বর 2018) থেকে উপলব্ধ।

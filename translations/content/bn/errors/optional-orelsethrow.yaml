@@ -1,0 +1,18 @@
+---
+title: সরবরাহকারী ছাড়া Optional.orElseThrow()
+oldApproach: get() অথবা orElseThrow(supplier)
+modernApproach: orElseThrow()
+summary: get()-এর একটি সুস্পষ্ট, উদ্দেশ্য-প্রকাশক বিকল্প হিসাবে Optional.orElseThrow() ব্যবহার করুন।
+explanation: Optional.get() কে সাধারণত "কোড স্মেল" (code smell) হিসাবে বিবেচনা করা হয় কারণ এটি ফেইলুরের সম্ভাবনা লুকিয়ে রাখে। Java 10-এ যুক্ত হওয়া no-arg orElseThrow() মেথডটি ঠিক একই কাজ করে, তবে এটি ডেভেলপারদের উদ্দেশ্যকে স্পষ্টভাবে প্রকাশ করে যে, তারা একটি ভ্যালু আশা করছে এবং যদি তা না থাকে তবে একটি এক্সেপশন চাই।
+whyModernWins:
+- icon: "📖"
+  title: স্ব-ডকুমেন্টিং (Self-documenting)
+  desc: orElseThrow() স্পষ্টভাবে নির্দেশ করে যে, ভ্যালুর অনুপস্থিতি অপ্রত্যাশিত।
+- icon: "🔒"
+  title: get() এড়িয়ে যায়
+  desc: স্ট্যাটিক অ্যানালাইসিস টুলস get() মেথডকে ঝুঁকিপূর্ণ হিসাবে চিহ্নিত করে; orElseThrow() একটি ইডিওম্যাটিক (idiomatic) সমাধান।
+- icon: "⚡"
+  title: কম বয়লারপ্লেট (Less Boilerplate)
+  desc: ডিফল্ট NoSuchElementException-এর জন্য সাপ্লায়ার পাস করার প্রয়োজন নেই।
+support:
+  description: JDK 10 (মার্চ 2018) থেকে উপলব্ধ

@@ -1,0 +1,18 @@
+---
+title: টাইপড স্ট্রিমকে অ্যারেতে রূপান্তর (Typed Stream toArray)
+oldApproach: ম্যানুয়াল অ্যারে কপি
+modernApproach: toArray(generator)
+summary: একটি মেথড রেফারেন্স (method reference) ব্যবহার করে স্ট্রিমকে টাইপড অ্যারেতে রূপান্তর করুন।
+explanation: toArray(IntFunction) মেথডটি একটি স্ট্রিম থেকে সঠিক টাইপের অ্যারে তৈরি করে। এখানে জেনারেটর (যেমন String[]::new) স্ট্রিমকে বলে দেয় কোন ধরনের অ্যারে তৈরি করতে হবে।
+whyModernWins:
+- icon: "🎯"
+  title: টাইপ-সেফ (Type-safe)
+  desc: কোনো Object[] কাস্ট করার প্রয়োজন হয় না – অ্যারের টাইপ সঠিক থাকে।
+- icon: "🔗"
+  title: চেইনেবল (Chainable)
+  desc: যেকোনো স্ট্রিম পাইপলাইনের শেষে এটি ব্যবহার করা যায়।
+- icon: "📏"
+  title: সুসংক্ষিপ্ত
+  desc: একটি এক্সপ্রেশন ব্যবহার করেই ম্যানুয়াল লুপের কাজ সম্পন্ন হয়।
+support:
+  description: JDK 8 (মার্চ 2014) থেকে ব্যাপকভাবে উপলব্ধ

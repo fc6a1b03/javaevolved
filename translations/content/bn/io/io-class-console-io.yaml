@@ -1,0 +1,18 @@
+---
+title: কনসোল I/O-এর জন্য IO ক্লাস
+oldApproach: System.out / Scanner
+modernApproach: IO ক্লাস
+summary: নতুন IO ক্লাস কনসোল ইনপুট এবং আউটপুটের জন্য সহজ, সংক্ষিপ্ত মেথড সরবরাহ করে।
+explanation: Java 25 implicitly declared classes ফিচারের অংশ হিসেবে IO ক্লাস (java.io.IO) চালু করেছে। এটি println(), print(), readln(), এবং read()-এর মতো স্ট্যাটিক মেথড প্রদান করে, যা System.out এবং Scanner-এর ভার্বোস কম্বিনেশনকে প্রতিস্থাপন করে। IO.readln(prompt) একটি সিঙ্গেল কল-এই প্রম্পটিং (prompting) এবং রিডিং (reading) উভয়ই হ্যান্ডেল করে। ক্লাসটি স্বয়ংক্রিয়ভাবে কমপ্যাক্ট সোর্স ফাইলগুলোতে উপলব্ধ থাকে এবং ইম্পোর্ট (import) করার মাধ্যমে ট্র্যাডিশনাল ক্লাসগুলোতে ব্যবহার করা যায়।
+whyModernWins:
+- icon: "✨"
+  title: নাটকীয়ভাবে সহজ
+  desc: দুটি মেথড Scanner সেটআপ, প্রম্পটিং, রিডিং এবং ক্লিনআপের সাতটি লাইন প্রতিস্থাপন করে।
+- icon: "🔒"
+  title: কোনো রিসোর্স লিক নেই
+  desc: ক্লোজ করার জন্য কোনো Scanner নেই – IO মেথডগুলো ইন্টারনালি রিসোর্স ম্যানেজমেন্ট হ্যান্ডেল করে।
+- icon: "🎓"
+  title: নতুনদের জন্য সহজ
+  desc: নতুন ডেভেলপাররা Scanner, System.out, বা ইম্পোর্ট স্টেটমেন্ট শেখা ছাড়াই কনসোল I/O করতে পারে।
+support:
+  description: implicitly declared classes (JEP 495) এর অংশ হিসাবে JDK 25-এ প্রিভিউ

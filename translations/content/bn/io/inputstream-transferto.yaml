@@ -1,0 +1,18 @@
+---
+title: InputStream.transferTo()
+oldApproach: ম্যানুয়াল কপি লুপ
+modernApproach: transferTo()
+summary: এক কল (call)-এই একটি InputStream থেকে OutputStream-এ ডেটা কপি করুন।
+explanation: transferTo() মেথডটি ইনপুট স্ট্রিম থেকে সমস্ত বাইট রিড করে এবং সেগুলোকে আউটপুট স্ট্রিমে রাইট করে। এখানে কোনো বাফার ম্যানেজমেন্ট বা লুপের প্রয়োজন নেই। এটি একটি অপ্টিমাইজড ইন্টারনাল বাফার (optimized internal buffer) ব্যবহার করে।
+whyModernWins:
+- icon: "📏"
+  title: এক লাইন
+  desc: একটি মেথড কল দিয়ে সম্পূর্ণ রিড/রাইট লুপ প্রতিস্থাপন করুন।
+- icon: "⚡"
+  title: অপ্টিমাইজড (Optimized)
+  desc: ইন্টারনাল বাফারের সাইজ পারফরম্যান্সের জন্য টিউন (tuned) করা হয়।
+- icon: "🛡️"
+  title: কোনো বাগ নেই
+  desc: বাফার ম্যানেজমেন্টে অফ-বাই-ওয়ান (off-by-one) এরর হওয়ার ঝুঁকি থাকে না।
+support:
+  description: JDK 9 (সেপ্টেম্বর 2017) থেকে ব্যাপকভাবে উপলব্ধ

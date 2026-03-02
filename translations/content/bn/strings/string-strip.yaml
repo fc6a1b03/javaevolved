@@ -1,0 +1,18 @@
+---
+title: String.strip() বনাম trim()
+oldApproach: trim()
+modernApproach: strip()
+summary: strip(), stripLeading(), stripTrailing() মেথডগুলো ব্যবহার করে ইউনিকোড-অ্যাওয়ার স্ট্রিপিং (Unicode-aware stripping) করুন।
+explanation: trim() মেথডটি শুধুমাত্র ≤ U+0020 (ASCII কন্ট্রোল ক্যারেক্টার এবং স্পেস) এর ক্যারেক্টারগুলো সরিয়ে দেয়। strip() মেথডটি Character.isWhitespace() ব্যবহার করে, যা ইউনিকোড স্পেস (Unicode spaces) যেমন নন-ব্রেকিং স্পেস (non-breaking space), আইডিওগ্রাফিক স্পেস (ideographic space) ইত্যাদি হ্যান্ডেল করে।
+whyModernWins:
+- icon: "🌐"
+  title: ইউনিকোড-কারেক্ট
+  desc: প্রতিটি স্ক্রিপ্ট থেকে সমস্ত হোয়াইটস্পেস ক্যারেক্টার হ্যান্ডেল করে।
+- icon: "🎯"
+  title: ডিরেকশনাল (Directional)
+  desc: এক-পার্শ্বযুক্ত ট্রিমিংয়ের জন্য stripLeading() এবং stripTrailing() ব্যবহার করুন।
+- icon: "🛡️"
+  title: কম বাগ
+  desc: আন্তর্জাতিক টেক্সটে অপ্রত্যাশিত হোয়াইটস্পেস থাকার ঝুঁকি থাকে না।
+support:
+  description: JDK 11 (সেপ্টেম্বর 2018) থেকে ব্যাপকভাবে উপলব্ধ

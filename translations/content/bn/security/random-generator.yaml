@@ -1,0 +1,18 @@
+---
+title: RandomGenerator ইন্টারফেস
+oldApproach: new Random() / ThreadLocalRandom
+modernApproach: RandomGenerator ফ্যাক্টরি
+summary: একটি নির্দিষ্ট ক্লাসের সাথে কাপলিং (coupling) না করে, নাম অনুসারে র‍্যান্ডম নাম্বার অ্যালগরিদম (random number algorithms) বেছে নিতে RandomGenerator ইন্টারফেস ব্যবহার করুন।
+explanation: JDK 17 সমস্ত RNG ইমপ্লিমেন্টেশনের (implementations) জন্য একটি কমন ইন্টারফেস হিসাবে RandomGenerator চালু করেছে। new Random() বা ThreadLocalRandom কে হার্ড-কোডিং না করে, আপনি ফ্যাক্টরির মাধ্যমে নাম অনুসারে অ্যালগরিদম সিলেক্ট করতে পারবেন, যা বিভিন্ন ইউজ কেইসের জন্য অপ্টিমাইজড (স্পিড, স্ট্যাটিস্টিকাল কোয়ালিটি, স্প্লিটএবিলিটি) অ্যালগরিদমগুলোর মধ্যে অদলবদল করা সহজ করে তোলে।
+whyModernWins:
+- icon: "🔧"
+  title: অ্যালগরিদম-অ্যাগনস্টিক (Algorithm-agnostic)
+  desc: কোড স্ট্রাকচার পরিবর্তন না করেই নাম অনুসারে সেরা RNG অ্যালগরিদম বেছে নিন।
+- icon: "⚡"
+  title: উন্নত অ্যালগরিদম
+  desc: উচ্চতর স্ট্যাটিস্টিকাল প্রোপার্টি (statistical properties) সহ আধুনিক LXM জেনারেটরগুলিতে অ্যাক্সেস করুন।
+- icon: "🔗"
+  title: ইউনিফাইড API
+  desc: একটি ইন্টারফেস Random, ThreadLocalRandom, SplittableRandom এবং আরও অনেক কিছু কভার করে।
+support:
+  description: JDK 17 (সেপ্টেম্বর 2021, JEP 356) থেকে উপলব্ধ।

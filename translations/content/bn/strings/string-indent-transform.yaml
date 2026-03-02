@@ -1,0 +1,18 @@
+---
+title: String.indent() এবং transform()
+oldApproach: ম্যানুয়াল ইন্ডেন্টেশন
+modernApproach: indent() / transform()
+summary: টেক্সট ইন্ডেন্ট (indent) করুন এবং স্ট্রিং ট্রান্সফরমেশন (string transformations) ফ্লুয়েন্টলি চেইন (chain) করুন।
+explanation: indent(n) মেথডটি প্রতিটি লাইনে n সংখ্যক স্পেস যোগ করে। transform(fn) মেথডটি যেকোনো ফাংশন প্রয়োগ করে এবং ফলাফল রিটার্ন করে, যা স্ট্রিং অপারেশনগুলোর ফ্লুয়েন্ট চেইনিং সক্ষম করে।
+whyModernWins:
+- icon: "📏"
+  title: বিল্ট-ইন
+  desc: ইন্ডেন্টেশন একটি কমন অপারেশন – এখন এটি একটি সিঙ্গেল কল-এই করা যায়।
+- icon: "🔗"
+  title: চেইনেবল (Chainable)
+  desc: transform() মেথডটি স্ট্রিংগুলোতে ফ্লুয়েন্ট পাইপলাইন সক্ষম করে।
+- icon: "🧹"
+  title: ক্লিন কোড
+  desc: কোনো ম্যানুয়াল লাইন স্প্লিটিং এবং StringBuilder লুপের প্রয়োজন নেই।
+support:
+  description: JDK 12 (মার্চ 2019) থেকে ব্যাপকভাবে উপলব্ধ

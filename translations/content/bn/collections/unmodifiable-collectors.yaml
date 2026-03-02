@@ -1,0 +1,18 @@
+---
+title: আনমডিফাইয়েবল কালেক্টর (Unmodifiable Collectors)
+oldApproach: collectingAndThen
+modernApproach: stream.toList()
+summary: stream.toList() ব্যবহার করে সরাসরি একটি আনমডিফাইয়েবল লিস্টে (unmodifiable list) ডেটা সংগ্রহ করুন।
+explanation: জাভা 10-এ toUnmodifiableList(), toUnmodifiableSet(), এবং toUnmodifiableMap() মেথডগুলো যোগ করা হয়েছিল, যা verbose collectingAndThen র‍্যাপারকে প্রতিস্থাপন করে। বিশেষ করে লিস্টের জন্য, জাভা 16-এর stream.toList() আরও সরল একটি বিকল্প প্রদান করে – এখানে collect() মেথড কল করারও প্রয়োজন নেই। অন্যান্য কালেকশন টাইপের জন্য toUnmodifiableSet() এবং toUnmodifiableMap() ব্যবহার করা উচিত।
+whyModernWins:
+- icon: "📏"
+  title: সবচেয়ে সংক্ষিপ্ত
+  desc: stream.toList()-এর জন্য collect() বা Collectors ইম্পোর্ট করার কোনো প্রয়োজনই নেই।
+- icon: "🔒"
+  title: ইমিউটেবল (Immutable)
+  desc: ফলাফলে কোনো পরিবর্তন আনা সম্ভব নয় – আকস্মিক মিউটেশনের (accidental mutations) ঝুঁকি নেই।
+- icon: "📖"
+  title: পঠনযোগ্য
+  desc: যেকোনো স্ট্রিম পাইপলাইনের টার্মিনাল ধাপ (terminal step) হিসেবে এটি স্বাভাবিকভাবেই পঠনযোগ্য।
+support:
+  description: JDK 16 (মার্চ 2021) থেকে ব্যাপকভাবে উপলব্ধ

@@ -1,0 +1,18 @@
+---
+title: অ্যানোনিমাস ক্লাস সহ ডায়মন্ড অপারেটর (Diamond with Anonymous Classes)
+oldApproach: টাইপ Args পুনরাবৃত্তি
+modernApproach: Diamond <>
+summary: ডায়মন্ড অপারেটর এখন অ্যানোনিমাস ক্লাসগুলোর (anonymous classes) সাথেও কাজ করে।
+explanation: Java 7-এ Diamond অপারেটর চালু করা হলেও এটি অ্যানোনিমাস ইনার ক্লাসগুলোর (anonymous inner classes) সাথে কাজ করত না। Java 9 এটি ঠিক করেছে, তাই আপনাকে আর রাইট-হ্যান্ড সাইডে টাইপ আর্গুমেন্টস (type arguments) রিপিট করার প্রয়োজন নেই।
+whyModernWins:
+- icon: "📏"
+  title: সামঞ্জস্যপূর্ণ নিয়ম (Consistent Rules)
+  desc: Diamond অপারেটর সব জায়গায় কাজ করে – কনস্ট্রাক্টর এবং অ্যানোনিমাস ক্লাসগুলোতে একইভাবে।
+- icon: "🧹"
+  title: কম রিডানডেন্সি (Less Redundancy)
+  desc: টাইপ আর্গুমেন্টস বাম দিকে একবার ডিক্লেয়ার করা হয়, আর পুনরাবৃত্তি করার প্রয়োজন নেই।
+- icon: "🔧"
+  title: DRY প্রিন্সিপাল (DRY Principle)
+  desc: কম্পাইলার ইতিমধ্যেই টাইপ জানে – তাহলে এটি দুইবার লেখার প্রয়োজন কী?
+support:
+  description: JDK 9 (সেপ্টেম্বর 2017) থেকে অ্যানোনিমাস ক্লাস সহ ডায়মন্ড অপারেটর।

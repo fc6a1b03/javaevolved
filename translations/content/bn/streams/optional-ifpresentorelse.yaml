@@ -1,0 +1,18 @@
+---
+title: Optional.ifPresentOrElse()
+oldApproach: if/else on Optional
+modernApproach: ifPresentOrElse()
+summary: Optional-এর present এবং empty উভয় কেইসকে একটি সিঙ্গেল কল-এই হ্যান্ডেল করুন।
+explanation: ifPresentOrElse() মেথডটি present কেইসের জন্য একটি Consumer এবং empty কেইসের জন্য একটি Runnable নেয়। এটি isPresent()/get() অ্যান্টি-প্যাটার্ন এড়িয়ে যায়।
+whyModernWins:
+- icon: "📏"
+  title: সিঙ্গেল এক্সপ্রেশন
+  desc: উভয় কেইস একটি মেথড কল-এই হ্যান্ডেল করা যায়।
+- icon: "🚫"
+  title: get() এর প্রয়োজন নেই
+  desc: বিপজ্জনক isPresent() + get() প্যাটার্ন বাদ দেয়।
+- icon: "🔗"
+  title: ফ্লুয়েন্ট
+  desc: findUser() বা যেকোনো Optional-রিটার্নিং মেথডের পরে স্বাভাবিকভাবে চেইন হয়।
+support:
+  description: JDK 9 (সেপ্টেম্বর 2017) থেকে ব্যাপকভাবে উপলব্ধ

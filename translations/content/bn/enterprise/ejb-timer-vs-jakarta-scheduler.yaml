@@ -1,0 +1,18 @@
+---
+title: EJB টাইমার বনাম জাকার্তা শিডিউলার (Jakarta Scheduler)
+oldApproach: EJB TimerService
+modernApproach: ManagedScheduledExecutorService
+summary: সহজ শিডিউলিংয়ের জন্য হেভিওয়েট EJB টাইমারের পরিবর্তে জাকার্তা কনকারেন্সির (Jakarta Concurrency) ManagedScheduledExecutorExecutorService ব্যবহার করুন।
+explanation: EJB টাইমারগুলির জন্য @Stateless বা @Singleton বিন (bean), @Timeout কলব্যাক এবং XML বা অ্যানোটেশন-ভিত্তিক শিডিউল এক্সপ্রেশন প্রয়োজন। জাকার্তা কনকারেন্সি ManagedScheduledExecutorService প্রদান করে, যা পরিচিত java.util.concurrent শিডিউলিং API ব্যবহার করে। এর ফলে বয়লারপ্লেট কমে আসে, ইউনিট টেস্টিং সহজ হয় এবং EJB কন্টেইনারের উপর নির্ভরতা থাকে না।
+whyModernWins:
+- icon: "🪶"
+  title: বয়লারপ্লেট হ্রাস
+  desc: @Timeout কলব্যাক বা ScheduleExpression-এর প্রয়োজন নেই – স্ট্যান্ডার্ড ScheduledExecutorService API ব্যবহার করুন।
+- icon: "🧪"
+  title: উন্নত টেস্টএবিলিটি (Testability)
+  desc: প্লেইন মেথড এবং এক্সিকিউটর মকস (mocks) EJB কন্টেইনার ছাড়াই ইউনিট টেস্টিংকে সহজ করে তোলে।
+- icon: "☁️"
+  title: ক্লাউড-নেটিভ ফ্রেন্ডলি
+  desc: Managed Executors কন্টেইনার লাইফসাইকেলের সাথে ইন্টিগ্রেট করে এবং লাইটওয়েট রানটাইমে কাজ করে।
+support:
+  description: জাকার্তা EE 10 / Concurrency 3.0 থেকে উপলব্ধ৷

@@ -1,0 +1,18 @@
+---
+title: Javadoc কমেন্টে মার্কডাউন (Markdown in Javadoc comments)
+oldApproach: HTML-ভিত্তিক Javadoc
+modernApproach: মার্কডাউন Javadoc
+summary: উন্নত পঠনযোগ্যতার (readability) জন্য HTML এর পরিবর্তে মার্কডাউনে (Markdown) Javadoc কমেন্ট লিখুন।
+explanation: Java 23 ঐতিহ্যবাহী /** */ HTML-ভিত্তিক ফরম্যাটের বিকল্প হিসেবে /// মার্কডাউন-স্টাইল Javadoc কমেন্ট চালু করেছে। মার্কডাউন সিনট্যাক্স কোড ব্লক, এমফাসিস, লিস্ট এবং লিংক সাপোর্টের সাথে লিখতে ও পড়তে আরও সহজ। কম্পাইলার Javadoc আউটপুটের জন্য মার্কডাউনকে HTML-এ রূপান্তর করে।
+whyModernWins:
+- icon: "📖"
+  title: প্রাকৃতিক সিনট্যাক্স
+  desc: HTML ট্যাগের পরিবর্তে ইনলাইন কোডের জন্য ব্যাকটিকস এবং ব্লকের জন্য ``` ব্যবহার করুন।
+- icon: "✍️"
+  title: লিখতে সহজ
+  desc: {@code}, <pre>, <p> ট্যাগের প্রয়োজন নেই – শুধু মার্কডাউন লিখুন।
+- icon: "👁"
+  title: এডিটরে দেখতে ভালো
+  desc: মার্কডাউন আধুনিক IDEs (Integrated Development Environments) এবং টেক্সট এডিটরগুলোতে সুন্দরভাবে রেন্ডার করে।
+support:
+  description: JDK 23 (সেপ্টেম্বর 2024) থেকে উপলব্ধ

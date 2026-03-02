@@ -1,0 +1,18 @@
+---
+title: ফাইল রিডিং (Reading Files)
+oldApproach: BufferedReader
+modernApproach: Files.readString()
+summary: একটি সিঙ্গেল লাইন ব্যবহার করে একটি সম্পূর্ণ ফাইলকে স্ট্রিং (String)-এ রিড করুন।
+explanation: Files.readString() মেথডটি একটি ফাইলের সম্পূর্ণ কন্টেন্টকে একটি স্ট্রিং-এ রিড করে। এটি এনকোডিং (ডিফল্টরূপে UTF-8) এবং রিসোর্স ক্লিনআপ হ্যান্ডেল করে। বড় ফাইলগুলোর ক্ষেত্রে, লেজি স্ট্রিমিংয়ের জন্য Files.lines() ব্যবহার করুন।
+whyModernWins:
+- icon: "📏"
+  title: এক লাইন
+  desc: BufferedReader বয়লারপ্লেটের ৮টি লাইন প্রতিস্থাপন করে।
+- icon: "🧹"
+  title: অটো ক্লিনআপ (Auto Cleanup)
+  desc: ফাইল হ্যান্ডেল স্বয়ংক্রিয়ভাবে ক্লোজড হয়।
+- icon: "🌐"
+  title: UTF-8 ডিফল্ট
+  desc: ডিফল্টরূপে সঠিক এনকোডিং – কোনো ক্যারেক্টার সেট (charset) বিভ্রান্তি থাকে না।
+support:
+  description: JDK 11 (সেপ্টেম্বর 2018) থেকে ব্যাপকভাবে উপলব্ধ
