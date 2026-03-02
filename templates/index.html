@@ -233,22 +233,26 @@
       <h2 class="section-title">{{site.allComparisons}}</h2>
       <span class="section-badge">{{site.snippetsBadge}}</span>
     </div>
-    <div class="filter-pills" id="categoryFilter">
-      <span class="filter-label">{{filters.show}}</span>
-      <button class="filter-pill" data-filter="all">{{filters.all}}</button>
-      <button class="filter-pill" data-filter="language">Language</button>
-      <button class="filter-pill" data-filter="collections">Collections</button>
-      <button class="filter-pill" data-filter="strings">Strings</button>
-      <button class="filter-pill" data-filter="streams">Streams</button>
-      <button class="filter-pill" data-filter="concurrency">Concurrency</button>
-      <button class="filter-pill" data-filter="io">I/O</button>
-      <button class="filter-pill" data-filter="errors">Errors</button>
-      <button class="filter-pill" data-filter="datetime">Date/Time</button>
-      <button class="filter-pill" data-filter="security">Security</button>
-      <button class="filter-pill" data-filter="tooling">Tooling</button>
-      <button class="filter-pill" data-filter="enterprise">Enterprise</button>
-    </div>
     <div class="view-toggle-wrap">
+      <div class="jdk-dropdown" id="categoryDropdown">
+        <button class="jdk-dropdown-toggle" aria-haspopup="listbox" aria-expanded="false">
+          {{filters.category}} <span class="jdk-label">{{filters.all}}</span> <span class="dropdown-caret">▾</span>
+        </button>
+        <ul role="listbox">
+          <li data-filter="all" class="active">{{filters.all}}</li>
+          <li data-filter="language">Language</li>
+          <li data-filter="collections">Collections</li>
+          <li data-filter="strings">Strings</li>
+          <li data-filter="streams">Streams</li>
+          <li data-filter="concurrency">Concurrency</li>
+          <li data-filter="io">I/O</li>
+          <li data-filter="errors">Errors</li>
+          <li data-filter="datetime">Date/Time</li>
+          <li data-filter="security">Security</li>
+          <li data-filter="tooling">Tooling</li>
+          <li data-filter="enterprise">Enterprise</li>
+        </ul>
+      </div>
       <div class="jdk-dropdown" id="jdkDropdown">
         <button class="jdk-dropdown-toggle" aria-haspopup="listbox" aria-expanded="false">
           {{filters.jdk}} <span class="jdk-label">{{filters.all}}</span> <span class="dropdown-caret">▾</span>

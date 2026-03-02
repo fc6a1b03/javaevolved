@@ -199,12 +199,11 @@
   };
 
   /* ==========================================================
-     2. Category Filter Pills (homepage)
+     2. Category + JDK Dropdown Filters (homepage)
      ========================================================== */
   const initFilters = () => {
-    const pills = document.querySelectorAll('#categoryFilter .filter-pill');
     const cards = document.querySelectorAll('.tip-card');
-    if (!pills.length || !cards.length) return;
+    if (!cards.length) return;
 
     let activeCategory = null;
     let activeJdk = null;
@@ -234,34 +233,12 @@
       }
     };
 
-    pills.forEach(pill => {
-      pill.addEventListener('click', () => {
-        const category = pill.dataset.filter || 'all';
-        const wasActive = pill.classList.contains('active');
-
-        // Update active pill (toggle off if re-clicked)
-        pills.forEach(p => p.classList.remove('active'));
-        if (!wasActive) pill.classList.add('active');
-
-        activeCategory = (!wasActive && category !== 'all') ? category : null;
-
-        // Update URL hash to reflect active filter
-        if (activeCategory) {
-          history.replaceState(null, '', '#' + activeCategory);
-        } else {
-          history.replaceState(null, '', window.location.pathname + window.location.search);
-        }
-
-        applyFilters();
-      });
-    });
-
-    // JDK Dropdown
-    const jdkDropdown = document.getElementById('jdkDropdown');
-    if (jdkDropdown) {
-      const toggleBtn = jdkDropdown.querySelector('.jdk-dropdown-toggle');
-      const labelEl = jdkDropdown.querySelector('.jdk-label');
-      const list = jdkDropdown.querySelector('ul');
+    // Generic helper to wire up a dropdown
+    const initDropdown = (dropdownEl, onSelect) => {
+      if (!dropdownEl) return;
+      const toggleBtn = dropdownEl.querySelector('.jdk-dropdown-toggle');
+      const labelEl = dropdownEl.querySelector('.jdk-label');
+      const list = dropdownEl.querySelector('ul');
 
       const openDropdown = () => {
         list.style.display = 'block';
@@ -271,6 +248,12 @@
       const closeDropdown = () => {
         list.style.display = 'none';
         toggleBtn.setAttribute('aria-expanded', 'false');
+      };
+
+      const selectItem = (li) => {
+        list.querySelectorAll('li').forEach(l => l.classList.remove('active'));
+        li.classList.add('active');
+        if (labelEl) labelEl.textContent = li.textContent.trim();
       };
 
       toggleBtn.addEventListener('click', (e) => {
@@ -287,33 +270,55 @@
         li.addEventListener('click', (e) => {
           e.stopPropagation();
           closeDropdown();
-
-          const version = li.dataset.jdkFilter;
-          list.querySelectorAll('li').forEach(l => l.classList.remove('active'));
-          li.classList.add('active');
-
-          activeJdk = version !== 'all' ? version : null;
-          if (labelEl) labelEl.textContent = li.textContent.trim();
-          toggleBtn.classList.toggle('has-filter', !!activeJdk);
-
-          applyFilters();
+          selectItem(li);
+          onSelect(li, toggleBtn);
         });
       });
-    }
+
+      return { closeDropdown, setActive: (value) => {
+        const target = list.querySelector(`li[data-filter="${value}"]`);
+        if (target) {
+          selectItem(target);
+          toggleBtn.classList.toggle('has-filter', value !== 'all');
+        }
+      }};
+    };
+
+    // Category dropdown
+    const categoryDropdown = document.getElementById('categoryDropdown');
+    const catDropdownCtrl = initDropdown(categoryDropdown, (li, toggleBtn) => {
+      const category = li.dataset.filter;
+      activeCategory = category !== 'all' ? category : null;
+      toggleBtn.classList.toggle('has-filter', !!activeCategory);
+      if (activeCategory) {
+        history.replaceState(null, '', '#' + activeCategory);
+      } else {
+        history.replaceState(null, '', window.location.pathname + window.location.search);
+      }
+      applyFilters();
+    });
+
+    // JDK dropdown
+    const jdkDropdown = document.getElementById('jdkDropdown');
+    initDropdown(jdkDropdown, (li, toggleBtn) => {
+      const version = li.dataset.jdkFilter;
+      activeJdk = version !== 'all' ? version : null;
+      toggleBtn.classList.toggle('has-filter', !!activeJdk);
+      applyFilters();
+    });
 
     // Apply filter from a given category string (or "all" / empty for no filter)
     const applyHashFilter = (category) => {
-      const target = category
-        ? document.querySelector(`#categoryFilter .filter-pill[data-filter="${category}"]`)
-        : null;
-      if (target) {
-        target.click();
-        // Scroll the filter section into view
+      if (category && catDropdownCtrl) {
+        catDropdownCtrl.setActive(category);
+        activeCategory = category;
+        applyFilters();
         const section = document.getElementById('all-comparisons');
         if (section) section.scrollIntoView({ behavior: 'smooth' });
-      } else {
-        const allButton = document.querySelector('#categoryFilter .filter-pill[data-filter="all"]');
-        if (allButton) allButton.click();
+      } else if (catDropdownCtrl) {
+        catDropdownCtrl.setActive('all');
+        activeCategory = null;
+        applyFilters();
       }
     };
 
