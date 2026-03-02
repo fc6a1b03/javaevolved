@@ -1,0 +1,18 @@
+---
+title: Path.of() ফ্যাক্টরি
+oldApproach: Paths.get()
+modernApproach: Path.of()
+summary: Path ইন্টারফেসে থাকা আধুনিক ফ্যাক্টরি মেথড Path.of() ব্যবহার করুন।
+explanation: Path.of() হলো একটি ফ্যাক্টরি মেথড যা সরাসরি Path ইন্টারফেসে যোগ করা হয়েছে, যা আলাদা Paths ইউটিলিটি ক্লাসকে প্রতিস্থাপন করে। এটি List.of(), Map.of() ইত্যাদির মতো বেশি ডিসকভারেবল (discoverable) এবং কনসিস্টেন্ট (consistent)।
+whyModernWins:
+- icon: "📐"
+  title: সামঞ্জস্যপূর্ণ API
+  desc: List.of(), Set.of() এর মতো .of() ফ্যাক্টরি প্যাটার্ন অনুসরণ করে।
+- icon: "📖"
+  title: ডিসকভারেবল (Discoverable)
+  desc: এটি Path টাইপের মধ্যেই পাওয়া যায়, আলাদা Paths ক্লাসে নয়।
+- icon: "🧹"
+  title: একটি ক্লাস কম
+  desc: Paths ইউটিলিটি ক্লাস ইম্পোর্ট করার প্রয়োজন নেই।
+support:
+  description: JDK 11 (সেপ্টেম্বর 2018) থেকে ব্যাপকভাবে উপলব্ধ

@@ -1,0 +1,18 @@
+---
+title: Message-Driven Bean বনাম রিঅ্যাক্টিভ মেসেজিং (Reactive Messaging)
+oldApproach: Message-Driven Bean
+modernApproach: রিঅ্যাক্টিভ মেসেজিং (Reactive Messaging)
+summary: সহজ ইভেন্ট প্রসেসিংয়ের জন্য JMS Message-Driven Beans-এর পরিবর্তে MicroProfile Reactive Messaging ব্যবহার করুন।
+explanation: Message-Driven Beans-এর জন্য MessageListener ইমপ্লিমেন্ট করা, অ্যাক্টিভেশন প্রপার্টি কনফিগার করা এবং JMS মেসেজ ম্যানুয়ালি ডিসিরিয়ালাইজ (deserialize) করার প্রয়োজন হয়। MicroProfile Reactive Messaging একটি মেথডে একটি সহজ @Incoming অ্যানোটেশন ব্যবহার করে, যা সরাসরি টাইপড অবজেক্ট গ্রহণ করে। চ্যানেল কনফিগারেশন এক্সটার্নালাইজড হওয়ায় কোড ব্রোকার-অ্যাগনস্টিক (broker-agnostic) হয় এবং এটি পরীক্ষা করা অনেক সহজ।
+whyModernWins:
+- icon: "🪶"
+  title: ন্যূনতম কোড
+  desc: একটি সিঙ্গেল @Incoming মেথড MDB ক্লাস, MessageListener ইন্টারফেস এবং অ্যাক্টিভেশন কনফিগকে প্রতিস্থাপন করে।
+- icon: "🔌"
+  title: ব্রোকার-অ্যাগনস্টিক (Broker-agnostic)
+  desc: অ্যাপ্লিকেশন কোড পরিবর্তন না করেই কনফিগারেশনের মাধ্যমে Kafka, AMQP, বা JMS কানেক্টর অদলবদল করা যায়।
+- icon: "☁️"
+  title: ক্লাউড-নেটিভ ফিট
+  desc: রিঅ্যাক্টিভ স্ট্রিম ব্যাকপ্রেশার এবং লাইটওয়েট রানটাইম এটিকে কন্টেইনারাইজড ডিপ্লয়মেন্টের জন্য আদর্শ করে তোলে।
+support:
+  description: মাইক্রোপ্রোফাইল 4.0 / SmallRye রিঅ্যাক্টিভ মেসেজিং থেকে উপলব্ধ

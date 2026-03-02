@@ -1,0 +1,18 @@
+---
+title: যখন গার্ড ব্যবহার করে প্যাটার্ন (Guarded Patterns with when)
+oldApproach: নেস্টেড if
+modernApproach: when ক্লজ (when Clause)
+summary: when গার্ড ব্যবহার করে প্যাটার্ন কেইসগুলোতে কন্ডিশন যোগ করুন।
+explanation: গার্ডেড প্যাটার্ন (Guarded Patterns) আপনাকে একটি অতিরিক্ত বুলিয়ান কন্ডিশন (boolean condition) সহ একটি টাইপ ম্যাচকে রিফাইন করতে সাহায্য করে। এটি ব্রাঞ্চিং লজিককে কেইসের ভিতরে if স্টেটমেন্ট নেস্ট না করে সুইচের (switch) মধ্যেই রাখে।
+whyModernWins:
+- icon: "🎯"
+  title: সুনির্দিষ্ট ম্যাচিং (Precise Matching)
+  desc: একটি সিঙ্গেল কেইস লেবেলে টাইপ এবং কন্ডিশন একত্রিত করুন।
+- icon: "📐"
+  title: ফ্ল্যাট স্ট্রাকচার (Flat Structure)
+  desc: সুইচ কেইসের ভিতরে কোনো নেস্টেড if/else থাকে না।
+- icon: "📖"
+  title: পঠনযোগ্য উদ্দেশ্য (Readable Intent)
+  desc: when ক্লজটি স্বাভাবিক ভাষার মতো পঠনযোগ্য।
+support:
+  description: JDK 21 LTS (সেপ্টেম্বর 2023) থেকে ব্যাপকভাবে উপলব্ধ

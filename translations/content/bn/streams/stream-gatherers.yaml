@@ -1,0 +1,18 @@
+---
+title: Stream Gatherers
+oldApproach: কাস্টম কালেক্টর (Custom Collector)
+modernApproach: gather()
+summary: কাস্টম ইন্টারমিডিয়েট স্ট্রিম অপারেশনের (custom intermediate stream operations) জন্য gatherers ব্যবহার করুন।
+explanation: Gatherers হলো একটি নতুন ইন্টারমিডিয়েট স্ট্রিম অপারেশন, যা স্লাইডিং উইন্ডো, ফিক্সড-সাইজ গ্রুপ এবং স্ক্যান অপারেশনের মতো জটিল ট্রান্সফরমেশন প্রকাশ করতে পারে, যা স্ট্যান্ডার্ড স্ট্রিম অপস দিয়ে সম্ভব ছিল না।
+whyModernWins:
+- icon: "🧩"
+  title: কম্পোজেবল (Composable)
+  desc: Gatherers অন্যান্য স্ট্রিম অপারেশনগুলোর (stream operations) সাথে কম্পোজ করা যায়।
+- icon: "📦"
+  title: বিল্ট-ইন অপারেশন (Built-in Operations)
+  desc: windowFixed, windowSliding, fold, scan সরাসরি ব্যবহার করা যায়।
+- icon: "🔧"
+  title: এক্সটেনসিবল (Extensible)
+  desc: যেকোনো ইন্টারমিডিয়েট ট্রান্সফরমেশনের জন্য কাস্টম Gatherers লিখুন।
+support:
+  description: JDK 24 (JEP 485, মার্চ 2025) এ চূড়ান্ত হয়েছে।

@@ -1,0 +1,18 @@
+---
+title: Stream.toList()
+oldApproach: collect(Collectors.toList())
+modernApproach: .toList()
+summary: টার্মিনাল toList() মেথডটি verbose collect(Collectors.toList())-কে প্রতিস্থাপন করে।
+explanation: Stream.toList() মেথডটি একটি আনমডিফাইয়েবল লিস্ট (unmodifiable list) রিটার্ন করে। এটি .collect(Collectors.toUnmodifiableList()) এর সমতুল্য, কিন্তু অনেক সংক্ষিপ্ত। উল্লেখ্য যে, এর ফলাফল ইমিউটেবল (immutable), Collectors.toList()-এর মতো নয়।
+whyModernWins:
+- icon: "📏"
+  title: 7 ক্যারেক্টার বনাম 24
+  desc: .toList() মেথডটি .collect(Collectors.toList())-কে প্রতিস্থাপন করে।
+- icon: "🔒"
+  title: ইমিউটেবল (Immutable)
+  desc: ফলাফল লিস্টটি পরিবর্তন করা যায় না।
+- icon: "📖"
+  title: ফ্লুয়েন্ট (Fluent)
+  desc: একটি পাইপলাইনের শেষে স্বাভাবিকভাবে পঠনযোগ্য।
+support:
+  description: JDK 16 (মার্চ 2021) থেকে ব্যাপকভাবে উপলব্ধ

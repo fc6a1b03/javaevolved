@@ -1,0 +1,18 @@
+---
+title: Collectors.flatMapping()
+oldApproach: নেস্টেড flatMap
+modernApproach: flatMapping()
+summary: একটি গ্রুপিং কালেক্টরের (grouping collector) ভিতরে ফ্ল্যাটেন (flatten) করতে flatMapping() ব্যবহার করুন।
+explanation: Collectors.flatMapping() একটি ওয়ান-টু-মেনি (one-to-many) ম্যাপিংকে ডাউনস্ট্রিম কালেক্টর হিসাবে প্রয়োগ করে। এটি Stream.flatMap()-এর কালেক্টর ইকুইভ্যালেন্ট (equivalent) — groupingBy বা partitioningBy-এর ভিতরে ব্যবহার করার জন্য উপযোগী।
+whyModernWins:
+- icon: "🧩"
+  title: কম্পোজেবল (Composable)
+  desc: groupingBy এর ভিতরে একটি ডাউনস্ট্রিম কালেক্টর হিসাবে কাজ করে।
+- icon: "📐"
+  title: সিঙ্গেল পাস (One Pass)
+  desc: একটি সিঙ্গেল স্ট্রিম ট্র্যাভার্সালে ফ্ল্যাটেন এবং গ্রুপ করুন।
+- icon: "🔗"
+  title: নেস্টেবল (Nestable)
+  desc: অন্যান্য ডাউনস্ট্রিম কালেক্টরগুলোর সাথে একত্রিত করুন।
+support:
+  description: JDK 9 (সেপ্টেম্বর 2017) থেকে ব্যাপকভাবে উপলব্ধ

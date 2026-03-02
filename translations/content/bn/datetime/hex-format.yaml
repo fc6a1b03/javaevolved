@@ -1,0 +1,18 @@
+---
+title: HexFormat
+oldApproach: ম্যানুয়াল হেক্স কনভার্সন
+modernApproach: HexFormat
+summary: HexFormat ব্যবহার করে হেক্স স্ট্রিং (hex strings) এবং বাইট অ্যারে (byte arrays) এর মধ্যে কনভার্ট করুন।
+explanation: HexFormat বাইট, ইনটিজার এবং অ্যারের জন্য দ্বি-মুখী (bidirectional) হেক্স এনকোডিং/ডিকোডিং সুবিধা প্রদান করে। এটিতে ডিলিমিটার, প্রিফিক্স, সাফিক্স এবং কেস কনফিগার করা যায়। এর ফলে ম্যানুয়াল ফরমেটিং বা পার্সিংয়ের আর প্রয়োজন নেই।
+whyModernWins:
+- icon: "📐"
+  title: দ্বি-মুখী (Bidirectional)
+  desc: একটি API ব্যবহার করে বাইট→হেক্স এবং হেক্স→বাইট-এ রূপান্তর করুন।
+- icon: "🔧"
+  title: কনফিগারযোগ্য (Configurable)
+  desc: ডিলিমিটার, প্রিফিক্স, সাফিক্স, আপার/লোয়ার কেস সেট করা যায়।
+- icon: "📦"
+  title: অ্যারে সাপোর্ট (Array Support)
+  desc: সম্পূর্ণ বাইট অ্যারে একসাথে এনকোড/ডিকোড করা যায়।
+support:
+  description: JDK 17 LTS (সেপ্টেম্বর 2021) থেকে ব্যাপকভাবে উপলব্ধ

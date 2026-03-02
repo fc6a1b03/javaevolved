@@ -1,0 +1,18 @@
+---
+title: ডেট ফরমেটিং (Date Formatting)
+oldApproach: SimpleDateFormat
+modernApproach: DateTimeFormatter
+summary: থ্রেড-সেফ (thread-safe) এবং ইমিউটেবল (immutable) DateTimeFormatter ব্যবহার করে ডেট ফরম্যাট করুন।
+explanation: DateTimeFormatter মেথডটি ইমিউটেবল এবং থ্রেড-সেফ, যা SimpleDateFormat থেকে আলাদা। এটি একটি কনস্ট্যান্ট (constant) হিসাবে সংরক্ষণ করা যায় এবং থ্রেড জুড়ে শেয়ার করা যায়। ISO_LOCAL_DATE এর মতো প্রিডিফাইন্ড ফরমেটার (predefined formatters) সাধারণ ফরম্যাটের জন্য ব্যবহার করা যায়।
+whyModernWins:
+- icon: "🛡️"
+  title: থ্রেড-সেফ (Thread-safe)
+  desc: সিঙ্ক্রোনাইজেশন (synchronization) ছাড়াই থ্রেড জুড়ে ফরমেটার ব্যবহার করা যায়।
+- icon: "📋"
+  title: বিল্ট-ইন ফরম্যাট (Built-in Formats)
+  desc: স্ট্যান্ডার্ড ফরম্যাটের জন্য ISO_LOCAL_DATE, ISO_INSTANT ইত্যাদি ব্যবহার করুন।
+- icon: "🔒"
+  title: ইমিউটেবল (Immutable)
+  desc: স্ট্যাটিক ফাইনাল কনস্ট্যান্ট (static final constants) হিসাবে নিরাপদে সংরক্ষণ করুন।
+support:
+  description: JDK 8 (মার্চ 2014) থেকে ব্যাপকভাবে উপলব্ধ

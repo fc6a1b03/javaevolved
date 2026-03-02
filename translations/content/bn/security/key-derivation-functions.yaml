@@ -1,0 +1,18 @@
+---
+title: কী ডেরিভেশন ফাংশন (Key Derivation Functions)
+oldApproach: ম্যানুয়াল PBKDF2
+modernApproach: KDF API
+summary: স্ট্যান্ডার্ড KDF API ব্যবহার করে ক্রিপ্টোগ্রাফিক কী (cryptographic keys) ডিরাইভ করুন।
+explanation: KDF API, HKDF সহ কী ডেরিভেশন ফাংশনগুলোর জন্য একটি স্ট্যান্ডার্ড ইন্টারফেস প্রদান করে। এটি জটিল SecretKeyFactory + PBEKeySpec প্যাটার্নকে একটি পরিষ্কার বিল্ডার API (builder API) দিয়ে প্রতিস্থাপন করে।
+whyModernWins:
+- icon: "📐"
+  title: ক্লিন API
+  desc: জটিল KeySpec কনস্ট্রাকটরের পরিবর্তে বিল্ডার প্যাটার্ন ব্যবহার করুন।
+- icon: "🔧"
+  title: HKDF সাপোর্ট
+  desc: PBKDF2 এর পাশাপাশি আধুনিক HKDF অ্যালগরিদম।
+- icon: "🛡️"
+  title: স্ট্যান্ডার্ড
+  desc: সমস্ত কী ডেরিভেশন অ্যালগরিদমের জন্য ইউনিফাইড API।
+support:
+  description: JDK 25 LTS (JEP 510, সেপ্টেম্বর 2025) এ চূড়ান্ত হয়েছে।

@@ -1,0 +1,18 @@
+---
+title: স্কোপড ভ্যালু (Scoped Values)
+oldApproach: ThreadLocal
+modernApproach: ScopedValue
+summary: ThreadLocal-এর অসুবিধাগুলো এড়িয়ে কল স্ট্যাক (call stacks) জুড়ে নিরাপদে ডেটা শেয়ার করুন।
+explanation: ScopedValue ইমিউটেবল, উত্তরাধিকারযোগ্য (inheritable) এবং স্কোপ-সীমিত (scope-limited) কনটেক্সট প্রদান করে। ThreadLocal-এর বিপরীতে, স্কোপড ভ্যালুগুলো স্বয়ংক্রিয়ভাবে ক্লিনআপ হয়, ভার্চুয়াল থ্রেডগুলির সাথে কাজ করে এবং অন্য কোনো মেথড (callees) দ্বারা পরিবর্তন করা যায় না।
+whyModernWins:
+- icon: "🔒"
+  title: ইমিউটেবল (Immutable)
+  desc: অন্য মেথডগুলো স্কোপড ভ্যালু পড়তে পারলেও তা পরিবর্তন করতে পারে না।
+- icon: "🧹"
+  title: অটো ক্লিনআপ (Auto Cleanup)
+  desc: ম্যানুয়াল remove() মেথডের প্রয়োজন নেই – ভ্যালুটি ব্লকের স্কোপ অনুযায়ী স্বয়ংক্রিয়ভাবে পরিচালিত হয়।
+- icon: "⚡"
+  title: ভার্চুয়াল-থ্রেড সেফ (Virtual-thread Safe)
+  desc: লক্ষ লক্ষ ভার্চুয়াল থ্রেডের সাথে এটি দক্ষতার সাথে কাজ করে।
+support:
+  description: JDK 25 LTS (JEP 506, সেপ্টেম্বর 2025) এ চূড়ান্ত হয়েছে।

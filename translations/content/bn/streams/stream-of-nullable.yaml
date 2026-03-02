@@ -1,0 +1,18 @@
+---
+title: Stream.ofNullable()
+oldApproach: Null চেক
+modernApproach: ofNullable()
+summary: nullable ভ্যালু (nullable value) থেকে শূন্য-বা-এক এলিমেন্টের স্ট্রিম তৈরি করুন।
+explanation: Stream.ofNullable() মেথডটি ভ্যালুটি নন-নাল (non-null) হলে একটি সিঙ্গেল-এলিমেন্ট স্ট্রিম রিটার্ন করে, অথবা null হলে একটি এম্পটি স্ট্রিম (empty stream) রিটার্ন করে। এটি টারনারি null চেক প্যাটার্নকে (ternary null check pattern) দূর করে।
+whyModernWins:
+- icon: "📏"
+  title: সুসংক্ষিপ্ত
+  desc: এক কল-এই টারনারি কন্ডিশনালকে প্রতিস্থাপন করে।
+- icon: "🔗"
+  title: flatMap-ফ্রেন্ডলি
+  desc: flatMap-এর ভিতরে null ভ্যালু বাদ দিতে পারফেক্ট।
+- icon: "🛡️"
+  title: Null-সেফ
+  desc: কোনো NPE ঝুঁকি নেই – null হলে এম্পটি স্ট্রিম হয়ে যায়।
+support:
+  description: JDK 9 (সেপ্টেম্বর 2017) থেকে ব্যাপকভাবে উপলব্ধ

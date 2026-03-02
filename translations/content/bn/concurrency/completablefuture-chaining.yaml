@@ -1,0 +1,18 @@
+---
+title: CompletableFuture চেইনিং (Chaining)
+oldApproach: ব্লকিং Future.get()
+modernApproach: CompletableFuture
+summary: CompletableFuture ব্যবহার করে কোনো ব্লক না করে অ্যাসিঙ্ক্রোনাস অপারেশনগুলিকে চেইন করুন।
+explanation: CompletableFuture নন-ব্লকিং অ্যাসিঙ্ক (async) পাইপলাইন তৈরি করতে সাহায্য করে। আপনি thenApply, thenCompose, thenAccept মেথডগুলো ব্যবহার করে অপারেশনগুলোকে চেইন করতে পারবেন। exceptionally() মেথড দিয়ে এরর (error) হ্যান্ডেল করা যায় এবং allOf/anyOf মেথড দিয়ে একাধিক ফিউচারকে একত্রিত করা যায়।
+whyModernWins:
+- icon: "🔗"
+  title: চেইনেবল (Chainable)
+  desc: অ্যাসিঙ্ক স্টেপগুলিকে একটি পঠনযোগ্য পাইপলাইনে সাজানো যায়।
+- icon: "🚫"
+  title: নন-ব্লকিং (Non-blocking)
+  desc: কোনো থ্রেড ফলাফলের জন্য অলসভাবে অপেক্ষা করে না।
+- icon: "🛡️"
+  title: এরর হ্যান্ডলিং (Error Handling)
+  desc: exceptionally() এবং handle() মেথডগুলো পরিষ্কারভাবে এরর রিকভারি (error recovery) করার সুবিধা দেয়।
+support:
+  description: JDK 8 (মার্চ 2014) থেকে ব্যাপকভাবে উপলব্ধ

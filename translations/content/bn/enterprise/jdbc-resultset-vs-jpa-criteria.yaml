@@ -1,0 +1,18 @@
+---
+title: JDBC ResultSet ম্যাপিং বনাম JPA Criteria API
+oldApproach: JDBC ResultSet
+modernApproach: JPA Criteria API
+summary: ডাইনামিক কোয়েরির (dynamic queries) জন্য JPA-এর টাইপ-সেফ Criteria API ব্যবহার করে ম্যানুয়াল JDBC ResultSet ম্যাপিং প্রতিস্থাপন করুন।
+explanation: Raw JDBC ব্যবহার করলে SQL স্ট্রিং তৈরি করা, ইনডেক্স অনুযায়ী প্যারামিটার সেট করা এবং প্রতিটি ResultSet কলামকে ম্যানুয়ালি ম্যাপ করার প্রয়োজন হয়। এটি একটি ভুল-প্রবণ প্রক্রিয়া এবং কলাম পরিবর্তিত হলে কোনো এরর না দেখিয়েই কোড ভেঙে যেতে পারে। JPA Criteria API একটি টাইপ-সেফ বিল্ডার প্যাটার্ন ব্যবহার করে প্রোগ্রামাটিকভাবে কোয়েরি তৈরি করে। এখানে কলামের নামগুলো এনটিটি মডেলের (entity model) সাথে ভ্যালিডেট করা হয়, ফলাফল ম্যাপিং স্বয়ংক্রিয়ভাবে ঘটে এবং জটিল ডাইনামিক কোয়েরিগুলো স্ট্রিং কনক্যাটেনেশন (string concatenation) ছাড়াই পরিষ্কারভাবে তৈরি করা যায়।
+whyModernWins:
+- icon: "🔒"
+  title: টাইপ-সেফ কোয়েরি (Type-safe Queries)
+  desc: Criteria বিল্ডারটি কম্পাইল টাইমে ফিল্ডের নাম এবং টাইপের অমিল (type mismatches) ধরতে পারে।
+- icon: "🗺️"
+  title: স্বয়ংক্রিয় ম্যাপিং (Automatic Mapping)
+  desc: JPA ResultSet থেকে এনটিটি অবজেক্টে (entity objects) ফলাফল ম্যাপিং স্বয়ংক্রিয়ভাবে করে – ম্যানুয়ালি কলাম-বাই-কলাম ডেটা এক্সট্রাক্ট করার প্রয়োজন হয় না।
+- icon: "🧩"
+  title: কম্পোজেবল প্রেডিকেট (Composable Predicates)
+  desc: ডাইনামিক where-clause গুলো and(), or(), এবং রিইউজেবল Predicate অবজেক্ট ব্যবহার করে পরিষ্কারভাবে তৈরি করা যায়।
+support:
+  description: জাকার্তা EE 8 / Java 11 থেকে ব্যাপকভাবে উপলব্ধ৷

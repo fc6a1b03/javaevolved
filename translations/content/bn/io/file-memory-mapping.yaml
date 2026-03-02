@@ -1,0 +1,18 @@
+---
+title: ফাইল মেমরি ম্যাপিং (File Memory Mapping)
+oldApproach: MappedByteBuffer
+modernApproach: Arena সহ MemorySegment
+summary: MemorySegment ব্যবহার করে 2GB এর চেয়ে বড় ফাইলগুলোকে ডিটারমিনিস্টিক ক্লিনআপ (deterministic cleanup) সহ ম্যাপ করুন।
+explanation: The Foreign Function & Memory API (JEP 454) নিরাপদ এবং দক্ষ মেমরি অ্যাক্সেসের জন্য MemorySegment প্রবর্তন করেছে। MappedByteBuffer-এর বিপরীতে, MemorySegment 2GB (Integer.MAX_VALUE) এর চেয়ে বড় ফাইলগুলোকে সাপোর্ট করে, Arena-এর মাধ্যমে ডিটারমিনিস্টিক ক্লিনআপ (deterministic cleanup) প্রদান করে এবং আধুনিক হার্ডওয়্যারের সাথে আরও ভালো পারফরম্যান্স দেয়।
+whyModernWins:
+- icon: "📏"
+  title: কোনো সাইজ লিমিট নেই
+  desc: কোনো ওয়ার্কআউট ছাড়াই 2GB এর চেয়ে বড় ফাইল ম্যাপ করা যায়।
+- icon: "🔒"
+  title: ডিটারমিনিস্টিক ক্লিনআপ
+  desc: Arena নিশ্চিত করে যে মেমরি স্কোপ এক্সিট (scope exit) করার সময় ফ্রি হয়, GC টাইমে নয়।
+- icon: "⚡"
+  title: উন্নত পারফরম্যান্স
+  desc: আধুনিক মেমরি মডেল এবং হার্ডওয়্যারের সাথে সামঞ্জস্যপূর্ণ।
+support:
+  description: JDK 22 (মার্চ 2024) থেকে উপলব্ধ

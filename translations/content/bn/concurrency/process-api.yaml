@@ -1,0 +1,18 @@
+---
+title: মডার্ন প্রসেস API (Modern Process API)
+oldApproach: Runtime.exec()
+modernApproach: ProcessHandle
+summary: ProcessHandle ব্যবহার করে অপারেটিং সিস্টেমের (OS) প্রসেসগুলো পরিদর্শন (inspect) এবং ম্যানেজ করুন।
+explanation: ProcessHandle মেথড PID, প্রসেসের তথ্য (কমান্ড, আর্গুমেন্টস, স্টার্ট টাইম, CPU ইউসেজ), প্যারেন্ট/চাইল্ড সম্পর্ক এবং প্রসেস ডিস্ট্রাকশন (destruction) সম্পর্কে বিস্তারিত তথ্য প্রদান করে। এর ফলে আর Undocumented Process ইন্টারনালস ব্যবহার করার প্রয়োজন হয় না।
+whyModernWins:
+- icon: "🔍"
+  title: সম্পূর্ণ তথ্য
+  desc: PID, কমান্ড, আর্গুমেন্টস, স্টার্ট টাইম, CPU ইউসেজ অ্যাক্সেস করুন।
+- icon: "🌳"
+  title: প্রসেস ট্রি (Process Tree)
+  desc: প্যারেন্ট, চাইল্ড এবং ডিসেন্ডেন্ট প্রসেসগুলোর মধ্যে নেভিগেট (navigate) করুন।
+- icon: "📊"
+  title: মনিটরিং
+  desc: onExit() মেথড অ্যাসিঙ্ক (async) মনিটরিংয়ের জন্য একটি CompletableFuture রিটার্ন করে।
+support:
+  description: JDK 9 (সেপ্টেম্বর 2017) থেকে ব্যাপকভাবে উপলব্ধ

@@ -1,0 +1,18 @@
+---
+title: java.time API বেসিক
+oldApproach: Date + Calendar
+modernApproach: java.time.*
+summary: Date এবং Calendar-এর পরিবর্তে ইমিউটেবল (immutable) এবং সুস্পষ্ট ডেট/টাইম টাইপ ব্যবহার করুন।
+explanation: java.time API-তে LocalDate, LocalTime, LocalDateTime, Instant, ZonedDateTime এর মতো ক্লাস রয়েছে, যা সবই ইমিউটেবল এবং থ্রেড-সেফ। মাসগুলো 1-ইনডেক্সড। এর ফলে Calendar.JANUARY = 0 এর মতো বিভ্রান্তি আর থাকে না।
+whyModernWins:
+- icon: "🔒"
+  title: ইমিউটেবল (Immutable)
+  desc: ডেট/টাইম ভ্যালুগুলো ভুলবশত পরিবর্তন করা যায় না।
+- icon: "📖"
+  title: পরিষ্কার API
+  desc: Month.JANUARY ব্যবহার করুন, 0 নয়। DayOfWeek.MONDAY ব্যবহার করুন, 2 নয়।
+- icon: "🛡️"
+  title: থ্রেড-সেফ (Thread-safe)
+  desc: সিঙ্ক্রোনাইজেশনের প্রয়োজন নেই – থ্রেড জুড়ে অবাধে শেয়ার করা যায়।
+support:
+  description: JDK 8 (মার্চ 2014) থেকে ব্যাপকভাবে উপলব্ধ

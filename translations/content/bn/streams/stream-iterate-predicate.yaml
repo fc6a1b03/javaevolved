@@ -1,0 +1,18 @@
+---
+title: Predicate সহ Stream.iterate()
+oldApproach: iterate + limit
+modernApproach: iterate(seed, pred, op)
+summary: আইটারেশন (iteration) বন্ধ করার জন্য একটি প্রেডিকেট (predicate) ব্যবহার করুন – এটি স্ট্রিম ফর্মের একটি ফর-লুপের (for-loop) মতো।
+explanation: তিন-আর্গুমেন্ট Stream.iterate(seed, hasNext, next) মেথডটি একটি ফর-লুপের মতো কাজ করে: seed হলো শুরু, hasNext নির্ধারণ করে কখন থামতে হবে এবং next পরবর্তী ভ্যালু তৈরি করে।
+whyModernWins:
+- icon: "🎯"
+  title: প্রাকৃতিক টার্মিনেশন (Natural Termination)
+  desc: একটি কন্ডিশনের (condition) উপর ভিত্তি করে থামুন, কোনো আর্টিকুলার লিমিট (arbitrary limit) নয়।
+- icon: "📐"
+  title: ফর-লুপ ইকুইভ্যালেন্ট (For-loop Equivalent)
+  desc: for(seed; hasNext; next) এর মতো একই সেমান্টিক্স (semantics)।
+- icon: "🛡️"
+  title: অসীম স্ট্রিম ঝুঁকির অনুপস্থিতি
+  desc: প্রেডিকেট (predicate) টার্মিনেশন নিশ্চিত করে।
+support:
+  description: JDK 9 (সেপ্টেম্বর 2017) থেকে ব্যাপকভাবে উপলব্ধ

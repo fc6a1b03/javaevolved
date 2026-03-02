@@ -1,0 +1,18 @@
+---
+title: JSpecify null সেফটি সহ JUnit 6
+oldApproach: আনঅ্যানোটেটেড API
+modernApproach: @NullMarked API
+summary: JUnit 6 JSpecify @NullMarked গ্রহণ করেছে, যা JUnit-এর অ্যাসারশন API (assertion API) জুড়ে null কন্টাক্টগুলোকে সুস্পষ্ট করে তোলে।
+explanation: JUnit 5 স্ট্যান্ডার্ডাইজড নাল্যাবিলিটি অ্যানোটেশন (nullability annotations) ছাড়াই রিলিজ হয়েছিল, যা ডেভেলপারদের অ্যাসারশন প্যারামিটার বা রিটার্ন ভ্যালুগুলো null হতে পারে কিনা তা নিয়ে অনুমান করতে বাধ্য করত। JUnit 6 তার পুরো মডিউল জুড়ে JSpecify গ্রহণ করেছে: @NullMarked অ্যানোটেশনটি ডিফল্টরূপে সমস্ত আনঅ্যানোটেটেড টাইপকে নন-নাল করে তোলে এবং @Nullable ব্যতিক্রমগুলোকে চিহ্নিত করে। Assertions ক্লাস স্পষ্টভাবে assertNull(@Nullable Object actual) এবং fail(@Nullable String message)-এর মতো প্যারামিটারগুলোকে অ্যানোটেট করে, তাই IDEs এবং NullAway ও Error Prone-এর মতো স্ট্যাটিক অ্যানালাইজারগুলো রানটাইমের পরিবর্তে কম্পাইল টাইমে null-এর ভুল ব্যবহার ধরতে পারে।
+whyModernWins:
+- icon: "📜"
+  title: সুস্পষ্ট কনট্র্যাক্ট (Explicit Contracts)
+  desc: JUnit 6 মডিউলে @NullMarked অ্যানোটেশনটি API-তে সরাসরি null সেমান্টিক্স (semantics) নথিভুক্ত করে – সোর্স-রিডিংয়ের প্রয়োজন নেই।
+- icon: "🛡️"
+  title: কম্পাইল-টাইম সেফটি
+  desc: IDEs এবং অ্যানালাইজারগুলো null পাস করা হলে ওয়ার্নিং দেয় যেখানে নন-নাল আশা করা হয়, যা টেস্ট রান করার আগেই বাগ ধরতে সাহায্য করে।
+- icon: "🌐"
+  title: ইকোসিস্টেম স্ট্যান্ডার্ড
+  desc: JSpecify Spring, Guava এবং অন্যান্য ফ্রেমওয়ার্ক দ্বারা গৃহীত হয়েছে – আপনার পুরো স্ট্যাক জুড়ে সামঞ্জস্যপূর্ণ null সেমান্টিক্স।
+support:
+  description: JUnit 6.0 থেকে উপলব্ধ (অক্টোবর 2025, Java 17+ প্রয়োজন)

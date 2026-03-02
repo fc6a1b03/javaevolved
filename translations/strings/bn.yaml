@@ -1,0 +1,88 @@
+site:
+  title: java.evolved
+  tagline: জাভা বিকশিত হয়েছে। আপনার কোডও পারে।
+  tagline_line1: জাভা বিকশিত হয়েছে।
+  tagline_line2: আপনার কোডও পারে।
+  description: আধুনিক Java কোড স্নিপেটের একটি সংগ্রহ। পুরনো Java প্যাটার্নের পাশে তার পরিষ্কার, আধুনিক বিকল্প।
+  heroSnippetCount: ✦ {{snippetCount}} আধুনিক প্যাটার্ন · Java 8 → Java 25
+  heroOld: পুরনো
+  heroModern: আধুনিক
+  allComparisons: সব তুলনা
+  snippetsBadge: '{{snippetCount}} স্নিপেট'
+nav:
+  allPatterns: ← সব প্যাটার্ন
+  toggleTheme: থিম বদলান
+  viewOnGitHub: GitHub-এ দেখুন
+  selectLanguage: ভাষা নির্বাচন করুন
+breadcrumb:
+  home: হোম
+sections:
+  codeComparison: কোড তুলনা
+  whyModernWins: কেন আধুনিক পদ্ধতি ভালো
+  oldApproach: পুরনো পদ্ধতি
+  modernApproach: আধুনিক পদ্ধতি
+  sinceJdk: JDK থেকে
+  difficulty: কঠিনতা
+  jdkSupport: JDK সমর্থন
+  howItWorks: কীভাবে কাজ করে
+  relatedDocs: সম্পর্কিত ডকুমেন্টেশন
+  relatedPatterns: সম্পর্কিত প্যাটার্ন
+filters:
+  show: 'দেখান:'
+  all: সব
+difficulty:
+  beginner: প্রাথমিক
+  intermediate: মধ্যম
+  advanced: উন্নত
+search:
+  placeholder: স্নিপেট খুঁজুন…
+  noResults: কোনো ফলাফল পাওয়া যায়নি।
+  esc: ESC
+  searchTrigger: খুঁজুন…
+  navigate: নেভিগেট
+  open: খুলুন
+  close: বন্ধ করুন
+cards:
+  old: পুরনো
+  modern: আধুনিক
+  hoverHint: আধুনিক দেখতে হোভার করুন →
+  hoverHintRelated: আধুনিক দেখতে হোভার করুন ➜
+  touchHint: 👆 ট্যাপ বা সোয়াইপ করুন →
+copy:
+  copy: কপি
+  copied: কপি হয়েছে!
+share:
+  label: শেয়ার
+view:
+  expandAll: সব প্রসারিত করুন
+  collapseAll: সব সংকুচিত করুন
+stats:
+  modernPatterns: আধুনিক প্যাটার্ন
+  jdkVersions: অন্তর্ভুক্ত JDK সংস্করণ
+  categories: বিভাগ
+  linesOfPython: প্রয়োজনীয় Python লাইনের সংখ্যা
+footer:
+  tagline: জাভা বিকশিত হয়েছে। আপনার কোডও পারে।
+  madeWith: ভালোবাসা দিয়ে তৈরি করেছেন
+  and: এবং
+  inspiredBy: অনুপ্রাণিত
+  viewOnGitHub: GitHub-এ দেখুন
+copilot:
+  headline: GitHub Copilot দিয়ে আপনার Java কোডবেস আধুনিক করুন।
+  description: Copilot-কে ব্যবহার করে লেগ্যাসি প্যাটার্নগুলোকে আধুনিক Java-তে স্বয়ংক্রিয়ভাবে মাইগ্রেট করুন।
+  appModernization: অ্যাপ আধুনিকীকরণ →
+  javaGuide: Java গাইড →
+support:
+  available: উপলব্ধ
+  preview: প্রিভিউ
+  experimental: পরীক্ষামূলক
+contribute:
+  button: অবদান রাখুন
+  codeIssue: কোড সমস্যা রিপোর্ট করুন
+  translationIssue: অনুবাদ সমস্যা রিপোর্ট করুন
+  suggestPattern: নতুন প্যাটার্ন প্রস্তাব করুন
+  seeIssue: এই কোডে সমস্যা দেখছেন?
+  reportIt: আমাদের জানান।
+untranslated:
+  notice: এই পৃষ্ঠাটি এখনো {{localeName}}-এ অনুবাদ করা হয়নি।
+  viewInEnglish: ইংরেজিতে দেখুন

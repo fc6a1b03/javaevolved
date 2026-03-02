@@ -1,0 +1,18 @@
+---
+title: EJB বনাম CDI
+oldApproach: EJB
+modernApproach: CDI Bean
+summary: ডিপেন্ডেন্সি ইনজেকশন (dependency injection) এবং ট্রানজাকশনের (transactions) জন্য হেভিওয়েট EJBs-এর পরিবর্তে লাইটওয়েট CDI বিন ব্যবহার করুন।
+explanation: CDI (Contexts and Dependency Injection) EJBs-এর মতোই ডিপেন্ডেন্সি ইনজেকশন এবং ট্রানজাকশন ম্যানেজমেন্ট প্রদান করে, তবে এটি প্লেইন জাভা ক্লাসের (plain Java classes) মতো, যেখানে কোনো কন্টেইনার-নির্দিষ্ট ইন্টারফেস বা সুপারক্লাসের প্রয়োজন নেই। @ApplicationScoped এবং @RequestScoped এর মতো স্কোপগুলো লাইফসাইকেল কন্ট্রোল করে এবং @Transactional বাধ্যতামূলক EJB ট্রানজাকশন সেমান্টিক্সকে প্রতিস্থাপন করে।
+whyModernWins:
+- icon: "🪶"
+  title: লাইটওয়েট
+  desc: CDI বিনস হলো প্লেইন জাভা ক্লাস, যেখানে EJB-নির্দিষ্ট কোনো ইন্টারফেস বা ডিস্ক্রিপটরের প্রয়োজন হয় না।
+- icon: "💉"
+  title: ইউনিফাইড ইনজেকশন
+  desc: @Inject প্রতিটি ম্যানেজড বিন, JAX-RS রিসোর্স এবং জাকার্তা EE কম্পোনেন্টের জন্য একইভাবে কাজ করে।
+- icon: "🧪"
+  title: সহজ ইউনিট টেস্টিং
+  desc: EJB প্রক্সি ওভারহেড ছাড়াই প্লেইন ক্লাসগুলো ইনস্ট্যানশিয়েট (instantiate) এবং মক (mock) করা সহজ।
+support:
+  description: জাকার্তা EE 8 / Java 11 থেকে ব্যাপকভাবে উপলব্ধ৷

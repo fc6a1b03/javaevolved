@@ -1,0 +1,18 @@
+---
+title: সিকোয়েন্সড কালেকশন (Sequenced Collections)
+oldApproach: ইনডেক্স অ্যারিথমেটিক (Index Arithmetic)
+modernApproach: getFirst()/getLast()
+summary: পরিষ্কার API মেথড ব্যবহার করে লিস্টের প্রথম/শেষ এলিমেন্ট অ্যাক্সেস করা এবং রিভার্সড ভিউ (reversed view) তৈরি করা।
+explanation: SequencedCollection, List, Deque, SortedSet, এবং LinkedHashSet-এ getFirst(), getLast(), reversed(), addFirst(), addLast() মেথডগুলো যোগ করে। এর ফলে আর size-1 অ্যারিথমেটিক বা ম্যানুয়াল রিভার্স আইটারেশনের প্রয়োজন হয় না।
+whyModernWins:
+- icon: "📖"
+  title: স্ব-ডকুমেন্টিং
+  desc: getLast() মেথডটি get(size()-1) এর চেয়ে অনেক বেশি স্পষ্ট এবং পঠনযোগ্য।
+- icon: "🔄"
+  title: রিভার্সড ভিউ
+  desc: reversed() মেথড একটি ভিউ (view) রিটার্ন করে, তাই কোনো কপি করার প্রয়োজন হয় না।
+- icon: "🧩"
+  title: ইউনিফর্ম API
+  desc: List, Deque, এবং SortedSet-এর মতো কালেকশনগুলোতে একইভাবে কাজ করে।
+support:
+  description: JDK 21 LTS (সেপ্টেম্বর 2023) থেকে ব্যাপকভাবে উপলব্ধ

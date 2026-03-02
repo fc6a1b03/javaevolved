@@ -1,0 +1,18 @@
+---
+title: সুইচ-এ null কেইস (Null case in switch)
+oldApproach: সুইচ-এর আগে গার্ড (Guard Before Switch)
+modernApproach: case null
+summary: সরাসরি একটি সুইচ কেইস হিসেবে null হ্যান্ডেল করুন – আলাদা গার্ডের প্রয়োজন নেই।
+explanation: প্যাটার্ন ম্যাচিং সুইচ (Pattern matching switch) একটি কেইস লেবেল (case label) হিসেবে null-কে ম্যাচ করতে পারে। এটি সুইচের আগে null চেক করার প্রয়োজনীয়তা দূর করে এবং null হ্যান্ডলিংকে সুস্পষ্ট ও ভিজিবল করে তোলে।
+whyModernWins:
+- icon: "🎯"
+  title: সুস্পষ্ট
+  desc: null হ্যান্ডলিং সরাসরি সুইচের মধ্যেই দৃশ্যমান।
+- icon: "🛡️"
+  title: কোনো NPE নেই
+  desc: একটি null ভ্যালুর উপর সুইচ করলে NullPointerException থ্রো (throw) হবে না।
+- icon: "📐"
+  title: অল-ইন-ওয়ান (All-in-one)
+  desc: null সহ সমস্ত কেইস একটি সিঙ্গেল সুইচ এক্সপ্রেশনে থাকে।
+support:
+  description: JDK 21 LTS (সেপ্টেম্বর 2023) থেকে ব্যাপকভাবে উপলব্ধ

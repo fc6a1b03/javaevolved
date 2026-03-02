@@ -1,0 +1,18 @@
+---
+title: Stream হিসাবে String chars (String chars as stream)
+oldApproach: ম্যানুয়াল লুপ
+modernApproach: chars() Stream
+summary: স্ট্রিং ক্যারেক্টারগুলোকে (string characters) একটি স্ট্রিম পাইপলাইন (stream pipeline) হিসাবে প্রসেস করুন।
+explanation: String.chars() মেথডটি ক্যারেক্টার ভ্যালুগুলোর একটি IntStream রিটার্ন করে, যা ফাংশনাল প্রসেসিং সক্ষম করে। ইউনিকোড সাপোর্টের জন্য, codePoints() মেথডটি সাপ্লিমেন্টারি ক্যারেক্টারগুলোকে (supplementary characters) সঠিকভাবে হ্যান্ডেল করে।
+whyModernWins:
+- icon: "🔗"
+  title: চেইনেবল (Chainable)
+  desc: ক্যারেক্টার স্ট্রিমগুলোতে filter, map, collect ব্যবহার করুন।
+- icon: "📐"
+  title: ডিক্লারেটিভ (Declarative)
+  desc: কী করতে হবে তা বর্ণনা করুন, কিভাবে লুপ করতে হবে তা নয়।
+- icon: "🌐"
+  title: ইউনিকোড-রেডি (Unicode-ready)
+  desc: codePoints() মেথডটি ইমোজি (emoji) এবং সাপ্লিমেন্টারি ক্যারেক্টারগুলো (supplementary chars) সঠিকভাবে হ্যান্ডেল করে।
+support:
+  description: JDK 8+ থেকে উপলব্ধ (9+ এ উন্নত)

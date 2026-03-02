@@ -1,0 +1,18 @@
+---
+title: ডেটা ক্লাসের জন্য রেকর্ড (Records for data classes)
+oldApproach: ভার্বোস POJO
+modernApproach: রেকর্ড
+summary: একটি সিঙ্গেল লাইন ইমিউটেবল ডেটা ক্যারিয়ারের (immutable data carriers) জন্য 30+ লাইনের বয়লারপ্লেটকে প্রতিস্থাপন করে।
+explanation: রেকর্ডগুলো স্বয়ংক্রিয়ভাবে কনস্ট্রাক্টর, অ্যাক্সেসর (x(), y()), equals(), hashCode(), এবং toString() জেনারেট করে। এগুলো ডিজাইনগতভাবে ইমিউটেবল এবং DTOs, ভ্যালু অবজেক্ট (value objects) এবং প্যাটার্ন ম্যাচিংয়ের জন্য আদর্শ।
+whyModernWins:
+- icon: "⚡"
+  title: এক-লাইন ডেফিনিশন (One-line Definition)
+  desc: একটি সিঙ্গেল লাইন কনস্ট্রাক্টর, গেটার্স (getters), equals, hashCode, toString -কে প্রতিস্থাপন করে।
+- icon: "🔒"
+  title: ডিফল্টরূপে ইমিউটেবল (Immutable by default)
+  desc: সব ফিল্ড ফাইনাল (final) – কোনো সেটার ফুটগান (setter footguns) নেই।
+- icon: "🧩"
+  title: প্যাটার্ন-ফ্রেন্ডলি (Pattern-friendly)
+  desc: রেকর্ডগুলো সুইচ (switch) এবং instanceof-এ ডিস্ট্রাকচারিং প্যাটার্নগুলোর (destructuring patterns) সাথে কাজ করে।
+support:
+  description: JDK 16 (মার্চ 2021) থেকে ব্যাপকভাবে উপলব্ধ

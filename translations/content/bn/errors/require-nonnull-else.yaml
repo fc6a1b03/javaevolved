@@ -1,0 +1,18 @@
+---
+title: Objects.requireNonNullElse()
+oldApproach: টারনারি Null চেক
+modernApproach: requireNonNullElse()
+summary: একটি পরিষ্কার ডিফল্ট ভ্যালু সহ একটি নন-নাল ভ্যালু (non-null value) পান, কোনো টারনারি (ternary) এর প্রয়োজন নেই।
+explanation: requireNonNullElse মেথডটি প্রথম আর্গুমেন্টটি নন-নাল হলে সেটি রিটার্ন করে, অন্যথায় দ্বিতীয় আর্গুমেন্টটি রিটার্ন করে। ডিফল্ট ভ্যালুটি নিজেই null হতে পারে না – যদি উভয়ই null হয়, তাহলে এটি NPE থ্রো করে, যা শুরুর দিকেই বাগ ধরতে সাহায্য করে।
+whyModernWins:
+- icon: "📖"
+  title: পরিষ্কার উদ্দেশ্য
+  desc: মেথডের নামটি এটি কী কাজ করে তা স্পষ্টভাবে বর্ণনা করে।
+- icon: "🛡️"
+  title: Null-সেফ ডিফল্ট
+  desc: ডিফল্ট ভ্যালুটিও null এর জন্য চেক করা হয়।
+- icon: "📏"
+  title: পঠনযোগ্য
+  desc: সহজ null-or-default লজিকের জন্য টারনারির চেয়ে এটি অনেক ভালো।
+support:
+  description: JDK 9 (সেপ্টেম্বর 2017) থেকে ব্যাপকভাবে উপলব্ধ

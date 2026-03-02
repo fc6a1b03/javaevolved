@@ -1,0 +1,18 @@
+---
+title: টাইপ হায়ারার্কির (Type Hierarchies) জন্য সিলড ক্লাস (Sealed Classes)
+oldApproach: ওপেন হায়ারার্কি (Open Hierarchy)
+modernApproach: sealed permits
+summary: কোন ক্লাসগুলো একটি টাইপকে এক্সটেন্ড করতে পারবে তা সীমাবদ্ধ করুন – যা এক্সহস্টিভ সুইচকে (exhaustive switches) সক্ষম করে।
+explanation: সিলড ক্লাসগুলো সাবটাইপগুলোর (subtypes) একটি ক্লোজড সেট ডিফাইন করে। কম্পাইলার সমস্ত সম্ভাব্য কেইসগুলো জানে, যা ডিফল্ট ব্রাঞ্চ ছাড়াই এক্সহস্টিভ প্যাটার্ন ম্যাচিংকে সক্ষম করে। রেকর্ডগুলোর সাথে মিলিত হয়ে, এগুলো অ্যালজেব্রাইক ডেটা টাইপ (algebraic data types) মডেল করে।
+whyModernWins:
+- icon: "🔐"
+  title: নিয়ন্ত্রিত হায়ারার্কি (Controlled Hierarchy)
+  desc: শুধুমাত্র পারমিটেড (permitted) সাবটাইপগুলো এক্সটেন্ড করতে পারে – কোনো অপ্রত্যাশিত সাবক্লাস (surprise subclasses) নেই।
+- icon: "✅"
+  title: এক্সহস্টিভ ম্যাচিং (Exhaustive Matching)
+  desc: কম্পাইলার সুইচ কভারের সমস্ত কেইস ভ্যারিফাই (verify) করে, ডিফল্টের প্রয়োজন নেই।
+- icon: "📐"
+  title: অ্যালজেব্রাইক ডেটা টাইপস (Algebraic Data Types)
+  desc: সাম টাইপসকে (sum types) স্বাভাবিকভাবে মডেল করুন – sealed + records = জাভাতে ADTs।
+support:
+  description: JDK 17 LTS (সেপ্টেম্বর 2021) থেকে ব্যাপকভাবে উপলব্ধ

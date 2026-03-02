@@ -1,0 +1,18 @@
+---
+title: অপশনাল চেইনিং (Optional Chaining)
+oldApproach: নেস্টেড Null চেক
+modernApproach: অপশনাল পাইপলাইন (Optional Pipeline)
+summary: নেস্টেড null চেকগুলোকে একটি অপশনাল পাইপলাইন দিয়ে প্রতিস্থাপন করুন।
+explanation: Optional.map() মেথডটি null ভ্যালুগুলোর মধ্যে চেইন তৈরি করে এবং প্রথম null এ পৌঁছালে শর্ট-সার্কিট (short-circuiting) করে। orElse() মেথডটি ডিফল্ট ভ্যালু প্রদান করে। এটি পিরামিড-অব-ডুম (pyramid-of-doom) null চেকিং দূর করে।
+whyModernWins:
+- icon: "🔗"
+  title: চেইনেবল (Chainable)
+  desc: প্রতিটি .map() স্টেপ null ভ্যালুকে স্বচ্ছভাবে হ্যান্ডেল করে।
+- icon: "📖"
+  title: লিনিয়ার ফ্লো (Linear Flow)
+  desc: নেস্টেড if-ব্লকের পরিবর্তে বাম থেকে ডানে (left-to-right) পঠনযোগ্য ফ্লো।
+- icon: "🛡️"
+  title: NPE-প্রুফ
+  desc: প্রতিটি ধাপে null হ্যান্ডেল করা হয় – কোনো ক্র্যাশ হওয়া সম্ভব নয়।
+support:
+  description: JDK 8+ থেকে উপলব্ধ (9+ এ উন্নত)

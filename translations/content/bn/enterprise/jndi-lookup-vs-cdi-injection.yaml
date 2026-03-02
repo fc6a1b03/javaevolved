@@ -1,0 +1,18 @@
+---
+title: JNDI Lookup বনাম CDI Injection
+oldApproach: JNDI Lookup
+modernApproach: CDI @Inject
+summary: কন্টেইনার-ম্যানেজড রিসোর্সগুলোর জন্য ফ্র্যাজাইল (fragile) JNDI স্ট্রিং লুকআপের পরিবর্তে টাইপ-সেফ CDI ইনজেকশন ব্যবহার করুন।
+explanation: প্রচলিত JNDI প্যাটার্ন আপনাকে স্ট্রিং-ভিত্তিক রিসোর্স নাম ব্যবহার করতে, NamingException হ্যান্ডেল করতে এবং InitialContext ম্যানেজ করতে বাধ্য করে। @Inject (বা কন্টেইনার রিসোর্সগুলির জন্য @Resource) সহ CDI ইনজেকশন কন্টেইনারকে স্বয়ংক্রিয়ভাবে ডিপেন্ডেন্সি (dependencies) ওয়্যার করতে সাহায্য করে। টাইপো (typos) কম্পাইল-টাইম এররে পরিণত হয় এবং ক্লাসগুলো সহজে টেস্ট করা যায় কারণ ডিপেন্ডেন্সিগুলো সরাসরি ইনজেক্ট করা সম্ভব।
+whyModernWins:
+- icon: "🔒"
+  title: টাইপ-সেফ ওয়্যারিং (Type-safe Wiring)
+  desc: ইনজেকশন এররগুলো ডিপ্লয়মেন্টের সময় ধরা পড়ে, স্ট্রিং লুকআপের মাধ্যমে রানটাইমে নয়।
+- icon: "🗑️"
+  title: বয়লারপ্লেট (Boilerplate) নেই
+  desc: InitialContext তৈরি, JNDI নাম স্ট্রিং এবং NamingException হ্যান্ডলিংয়ের প্রয়োজন দূর করে।
+- icon: "🧪"
+  title: টেস্টেবল (Testable)
+  desc: ডিপেন্ডেন্সিগুলো ইনজেক্টেড ফিল্ড, যা ইউনিট টেস্টে মক (mocks) দিয়ে সহজে প্রতিস্থাপন করা যায়।
+support:
+  description: জাকার্তা EE 8 / Java 11 থেকে ব্যাপকভাবে উপলব্ধ৷

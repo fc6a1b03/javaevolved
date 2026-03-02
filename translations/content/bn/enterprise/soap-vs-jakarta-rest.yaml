@@ -1,0 +1,18 @@
+---
+title: SOAP ওয়েব সার্ভিস বনাম জাকার্তা REST
+oldApproach: JAX-WS / SOAP
+modernApproach: জাকার্তা REST / JSON
+summary: হেভিওয়েট SOAP/WSDL এন্ডপয়েন্টকে (endpoints) পরিষ্কার জাকার্তা REST রিসোর্স এবং JSON দিয়ে প্রতিস্থাপন করুন।
+explanation: SOAP-ভিত্তিক ওয়েব সার্ভিসগুলো WSDL কনট্র্যাক্ট (contracts), XML মার্শালিং (marshalling), এবং JAX-WS অ্যানোটেশনগুলোর উপর নির্ভর করে, যা উল্লেখযোগ্য ওভারহেড তৈরি করে। জাকার্তা REST (আগে JAX-RS) @GET, @Path, এবং @Produces-এর মতো স্বজ্ঞাত (intuitive) অ্যানোটেশন ব্যবহার করে RESTful JSON API এক্সপোজ করে। প্রোগ্রামিং মডেলটি সহজ, পেলোড (payloads) ছোট, এবং এই অ্যাপ্রোচটি আধুনিক মাইক্রোসার্ভিসগুলোর যোগাযোগের পদ্ধতির সাথে সঙ্গতিপূর্ণ।
+whyModernWins:
+- icon: "🪶"
+  title: হালকা পেলোড
+  desc: JSON, SOAP XML এনভেলাপের (envelopes) চেয়ে বেশি কম্প্যাক্ট, যা ব্যান্ডউইথ (bandwidth) এবং পার্সিং ওভারহেড কমায়।
+- icon: "📐"
+  title: সহজ অ্যানোটেশন
+  desc: @GET, @Path, এবং @Produces WSDL, @WebService, এবং @WebMethod-এর আনুষ্ঠানিকতাকে প্রতিস্থাপন করে।
+- icon: "🔌"
+  title: মাইক্রোসার্ভিস-রেডি
+  desc: ক্লাউড-নেটিভ আর্কিটেকচারে সার্ভিস-টু-সার্ভিস কমিউনিকেশনের জন্য REST/JSON হলো স্ট্যান্ডার্ড।
+support:
+  description: জাকার্তা EE 8 / Java 11 থেকে ব্যাপকভাবে উপলব্ধ৷

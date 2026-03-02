@@ -1,0 +1,18 @@
+---
+title: প্যাটার্নে প্রিমিটিভ টাইপস (Primitive Types in Patterns)
+oldApproach: ম্যানুয়াল রেঞ্জ চেকস (Manual Range Checks)
+modernApproach: প্রিমিটিভ প্যাটার্নস (Primitive Patterns)
+summary: প্যাটার্ন ম্যাচিং এখন শুধু অবজেক্ট নয়, প্রিমিটিভ টাইপগুলোর (primitive types) সাথেও কাজ করে।
+explanation: Java 25 প্যাটার্ন ম্যাচিংকে প্রিমিটিভ টাইপগুলোতে প্রসারিত করেছে। আপনি int, long, double ইত্যাদির মতো প্রিমিটিভ টাইপগুলো when গার্ড (when guards) সহ সুইচ প্যাটার্নে (switch patterns) ব্যবহার করতে পারবেন, যা বক্সিং বা ম্যানুয়াল রেঞ্জ চেকের (manual range checks) প্রয়োজনীয়তা দূর করে।
+whyModernWins:
+- icon: "📦"
+  title: কোনো বক্সিং (Boxing) নেই
+  desc: প্রিমিটিভ টাইপগুলোকে সরাসরি ম্যাচ করুন – কোনো Integer র‍্যাপারের (wrapper) প্রয়োজন নেই।
+- icon: "🎯"
+  title: প্যাটার্ন কনসিস্টেন্সি (Pattern Consistency)
+  desc: অবজেক্ট এবং প্রিমিটিভ টাইপগুলোর জন্য একই প্যাটার্ন সিনট্যাক্স।
+- icon: "⚡"
+  title: উন্নত পারফরম্যান্স
+  desc: প্যাটার্ন ম্যাচিংয়ে অটোবক্সিংয়ের (autoboxing) অতিরিক্ত লোড এড়িয়ে যান।
+support:
+  description: JDK 25-এ প্রিভিউ (তৃতীয় প্রিভিউ, JEP 507)। --enable-preview প্রয়োজন।

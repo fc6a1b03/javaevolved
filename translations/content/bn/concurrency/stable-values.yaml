@@ -1,0 +1,18 @@
+---
+title: স্টেবল ভ্যালু (Stable Values)
+oldApproach: ডাবল-চেকড লকিং (Double-Checked Locking)
+modernApproach: StableValue
+summary: volatile বা synchronized ব্যবহার না করেই থ্রেড-সেফ লেজি ইনিশিয়ালাইজেশন (thread-safe lazy initialization) বাস্তবায়ন করুন।
+explanation: StableValue বিল্ট-ইন থ্রেড সেফটি সহ একটি লেজি ইনিশিয়ালাইজড, ইমিউটেবল ভ্যালু প্রদান করে। এখানে ডাবল-চেকড লকিং, volatile ফিল্ড বা synchronized ব্লকের প্রয়োজন নেই। এমনকি JVM ইনিশিয়ালাইজেশনের পর রিড পাথকে (read path) অপ্টিমাইজও করতে পারে।
+whyModernWins:
+- icon: "🧹"
+  title: জিরো বয়লারপ্লেট (Zero Boilerplate)
+  desc: কোনো volatile, synchronized, বা null চেক করার প্রয়োজন নেই।
+- icon: "⚡"
+  title: JVM-অপ্টিমাইজড
+  desc: ইনিশিয়ালাইজেশনের পর JVM ভ্যালুটিকে কনস্ট্যান্ট-ফোল্ড করতে পারে।
+- icon: "🛡️"
+  title: একবার নিশ্চিত (Guaranteed Once)
+  desc: সাপ্লায়ার (supplier) কেবল একবারই রান করে, এমনকি কনটেনশনের (contention) মধ্যেও।
+support:
+  description: JDK 25 (JEP 502) এ প্রিভিউ। --enable-preview প্রয়োজন।

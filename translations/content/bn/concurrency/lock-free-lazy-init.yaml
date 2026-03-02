@@ -1,0 +1,18 @@
+---
+title: লক-ফ্রি লেজি ইনিশিয়ালাইজেশন (Lock-free Lazy Initialization)
+oldApproach: synchronized + volatile
+modernApproach: StableValue
+summary: লেজি ইনিশিয়ালাইজেশনের ক্ষেত্রে ডাবল-চেকড লকিং (double-checked locking) এর পরিবর্তে StableValue ব্যবহার করুন।
+explanation: StableValue সঠিক থ্রেড সেফটি (thread safety) নিশ্চিত করে লেজি ইনিশিয়ালাইজেশন প্যাটার্নকে এনক্যাপসুলেট (encapsulates) করে। JVM ইনিশিয়ালাইজেশনের পর রিড পাথকে (read path) অপ্টিমাইজ করতে পারে, যা ভলাটাইল রিডের (volatile reads) চেয়ে দ্রুততর হতে পারে।
+whyModernWins:
+- icon: "🧹"
+  title: বয়লারপ্লেট (boilerplate) নেই
+  desc: এখানে volatile, synchronized, বা ডাবল-নাল-চেক করার প্রয়োজন নেই।
+- icon: "⚡"
+  title: দ্রুততর রিড (Faster Reads)
+  desc: ইনিশিয়ালাইজেশনের পর JVM কনস্ট্যান্ট-ফোল্ড করতে পারে।
+- icon: "✅"
+  title: প্রমাণিতভাবে সঠিক (Provably Correct)
+  desc: এখানে কোনো সূক্ষ্ম অর্ডারিং বাগ থাকে না – JVM নিজেই এটি হ্যান্ডেল করে।
+support:
+  description: JDK 25 (JEP 502, StableValue) এ প্রিভিউ। --enable-preview প্রয়োজন।

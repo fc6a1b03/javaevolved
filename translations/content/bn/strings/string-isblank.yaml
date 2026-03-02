@@ -1,0 +1,18 @@
+---
+title: String.isBlank()
+oldApproach: trim().isEmpty()
+modernApproach: isBlank()
+summary: একটি সিঙ্গেল মেথড কল দিয়ে ব্ল্যাঙ্ক (blank) স্ট্রিং চেক করুন।
+explanation: isBlank() মেথডটি রিটার্ন করে true যদি স্ট্রিংটি এম্পটি হয় বা শুধুমাত্র হোয়াইটস্পেস (whitespace) ধারণ করে, যার মধ্যে trim() মেথডটি মিস করে এমন ইউনিকোড হোয়াইটস্পেস ক্যারেক্টারও (Unicode whitespace characters) অন্তর্ভুক্ত।
+whyModernWins:
+- icon: "📖"
+  title: স্ব-ডকুমেন্টিং (Self-documenting)
+  desc: isBlank() মেথডটি ঠিক কী চেক করে তা স্পষ্টভাবে বলে।
+- icon: "🌐"
+  title: ইউনিকোড-অ্যাওয়ার (Unicode-aware)
+  desc: এটি শুধুমাত্র ASCII নয়, সমস্ত ইউনিকোড হোয়াইটস্পেস হ্যান্ডেল করে।
+- icon: "⚡"
+  title: কোনো অ্যালোকেশন (Allocation) নেই
+  desc: কোনো ইন্টারমিডিয়েট ট্রিমড স্ট্রিং (intermediate trimmed string) তৈরি হয় না।
+support:
+  description: JDK 11 (সেপ্টেম্বর 2018) থেকে ব্যাপকভাবে উপলব্ধ

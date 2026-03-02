@@ -1,0 +1,18 @@
+---
+title: JDBC বনাম JPA
+oldApproach: JDBC
+modernApproach: JPA EntityManager
+summary: JPA-এর অবজেক্ট-রিলেশনাল ম্যাপিং এবং EntityManager ব্যবহার করে ভার্বোস JDBC বয়লারপ্লেট প্রতিস্থাপন করুন।
+explanation: JPA (Jakarta Persistence API) জাভা অবজেক্টকে ডেটাবেস রো-এর (database rows) সাথে ম্যাপ করে, যা ম্যানুয়াল ResultSet প্রসেসিং এবং SQL স্ট্রিং কনক্যাটেনেশনকে দূর করে। EntityManager find(), persist(), এবং JPQL কোয়েরি প্রদান করে, যাতে আপনি Raw SQL-এর পরিবর্তে ডোমেইন অবজেক্ট (domain objects) নিয়ে কাজ করতে পারেন, যখন কন্টেইনার কানেকশন পুলিং এবং ট্রানজাকশন ম্যানেজ করে।
+whyModernWins:
+- icon: "🗺️"
+  title: অবজেক্ট ম্যাপিং
+  desc: এনটিটিগুলো প্লেইন অ্যানোটেড ক্লাস – ম্যানুয়াল ResultSet-কে অবজেক্টে রূপান্তর করার প্রয়োজন নেই।
+- icon: "🔒"
+  title: টাইপ-সেফ কোয়েরি (Type-safe Queries)
+  desc: JPQL Raw টেবিল এবং কলাম স্ট্রিংয়ের পরিবর্তে এনটিটি টাইপ এবং ফিল্ডের উপর কাজ করে।
+- icon: "⚡"
+  title: বিল্ট-ইন ক্যাশিং (Built-in Caching)
+  desc: ফার্স্ট- এবং সেকেন্ড-লেভেল ক্যাশেগুলো স্বয়ংক্রিয়ভাবে ডেটাবেসের রাউন্ড-ট্রিপ (round-trips) কমিয়ে দেয়।
+support:
+  description: জাকার্তা EE 8 / Java 11 থেকে ব্যাপকভাবে উপলব্ধ৷

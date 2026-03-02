@@ -1,0 +1,18 @@
+---
+title: PEM এনকোডিং/ডিকোডিং (PEM encoding/decoding)
+oldApproach: ম্যানুয়াল Base64 + হেডারস
+modernApproach: PEM API
+summary: PEM-ফরম্যাটে ক্রিপ্টোগ্রাফিক অবজেক্টগুলোকে নেটিভলি এনকোড (encode) এবং ডিকোড (decode) করুন।
+explanation: PEM API, PEM ফরম্যাটে সার্টিফিকেট, কী এবং অন্যান্য ক্রিপ্টোগ্রাফিক অবজেক্টগুলোর জন্য স্ট্যান্ডার্ড এনকোডিং/ডিকোডিং প্রদান করে। এটিতে BEGIN/END হেডারগুলোর সাথে ম্যানুয়াল Base64 র‍্যাপিংয়ের আর প্রয়োজন নেই।
+whyModernWins:
+- icon: "🧹"
+  title: কোনো ম্যানুয়াল Base64 নেই
+  desc: PEM হেডার, লাইন র‍্যাপিং এবং Base64 স্বয়ংক্রিয়ভাবে হ্যান্ডেল করা হয়।
+- icon: "🔄"
+  title: দ্বি-মুখী (Bidirectional)
+  desc: একটি API দিয়ে PEM-এ এনকোড এবং PEM থেকে ডিকোড করুন।
+- icon: "🛡️"
+  title: স্ট্যান্ডার্ড ফরম্যাট (Standard Format)
+  desc: RFC 7468-কমপ্লায়েন্ট PEM আউটপুট তৈরি করে।
+support:
+  description: JDK 25 (JEP 470) এ প্রিভিউ। --enable-preview প্রয়োজন।

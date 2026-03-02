@@ -1,0 +1,18 @@
+---
+title: স্ট্রাকচার্ড কনকারেন্সি (Structured Concurrency)
+oldApproach: ম্যানুয়াল থ্রেড লাইফসাইকেল
+modernApproach: StructuredTaskScope
+summary: কনকারেন্ট টাস্কগুলির (concurrent tasks) লাইফটাইমকে কাজের একটি একক ইউনিট (single unit of work) হিসেবে ম্যানেজ করুন।
+explanation: স্ট্রাকচার্ড কনকারেন্সি একদল কনকারেন্ট টাস্ককে একটি অপারেশন হিসেবে বিবেচনা করে। যদি কোনো সাবটাস্ক (subtask) ব্যর্থ হয়, তবে অন্যগুলো বাতিল (cancelled) হয়ে যায়। স্কোপ নিশ্চিত করে যে থ্রেড লিক (thread leaks) হবে না এবং সুস্পষ্ট প্যারেন্ট-চাইল্ড রিলেশনশিপ প্রদান করে।
+whyModernWins:
+- icon: "🛡️"
+  title: কোনো থ্রেড লিক নেই
+  desc: স্কোপ বন্ধ হওয়ার আগে সব ফর্কড টাস্ক (forked tasks) সম্পন্ন হয়।
+- icon: "⚡"
+  title: দ্রুত ব্যর্থতা
+  desc: ShutdownOnFailure মেথড কোনো একটি টাস্ক ব্যর্থ হলে বাকি sibling টাস্কগুলো বাতিল করে দেয়।
+- icon: "📐"
+  title: পরিষ্কার কাঠামো
+  desc: টাস্ক লাইফটাইম কোডের লেক্সিকাল স্কোপের (lexical scope) সাথে মিলে যায়।
+support:
+  description: JDK 25-এ পূর্বরূপ (পঞ্চম প্রিভিউ, JEP 505)। --enable-preview প্রয়োজন।

@@ -1,0 +1,18 @@
+---
+title: ইন্টারফেসে স্ট্যাটিক মেথড (Static methods in interfaces)
+oldApproach: ইউটিলিটি ক্লাস
+modernApproach: ইন্টারফেস স্ট্যাটিক মেথডস (Interface static methods)
+summary: পৃথক ইউটিলিটি ক্লাসের পরিবর্তে সরাসরি ইন্টারফেসে স্ট্যাটিক ইউটিলিটি মেথড যোগ করুন।
+explanation: Java 8 এর আগে, একটি ইন্টারফেসের সাথে সম্পর্কিত ইউটিলিটি মেথডগুলোকে একটি আলাদা ক্লাসে রাখতে হতো (যেমন Collections for Collection)। ইন্টারফেসগুলোতে স্ট্যাটিক মেথড আপনাকে সম্পর্কিত ইউটিলিটিগুলো একসাথে রাখতে দেয়। এটি Comparator.comparing(), Stream.of(), এবং List.of()-এর মতো আধুনিক API-গুলোতে খুবই কমন।
+whyModernWins:
+- icon: "📦"
+  title: উন্নত অর্গানাইজেশন
+  desc: ইন্টারফেসের সাথে সম্পর্কিত ইউটিলিটিগুলোকে একটি আলাদা ক্লাসে না রেখে একসাথেই রাখুন।
+- icon: "🔍"
+  title: ডিসকভারেবিলিটি (Discoverability)
+  desc: ফ্যাক্টরি এবং হেল্পার মেথডগুলোকে যেখানে আশা করা হয়, সেখানেই খুঁজে পাওয়া যায়।
+- icon: "🧩"
+  title: API কোহেশন (API Cohesion)
+  desc: আলাদা *Utils বা *Helper ক্লাসের প্রয়োজন নেই।
+support:
+  description: JDK 8 (মার্চ 2014) থেকে উপলব্ধ

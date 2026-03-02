@@ -1,0 +1,18 @@
+---
+title: Duration সহ Thread.sleep
+oldApproach: মিলিসেকেন্ড
+modernApproach: Duration
+summary: স্ব-ডকুমেন্টিং (self-documenting) টাইম ভ্যালুর জন্য Duration ব্যবহার করুন।
+explanation: Thread.sleep(Duration) মেথডটি টাইমের ইউনিটকে সুস্পষ্ট করে তোলে। এর ফলে 5000 বলতে মিলিসেকেন্ড নাকি মাইক্রোসেকেন্ড বোঝানো হয়েছে, তা নিয়ে কোনো অনুমান করার প্রয়োজন হয় না। এটি Duration.ofSeconds, ofMillis, ofMinutes ইত্যাদির সাথে কাজ করে।
+whyModernWins:
+- icon: "📖"
+  title: স্ব-ডকুমেন্টিং (Self-documenting)
+  desc: Duration.ofSeconds(5) মেথডটি দ্ব্যর্থহীন (unambiguous)।
+- icon: "🛡️"
+  title: ইউনিট-সেফ (Unit-safe)
+  desc: ভুলবশত মাইক্রোসেকেন্ডকে মিলিসেকেন্ড হিসেবে পাস করার ঝুঁকি থাকে না।
+- icon: "🧩"
+  title: কম্পোজেবল (Composable)
+  desc: Duration ম্যাথ ব্যবহার করা যায়, যেমন plus(), multipliedBy() ইত্যাদি।
+support:
+  description: JDK 19 (সেপ্টেম্বর 2022) থেকে ব্যাপকভাবে উপলব্ধ

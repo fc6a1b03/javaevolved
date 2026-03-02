@@ -1,0 +1,18 @@
+---
+title: ফাইল রাইটিং (Writing Files)
+oldApproach: FileWriter + BufferedWriter
+modernApproach: Files.writeString()
+summary: একটি সিঙ্গেল লাইন ব্যবহার করে একটি স্ট্রিং (String) ফাইল এ রাইট করুন।
+explanation: Files.writeString() মেথডটি ডিফল্টরূপে UTF-8 এনকোডিং সহ একটি ফাইলে কন্টেন্ট রাইট করে। অপশনগুলো অ্যাপেন্ড (appending), তৈরি করা (creating) ইত্যাদির জন্য পাস করা যেতে পারে।
+whyModernWins:
+- icon: "📏"
+  title: এক লাইন
+  desc: এখানে রাইটার র‍্যাপিং (writer wrapping) বা ট্রাই-উইথ-রিসোর্সেসের (try-with-resources) প্রয়োজন নেই।
+- icon: "🛡️"
+  title: সেফ ডিফল্টস
+  desc: UTF-8 এনকোডিং, সঠিক ফাইল হ্যান্ডেল ক্লিনআপ।
+- icon: "🔧"
+  title: অপশনস
+  desc: অ্যাপেন্ড (append), ক্রিয়েট (create) ইত্যাদির জন্য OpenOption ফ্ল্যাগ পাস করুন।
+support:
+  description: JDK 11 (সেপ্টেম্বর 2018) থেকে ব্যাপকভাবে উপলব্ধ
