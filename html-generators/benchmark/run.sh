@@ -30,29 +30,35 @@ UPDATE_MD=false
 # ---------------------------------------------------------------------------
 # Helpers
 # ---------------------------------------------------------------------------
-time_once() {
-  /usr/bin/time -p "$@" > /dev/null 2>&1 | awk '/^real/ {print $2}'
-  # fallback: capture from stderr
-  local t
-  t=$( { /usr/bin/time -p "$@" > /dev/null; } 2>&1 | awk '/^real/ {print $2}' )
-  echo "$t"
-}
-
 measure() {
   local t
   t=$( { /usr/bin/time -p "$@" > /dev/null; } 2>&1 | awk '/^real/ {print $2}' )
+  # Verify the command actually succeeded
+  if ! "$@" > /dev/null 2>&1; then
+    echo "FAIL"
+    return 1
+  fi
   echo "$t"
 }
 
 avg_runs() {
   local n="$1"; shift
-  local sum=0
+  local sum=0 failures=0
   for ((i = 1; i <= n; i++)); do
     local t
-    t=$(measure "$@")
+    t=$(measure "$@") || true
+    if [[ "$t" == "FAIL" ]]; then
+      ((failures++)) || true
+      continue
+    fi
     sum=$(echo "$sum + $t" | bc)
   done
-  echo "scale=2; $sum / $n" | bc | sed 's/^\./0./'
+  local success=$((n - failures))
+  if [[ $success -eq 0 ]]; then
+    echo "FAIL"
+    return 0
+  fi
+  echo "scale=2; $sum / $success" | bc | sed 's/^\./0./'
 }
 
 # ---------------------------------------------------------------------------

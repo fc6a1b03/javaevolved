@@ -28,6 +28,10 @@ jobs:
         with:
           python-version: '3.13'
 
+      - name: Install system dependencies (Ubuntu)
+        if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install -y libcairo2-dev
+
       - name: Install Python dependencies
         run: pip install pyyaml cairosvg
 
@@ -47,18 +51,37 @@ jobs:
           # Timing helper using bash TIMEFORMAT
           measure() {
             TIMEFORMAT='%R'
-            local t
-            t=$( { time "$@" > /dev/null 2>&1; } 2>&1 )
+            local t ec
+            t=$( { time "$@" > /dev/null 2>&1; ec=$?; } 2>&1 )
+            if [[ ${ec:-1} -ne 0 ]]; then
+              # Re-check: the subshell exit code isn't always captured
+              if ! "$@" > /dev/null 2>&1; then
+                echo "FAIL"
+                return 1
+              fi
+            fi
             echo "$t"
           }
 
           avg_runs() {
             local n="$1"; shift
-            local sum=0
+            local sum=0 failures=0
             for ((i = 1; i <= n; i++)); do
               local t
-              t=$(measure "$@")
+              t=$(measure "$@") || true
+              if [[ "$t" == "FAIL" ]]; then
+                ((failures++)) || true
+                continue
+              fi
               sum=$(awk "BEGIN {print $sum + $t}")
+            done
+            local success=$((n - failures))
+            if [[ $success -eq 0 ]]; then
+              echo "FAIL"
+              return 0
+            fi
+            awk "BEGIN {printf \"%.2f\", $sum / $success}"
+          }
             done
             awk "BEGIN {printf \"%.2f\", $sum / $n}"
           }
@@ -194,6 +217,10 @@ jobs:
         with:
           python-version: '3.13'
 
+      - name: Install system dependencies (Ubuntu)
+        if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install -y libcairo2-dev
+
       - name: Install Python dependencies
         run: pip install pyyaml cairosvg
 
@@ -212,8 +239,14 @@ jobs:
 
           measure() {
             TIMEFORMAT='%R'
-            local t
-            t=$( { time "$@" > /dev/null 2>&1; } 2>&1 )
+            local t ec
+            t=$( { time "$@" > /dev/null 2>&1; ec=$?; } 2>&1 )
+            if [[ ${ec:-1} -ne 0 ]]; then
+              if ! "$@" > /dev/null 2>&1; then
+                echo "FAIL"
+                return 1
+              fi
+            fi
             echo "$t"
           }
 
