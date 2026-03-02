@@ -48,7 +48,7 @@ support:
   state: "available"
   description: "Widely available since JDK 16 (March 2021)"
 prev: "language/static-members-in-inner-classes"
-next: "enterprise/servlet-vs-jaxrs"
+next: "language/call-c-from-java"
 related:
 - "language/records-for-data-classes"
 - "language/flexible-constructor-bodies"

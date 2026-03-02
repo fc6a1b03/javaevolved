@@ -1,0 +1,86 @@
+---
+id: 113
+slug: "call-c-from-java"
+title: "Calling out to C code from Java"
+category: "language"
+difficulty: "advanced"
+jdkVersion: "22"
+oldLabel: "Java 1.1+"
+modernLabel: "Java 22+"
+oldApproach: "JNI (Java Native Interface)"
+modernApproach: "FFM (Foreign Function & Memory API)"
+oldCode: |-
+  public class CallCFromJava {
+      static { System.loadLibrary("hello-jni"); }
+      public static native int greet(String name);
+      public static void main(String[] args) {
+          int ret = greet("Bambi");
+          System.out.println("Return value " + ret);
+      }
+  }
+
+  // Run javac -h to generate the .h file, then write C:
+  // JNIEXPORT int JNICALL Java_CallCFromJava_greet(
+  //     JNIEnv *env, jclass clazz, jstring str) {
+  //     const char* name =
+  //         (*env)->GetStringUTFChars(env, str, NULL);
+  //     printf("Hello %s\n", name);
+  //     return 0;
+  // }
+modernCode: |-
+  void main() throws Throwable {
+      try (var arena = Arena.ofConfined()) {
+          // Use any system library directly — no C wrapper needed
+          var stdlib = Linker.nativeLinker().defaultLookup();
+          var foreignFuncAddr =
+              stdlib.find("strlen").orElseThrow();
+          var strlenSig =
+              FunctionDescriptor.of(
+                  ValueLayout.JAVA_LONG, ValueLayout.ADDRESS);
+          var strlenMethod =
+              Linker.nativeLinker()
+                  .downcallHandle(foreignFuncAddr, strlenSig);
+          var ret = (long) strlenMethod.invokeExact(
+              arena.allocateFrom("Bambi"));
+          System.out.println("Return value " + ret); // 5
+      }
+  }
+
+  // Your own C library needs no special Java annotations:
+  // long greet(char* name) {
+  //     printf("Hello %s\n", name);
+  //     return 0;
+  // }
+summary: "FFM lets Java call C libraries directly, without JNI boilerplate or C-side Java knowledge."
+explanation: "Java has two approaches for calling native C/C++ code: the traditional\
+  \ JNI and the modern FFM API. With JNI, you declare a method as native, run javac -h\
+  \ to generate a C header file, then implement the function using the cumbersome JNI\
+  \ C API (JNIEnv, jstring, etc.). FFM, introduced as a standard API in Java 22,\
+  \ eliminates all of that: C code is just plain C — no JNI conventions needed. This\
+  \ makes it far easier to call existing C/C++ libraries without modification. The\
+  \ Java side uses Arena for safe off-heap memory management and MethodHandle for the\
+  \ downcall, ensuring both flexibility and safety."
+whyModernWins:
+- icon: "👁"
+  title: "C code stays plain C"
+  desc: "The C function requires no JNI annotations or JNIEnv boilerplate — any existing C library can be called as-is."
+- icon: "⚡"
+  title: "More flexible"
+  desc: "Directly call most existing C/C++ libraries without writing adapter code or generating header files."
+- icon: "🛠️"
+  title: "Easier workflow"
+  desc: "No need to stop, run javac -h, and implement the interface defined in the generated .h file."
+support:
+  state: "available"
+  description: "Standardized in JDK 22 (March 2024); previously incubating since JDK 14"
+prev: "language/compact-canonical-constructor"
+next: "enterprise/servlet-vs-jaxrs"
+related:
+- "io/file-memory-mapping"
+- "language/compact-source-files"
+- "language/unnamed-variables"
+docs:
+- title: "JEP 454: Foreign Function & Memory API"
+  href: "https://openjdk.org/jeps/454"
+- title: "java.lang.foreign package (Java 22)"
+  href: "https://docs.oracle.com/en/java/javase/22/docs/api/java.base/java/lang/foreign/package-summary.html"
