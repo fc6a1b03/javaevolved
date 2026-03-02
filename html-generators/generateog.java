@@ -132,27 +132,14 @@ static void ensureFonts() throws IOException {
 }
 
 /** Convert an SVG string to a PNG file using Batik. */
-/** Convert SVG to a crisp 1200×630 PNG by rendering at 3× then downsampling with bicubic interpolation. */
 static void svgToPng(String svgContent, Path pngPath) throws Exception {
-    int scale = 3;
-    // Render at 3× resolution
     var input = new TranscoderInput(new java.io.StringReader(svgContent));
-    var bos = new java.io.ByteArrayOutputStream();
-    var transcoder = new PNGTranscoder();
-    transcoder.addTranscodingHint(PNGTranscoder.KEY_WIDTH, (float) (W * scale));
-    transcoder.addTranscodingHint(PNGTranscoder.KEY_HEIGHT, (float) (H * scale));
-    transcoder.transcode(input, new TranscoderOutput(bos));
-
-    // Read back and downsample to 1200×630
-    var hiRes = javax.imageio.ImageIO.read(new java.io.ByteArrayInputStream(bos.toByteArray()));
-    var target = new java.awt.image.BufferedImage(W, H, java.awt.image.BufferedImage.TYPE_INT_ARGB);
-    var g = target.createGraphics();
-    g.setRenderingHint(java.awt.RenderingHints.KEY_INTERPOLATION, java.awt.RenderingHints.VALUE_INTERPOLATION_BICUBIC);
-    g.setRenderingHint(java.awt.RenderingHints.KEY_RENDERING, java.awt.RenderingHints.VALUE_RENDER_QUALITY);
-    g.setRenderingHint(java.awt.RenderingHints.KEY_ANTIALIASING, java.awt.RenderingHints.VALUE_ANTIALIAS_ON);
-    g.drawImage(hiRes, 0, 0, W, H, null);
-    g.dispose();
-    javax.imageio.ImageIO.write(target, "png", pngPath.toFile());
+    try (var out = new java.io.BufferedOutputStream(Files.newOutputStream(pngPath))) {
+        var transcoder = new PNGTranscoder();
+        transcoder.addTranscodingHint(PNGTranscoder.KEY_WIDTH, (float) W * 2);
+        transcoder.addTranscodingHint(PNGTranscoder.KEY_HEIGHT, (float) H * 2);
+        transcoder.transcode(input, new TranscoderOutput(out));
+    }
 }
 
 static SequencedMap<String, String> loadProperties(String file) {
