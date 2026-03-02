@@ -2,10 +2,15 @@
 //JAVA 25
 //DEPS com.fasterxml.jackson.core:jackson-databind:2.18.3
 //DEPS com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.18.3
+//DEPS org.apache.xmlgraphics:batik-transcoder:1.18
+//DEPS org.apache.xmlgraphics:batik-codec:1.18
 
 import module java.base;
 import com.fasterxml.jackson.databind.*;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
+import org.apache.batik.transcoder.TranscoderInput;
+import org.apache.batik.transcoder.TranscoderOutput;
+import org.apache.batik.transcoder.image.PNGTranscoder;
 
 /**
  * Generate Open Graph SVG cards (1200×630) for each pattern.
@@ -88,6 +93,55 @@ static final int MIN_CODE_FONT = 9;
 static final int MAX_CODE_FONT = 16;
 
 // ── Helpers ────────────────────────────────────────────────────────────
+static final Path FONT_CACHE = Path.of(System.getProperty("user.home"), ".cache", "javaevolved-fonts");
+
+static final Map<String, String> FONT_URLS = Map.of(
+    "Inter-Regular.ttf",
+        "https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuLyfMZg.ttf",
+    "Inter-Medium.ttf",
+        "https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuI6fMZg.ttf",
+    "Inter-SemiBold.ttf",
+        "https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuGKYMZg.ttf",
+    "Inter-Bold.ttf",
+        "https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuFuYMZg.ttf",
+    "JetBrainsMono-Regular.ttf",
+        "https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbY2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKxjPQ.ttf",
+    "JetBrainsMono-Medium.ttf",
+        "https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbY2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8-qxjPQ.ttf"
+);
+
+/** Download fonts to cache and register with Java's graphics environment. */
+static void ensureFonts() throws IOException {
+    Files.createDirectories(FONT_CACHE);
+    var ge = java.awt.GraphicsEnvironment.getLocalGraphicsEnvironment();
+    for (var entry : FONT_URLS.entrySet()) {
+        var file = FONT_CACHE.resolve(entry.getKey());
+        if (!Files.exists(file)) {
+            IO.println("Downloading %s...".formatted(entry.getKey()));
+            try (var in = URI.create(entry.getValue()).toURL().openStream()) {
+                Files.copy(in, file);
+            }
+        }
+        try {
+            var font = java.awt.Font.createFont(java.awt.Font.TRUETYPE_FONT, file.toFile());
+            ge.registerFont(font);
+        } catch (java.awt.FontFormatException e) {
+            IO.println("[WARN] Could not register font %s: %s".formatted(entry.getKey(), e.getMessage()));
+        }
+    }
+}
+
+/** Convert an SVG string to a PNG file using Batik. */
+static void svgToPng(String svgContent, Path pngPath) throws Exception {
+    var input = new TranscoderInput(new java.io.StringReader(svgContent));
+    try (var out = new java.io.BufferedOutputStream(Files.newOutputStream(pngPath))) {
+        var transcoder = new PNGTranscoder();
+        transcoder.addTranscodingHint(PNGTranscoder.KEY_WIDTH, (float) W);
+        transcoder.addTranscodingHint(PNGTranscoder.KEY_HEIGHT, (float) H);
+        transcoder.transcode(input, new TranscoderOutput(out));
+    }
+}
+
 static SequencedMap<String, String> loadProperties(String file) {
     try {
         var map = new LinkedHashMap<String, String>();
@@ -240,7 +294,6 @@ static String generateSvg(Snippet s) {
 <svg xmlns="http://www.w3.org/2000/svg" width="%d" height="%d" viewBox="0 0 %d %d">
   <defs>
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap');
       .title    { font: 700 24px/1 'Inter', sans-serif; fill: %s; }
       .category { font: 600 13px/1 'Inter', sans-serif; fill: %s; }
       .label    { font: 600 11px/1 'Inter', sans-serif; text-transform: uppercase; letter-spacing: 0.05em; }
@@ -326,7 +379,9 @@ static String generateSvg(Snippet s) {
 }
 
 // ── Main ───────────────────────────────────────────────────────────────
-void main(String... args) throws IOException {
+void main(String... args) throws Exception {
+    ensureFonts();
+
     var allSnippets = loadAllSnippets();
     IO.println("Loaded %d snippets".formatted(allSnippets.size()));
 
@@ -350,7 +405,8 @@ void main(String... args) throws IOException {
         Files.createDirectories(dir);
         var svg = generateSvg(s);
         Files.writeString(dir.resolve(s.slug() + ".svg"), svg);
+        svgToPng(svg, dir.resolve(s.slug() + ".png"));
         count++;
     }
-    IO.println("Generated %d SVG card(s) in %s/".formatted(count, OUTPUT_DIR));
+    IO.println("Generated %d SVG+PNG card(s) in %s/".formatted(count, OUTPUT_DIR));
 }
