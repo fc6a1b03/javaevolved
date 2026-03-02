@@ -367,9 +367,9 @@ def render_proof_section(data, strings):
     )
 
 
-def render_social_share(tpl, slug, title, strings):
+def render_social_share(tpl, category, slug, title, strings):
     """Render social share URLs."""
-    encoded_url = url_encode(f"{BASE_URL}/{slug}.html")
+    encoded_url = url_encode(f"{BASE_URL}/{category}/{slug}.html")
     encoded_text = url_encode(f"{title} \u2013 java.evolved")
     return replace_tokens(tpl, {
         "encodedUrl": encoded_url,
@@ -550,8 +550,9 @@ def generate_html(templates, data, all_snippets, extra_tokens, locale):
         "relatedCards": render_related_section(
             templates["related_card"], data, all_snippets, locale, extra_tokens
         ),
+        "ogImage": f"{BASE_URL}/og/{cat}/{slug}.png",
         "socialShare": render_social_share(
-            templates["social_share"], slug, data["title"], extra_tokens
+            templates["social_share"], cat, slug, data["title"], extra_tokens
         ),
     })
 
