@@ -82,9 +82,6 @@ jobs:
             fi
             awk "BEGIN {printf \"%.2f\", $sum / $success}"
           }
-            done
-            awk "BEGIN {printf \"%.2f\", $sum / $n}"
-          }
 
           echo "Running benchmark on $os_name (Java $java_ver, $snippet_count snippets)..."
 
