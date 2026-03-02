@@ -434,8 +434,8 @@ String renderRelatedSection(String tpl, Snippet snippet, Map<String, Snippet> al
             .collect(Collectors.joining("\n"));
 }
 
-String renderSocialShare(String tpl, String slug, String title, Map<String, String> strings) {
-    var encodedUrl = urlEncode("%s/%s.html".formatted(BASE_URL, slug));
+String renderSocialShare(String tpl, String category, String slug, String title, Map<String, String> strings) {
+    var encodedUrl = urlEncode("%s/%s/%s.html".formatted(BASE_URL, category, slug));
     var encodedText = urlEncode("%s \u2013 java.evolved".formatted(title));
     return replaceTokens(tpl, Map.of("encodedUrl", encodedUrl, "encodedText", encodedText,
             "share.label", strings.getOrDefault("share.label", "Share")));
@@ -496,7 +496,7 @@ String generateHtml(Templates tpl, Snippet s, Map<String, Snippet> all, Map<Stri
             Map.entry("docLinks", renderDocLinks(tpl.docLink(), s.node().withArray("docs"))),
             Map.entry("proofSection", renderProofSection(s, extraTokens)),
             Map.entry("relatedCards", renderRelatedSection(tpl.relatedCard(), s, all, locale, extraTokens)),
-            Map.entry("socialShare", renderSocialShare(tpl.socialShare(), s.slug(), s.title(), extraTokens))));
+            Map.entry("socialShare", renderSocialShare(tpl.socialShare(), s.category(), s.slug(), s.title(), extraTokens))));
     var localeName = LOCALES.getOrDefault(locale, locale);
     tokens.putAll(buildContributeUrls(s, locale, localeName));
     return replaceTokens(tpl.page(), tokens);
