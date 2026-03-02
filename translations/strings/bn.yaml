@@ -1,7 +1,9 @@
+site:
+  title: java.evolved
   tagline: জাভাতে এসেছে নতুন দিগন্ত, আপনার কোডও হোক প্রাণবন্ত
   tagline_line1: জাভাতে এসেছে নতুন দিগন্ত,
   tagline_line2: আপনার কোডও হোক প্রাণবন্ত।
-  description: আধুনিক Java কোড স্নিপেটের একটি সংগ্রহ। পুরনো Java প্যাটার্নের পাশে তার পরিষ্কার, আধুনিক বিকল্প।
+  description: আধুনিক জাভা কোড সংকলন। প্রতিটি পুরনো প্যাটার্ন ও তার পরিচ্ছন্ন বিকল্পের পাশাপাশি তুলনা।।
   heroSnippetCount: ✦ {{snippetCount}} আধুনিক প্যাটার্ন · Java 8 → Java 25
   heroOld: পুরনো
   heroModern: আধুনিক
