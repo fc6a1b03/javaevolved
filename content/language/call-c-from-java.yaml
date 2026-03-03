@@ -22,8 +22,7 @@ oldCode: |-
   // Run javac -h to generate the .h file, then write C:
   // JNIEXPORT int JNICALL Java_CallCFromJava_greet(
   //     JNIEnv *env, jclass clazz, jstring str) {
-  //     const char* name =
-  //         (*env)->GetStringUTFChars(env, str, NULL);
+  //     const char* name = (*env)->GetStringUTFChars(env, str, NULL);
   //     printf("Hello %s\n", name);
   //     return 0;
   // }
@@ -32,17 +31,11 @@ modernCode: |-
       try (var arena = Arena.ofConfined()) {
           // Use any system library directly — no C wrapper needed
           var stdlib = Linker.nativeLinker().defaultLookup();
-          var foreignFuncAddr =
-              stdlib.find("strlen").orElseThrow();
-          var strlenSig =
-              FunctionDescriptor.of(
-                  ValueLayout.JAVA_LONG, ValueLayout.ADDRESS);
-          var strlenMethod =
-              Linker.nativeLinker()
-                  .downcallHandle(foreignFuncAddr, strlenSig);
-          var ret = (long) strlenMethod.invokeExact(
-              arena.allocateFrom("Bambi"));
-          System.out.println("Return value " + ret); // 5
+          var foreignFuncAddr = stdlib.find("strlen").orElseThrow();
+          var strlenSig = FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.ADDRESS);
+          var strlenMethod = Linker.nativeLinker() .downcallHandle(foreignFuncAddr, strlenSig);
+          var ret = (long) strlenMethod.invokeExact(arena.allocateFrom("Bambi"));
+          IO.println("Return value " + ret); // 5
       }
   }
 
