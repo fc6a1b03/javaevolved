@@ -415,6 +415,14 @@ nav {
   display: none;
 }
 
+.no-results-message {
+  text-align: center;
+  color: var(--text-muted);
+  padding: 3rem 1rem;
+  font-size: 1.1rem;
+  width: 100%;
+}
+
 .tip-card {
   background: var(--surface);
   border: 1px solid var(--border);

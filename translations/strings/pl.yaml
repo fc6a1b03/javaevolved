@@ -32,6 +32,7 @@ sections:
 filters:
   show: 'Pokaż:'
   all: Wszystkie
+  noResults: Nie znaleziono wzorców kodu dla tego filtra.
 difficulty:
   beginner: Początkujący
   intermediate: Średniozaawansowany

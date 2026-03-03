@@ -33,6 +33,7 @@ sections:
 filters:
   show: 'Anzeigen:'
   all: Alle
+  noResults: Keine Code-Muster für diesen Filter gefunden.
 difficulty:
   beginner: Einsteiger
   intermediate: Fortgeschritten

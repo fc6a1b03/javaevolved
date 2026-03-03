@@ -31,6 +31,7 @@ sections:
 filters:
   show: '表示:'
   all: すべて
+  noResults: このフィルターに一致するコードパターンが見つかりません。
 difficulty:
   beginner: 初級
   intermediate: 中級
