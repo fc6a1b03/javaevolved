@@ -34,6 +34,7 @@ filters:
   all: সব
   jdk: 'JDK:'
   category: 'বিভাগ:'
+  noResults: এই ফিল্টারের জন্য কোনো কোড প্যাটার্ন পাওয়া যায়নি।
 difficulty:
   beginner: প্রাথমিক
   intermediate: মধ্যম

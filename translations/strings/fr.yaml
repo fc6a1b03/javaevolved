@@ -33,6 +33,7 @@ sections:
 filters:
   show: 'Afficher :'
   all: Tous
+  noResults: Aucun patron de code trouvé pour ce filtre.
 difficulty:
   beginner: Débutant
   intermediate: Intermédiaire

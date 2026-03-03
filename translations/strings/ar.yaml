@@ -31,6 +31,7 @@ sections:
 filters:
   show: "عرض:"
   all: الكل
+  noResults: لم يتم العثور على أنماط برمجية لهذا الفلتر.
 difficulty:
   beginner: مبتدئ
   intermediate: متوسط

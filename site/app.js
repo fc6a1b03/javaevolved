@@ -216,7 +216,10 @@
       '25': [22, 25]
     };
 
+    const noResultsMsg = document.getElementById('noResultsMessage');
+
     const applyFilters = () => {
+      let visibleCount = 0;
       cards.forEach(card => {
         const matchesCategory = !activeCategory || card.dataset.category === activeCategory;
         let matchesJdk = true;
@@ -225,8 +228,14 @@
           const range = LTS_RANGES[activeJdk];
           matchesJdk = range && version >= range[0] && version <= range[1];
         }
-        card.classList.toggle('filter-hidden', !(matchesCategory && matchesJdk));
+        const visible = matchesCategory && matchesJdk;
+        card.classList.toggle('filter-hidden', !visible);
+        if (visible) visibleCount++;
       });
+
+      if (noResultsMsg) {
+        noResultsMsg.style.display = visibleCount === 0 ? '' : 'none';
+      }
 
       if (window.updateViewToggleState) {
         window.updateViewToggleState();

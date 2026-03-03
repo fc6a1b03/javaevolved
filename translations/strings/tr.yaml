@@ -32,6 +32,7 @@ sections:
 filters:
   show: 'Göster:'
   all: Tümü
+  noResults: Bu filtre için kod deseni bulunamadı.
 difficulty:
   beginner: Başlangıç
   intermediate: Orta

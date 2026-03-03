@@ -32,6 +32,7 @@ sections:
 filters:
   show: '显示：'
   all: 全部
+  noResults: 未找到与此筛选条件匹配的代码模式。
 difficulty:
   beginner: 入门
   intermediate: 中级

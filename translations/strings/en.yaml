@@ -35,6 +35,7 @@ filters:
   all: All
   jdk: 'JDK:'
   category: 'Category:'
+  noResults: No code patterns found for this filter.
 difficulty:
   beginner: Beginner
   intermediate: Intermediate

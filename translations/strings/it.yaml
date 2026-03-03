@@ -33,6 +33,7 @@ sections:
 filters:
   show: 'Mostra:'
   all: Tutti
+  noResults: Nessun pattern di codice trovato per questo filtro.
 difficulty:
   beginner: Principiante
   intermediate: Intermedio

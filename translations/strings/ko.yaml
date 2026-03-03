@@ -31,6 +31,7 @@ sections:
 filters:
   show: '표시:'
   all: 전체
+  noResults: 이 필터에 해당하는 코드 패턴이 없습니다.
 difficulty:
   beginner: 초급
   intermediate: 중급
