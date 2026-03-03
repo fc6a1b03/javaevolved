@@ -4,14 +4,14 @@ modernApproach: FFM (Foreign Function & Memory API)
 summary: FFM pozwala Javie wywoływać biblioteki C bezpośrednio, bez kodu szablonowego JNI ani znajomości Javy po stronie C.
 explanation: "Java oferuje dwa podejścia do wywoływania natywnego kodu C/C++: tradycyjne JNI oraz nowoczesne API FFM. W JNI deklarujesz metodę jako native, uruchamiasz javac -h, aby wygenerować plik nagłówkowy C, a następnie implementujesz funkcję przy użyciu uciążliwego JNI C API (JNIEnv, jstring itp.). FFM, wprowadzone jako standardowe API w Java 22, eliminuje to wszystko: kod C pozostaje zwykłym C — bez żadnych konwencji JNI. Dzięki temu wywołanie istniejących bibliotek C/C++ bez modyfikacji jest znacznie łatwiejsze. Strona Java używa Arena do bezpiecznego zarządzania pamięcią poza stertą oraz MethodHandle do downcallu, zapewniając zarówno elastyczność, jak i bezpieczeństwo."
 whyModernWins:
-  - icon: "👁"
-    title: Kod C pozostaje zwykłym C
-    desc: Funkcja C nie wymaga adnotacji JNI ani kodu szablonowego JNIEnv — każdą istniejącą bibliotekę C można wywołać bez zmian.
-  - icon: "⚡"
-    title: Większa elastyczność
-    desc: Bezpośrednie wywoływanie większości istniejących bibliotek C/C++ bez pisania kodu adaptera ani generowania plików nagłówkowych.
-  - icon: "🛠️"
-    title: Prostszy przepływ pracy
-    desc: "Nie trzeba zatrzymywać się, uruchamiać javac -h i implementować interfejsu zdefiniowanego w wygenerowanym pliku .h."
+- icon: "👁"
+  title: Kod C pozostaje zwykłym C
+  desc: Funkcja C nie wymaga adnotacji JNI ani kodu szablonowego JNIEnv — każdą istniejącą bibliotekę C można wywołać bez zmian.
+- icon: "⚡"
+  title: Większa elastyczność
+  desc: Bezpośrednie wywoływanie większości istniejących bibliotek C/C++ bez pisania kodu adaptera ani generowania plików nagłówkowych.
+- icon: "🛠️"
+  title: Prostszy przepływ pracy
+  desc: "Nie trzeba zatrzymywać się, uruchamiać javac -h i implementować interfejsu zdefiniowanego w wygenerowanym pliku .h."
 support:
   description: Ustandaryzowane w JDK 22 (marzec 2024); wcześniej w fazie inkubacji od JDK 14
