@@ -1,8 +1,8 @@
-title: Klasy sealed dla hierarchii typów
+title: Klasy zapieczętowane dla hierarchii typów
 oldApproach: Otwarta hierarchia
 modernApproach: sealed permits
 summary: Ogranicz, które klasy mogą rozszerzać typ — umożliwiając wyczerpujące switche.
-explanation: Klasy sealed definiują zamknięty zestaw podtypów. Kompilator zna wszystkie możliwe przypadki, umożliwiając wyczerpujące dopasowanie wzorców bez gałęzi default. W połączeniu z rekordami modelują algebraiczne typy danych.
+explanation: Klasy zapieczętowane definiują zamknięty zestaw podtypów. Kompilator zna wszystkie możliwe przypadki, umożliwiając wyczerpujące dopasowanie wzorców bez gałęzi default. W połączeniu z rekordami modelują algebraiczne typy danych.
 whyModernWins:
   - icon: "🔐"
     title: Kontrolowana hierarchia
