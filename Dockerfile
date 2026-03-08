@@ -12,16 +12,19 @@ FROM docker.io/eclipse-temurin:25-jdk-noble AS builder
 RUN apt-get update && apt-get install -y --no-install-recommends \
     curl \
     ca-certificates \
+    unzip \
     && rm -rf /var/lib/apt/lists/*
 
-# 下载并安装 JBang 到 /usr/local/bin (全局可用)
-RUN JBANG_VERSION=0.125.1 \
-    && curl -sL "https://github.com/jbangdev/jbang/releases/download/v${JBANG_VERSION}/jbang-${JBANG_VERSION}.tar.gz" \
-    | tar -xz -C /usr/local \
-    && ln -sf /usr/local/jbang/bin/jbang /usr/local/bin/jbang
+WORKDIR /tmp
 
-# 验证安装
-RUN jbang version
+# 下载并安装 JBang (使用官方发布包)
+RUN JBANG_VERSION=0.125.1 \
+    && curl -fsSL -o jbang.zip "https://github.com/jbangdev/jbang/releases/download/v${JBANG_VERSION}/jbang-${JBANG_VERSION}.zip" \
+    && unzip -q jbang.zip \
+    && mv jbang-${JBANG_VERSION} /opt/jbang \
+    && ln -sf /opt/jbang/bin/jbang /usr/local/bin/jbang \
+    && rm -f jbang.zip \
+    && jbang version
 
 WORKDIR /workspace
 
