@@ -1,0 +1,58 @@
+# ============================================================================
+# Docker Ignore - 优化构建上下文，减少镜像构建时间
+# ============================================================================
+
+# Git
+.git
+.gitignore
+.gitattributes
+.github
+
+# IDE
+.vscode
+.idea
+*.iml
+*.iws
+*.ipr
+
+# 文档
+*.md
+!README.md
+CONTRIBUTING.md
+LICENSE
+
+# 构建输出 (会在容器内重新生成)
+site/*.html
+site/**/*.html
+site/data/*.json
+
+# 日志
+*.log
+logs/
+
+# 临时文件
+tmp/
+temp/
+*.tmp
+*.swp
+*.swo
+*~
+
+# 操作系统文件
+.DS_Store
+Thumbs.db
+
+# 测试和开发文件
+test/
+tests/
+__tests__/
+*.test.js
+*.spec.js
+
+# 其他
+node_modules/
+venv/
+.env
+.env.local
+.env.*.local
+docker-compose.override.yml

@@ -1,0 +1,70 @@
+# ============================================================================
+# Docker Compose - 本地开发和测试配置
+# 一键启动: docker compose up -d
+# ============================================================================
+
+version: "3.9"
+
+services:
+  java-evolved:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        # BuildKit 优化
+        BUILDKIT_INLINE_CACHE: "1"
+    image: ghcr.io/${GITHUB_REPOSITORY:-javaevolved/javaevolved.github.io}:latest
+    container_name: java-evolved
+    
+    # 端口映射 - 一个端口即可访问
+    ports:
+      - "8080:8080"
+    
+    # 健康检查
+    healthcheck:
+      test: [ "CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:8080/" ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 5s
+    
+    # 资源限制 (生产环境建议)
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 128M
+        reservations:
+          cpus: '0.25'
+          memory: 64M
+    
+    # 自动重启策略
+    restart: unless-stopped
+    
+    # 日志配置
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    
+    # 安全选项
+    security_opt:
+      - no-new-privileges:true
+    read_only: true
+    tmpfs:
+      - /tmp:noexec,nosuid,size=10m
+    
+    # 环境变量覆盖 (可选)
+    environment:
+      # 日志级别: error, warn, info, debug, trace
+      SERVER_LOG_LEVEL: info
+      # 启用 gzip 压缩
+      SERVER_COMPRESSION: "true"
+      # 压缩级别: fastest, best_speed, default, best_compression
+      SERVER_COMPRESSION_LEVEL: best_compression
+
+# 网络配置 (可选)
+networks:
+  default:
+    name: java-evolved-network

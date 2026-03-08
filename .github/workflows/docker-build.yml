@@ -1,0 +1,212 @@
+# ============================================================================
+# GitHub Actions Workflow - Docker 镜像构建与推送
+# 推送到 GitHub Container Registry (ghcr.io)
+# 使用最新版本的 actions，支持多平台构建和缓存优化
+# ============================================================================
+
+name: Docker Build and Push
+
+on:
+  push:
+    branches: [ main, master ]
+    tags: [ 'v*', 'release-*' ]
+    paths-ignore:
+      - '**.md'
+      - '.vscode/**'
+      - '.idea/**'
+  pull_request:
+    branches: [ main, master ]
+    paths-ignore:
+      - '**.md'
+      - '.vscode/**'
+      - '.idea/**'
+  workflow_dispatch:
+    inputs:
+      push_image:
+        description: '是否推送镜像到仓库'
+        required: true
+        default: 'true'
+        type: choice
+        options:
+          - 'true'
+          - 'false'
+
+# 权限配置 - 最小权限原则
+permissions:
+  contents: read
+  packages: write
+  id-token: write  # 用于 OIDC 认证 (安全最佳实践)
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+  # BuildKit 配置 - 启用高级缓存和优化
+  BUILDX_NO_DEFAULT_ATTESTATIONS: 1
+  BUILDKIT_PROGRESS: plain
+
+jobs:
+  # --------------------------------------------------------------------------
+  # 构建和推送 Docker 镜像
+  # --------------------------------------------------------------------------
+  build-and-push:
+    runs-on: ubuntu-24.04  # 使用最新的 Ubuntu LTS
+    timeout-minutes: 30
+
+    steps:
+      # ----------------------------------------------------------------------
+      # 1. 检出代码
+      # ----------------------------------------------------------------------
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # 获取完整历史以便正确计算版本
+
+      # ----------------------------------------------------------------------
+      # 2. 设置 QEMU (用于多平台构建)
+      # ----------------------------------------------------------------------
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+        with:
+          platforms: linux/amd64,linux/arm64,linux/arm/v7
+
+      # ----------------------------------------------------------------------
+      # 3. 设置 Docker Buildx
+      # ----------------------------------------------------------------------
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+        with:
+          driver: docker-container
+          driver-opts: |
+            image=moby/buildkit:buildx-stable-1
+            network=host
+          buildkitd-flags: --debug
+
+      # ----------------------------------------------------------------------
+      # 4. 登录到 GitHub Container Registry
+      # ----------------------------------------------------------------------
+      - name: Login to GitHub Container Registry
+        if: github.event_name != 'pull_request' && github.event.inputs.push_image != 'false'
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      # ----------------------------------------------------------------------
+      # 5. 提取元数据 (标签、标签、注释)
+      # ----------------------------------------------------------------------
+      - name: Extract Docker metadata
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          tags: |
+            # 分支名标签
+            type=ref,event=branch,prefix=branch-
+            # PR 标签
+            type=ref,event=pr,prefix=pr-
+            # 语义化版本标签 (如 v1.2.3 -> 1.2.3, 1.2, 1)
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+            type=semver,pattern={{major}}
+            # 最新标签 (仅 main/master 分支)
+            type=raw,value=latest,enable={{is_default_branch}}
+            # SHA 短标签
+            type=sha,prefix=,suffix=,format=short
+          labels: |
+            org.opencontainers.image.title=Java Evolved
+            org.opencontainers.image.description=A collection of side-by-side code comparisons showing old Java patterns next to their clean, modern replacements
+            org.opencontainers.image.url=https://javaevolved.github.io
+            org.opencontainers.image.source=https://github.com/${{ github.repository }}
+            org.opencontainers.image.licenses=MIT
+          annotations: |
+            org.opencontainers.image.description=A collection of side-by-side code comparisons showing old Java patterns next to their clean, modern replacements
+
+      # ----------------------------------------------------------------------
+      # 6. 构建并推送 Docker 镜像
+      # ----------------------------------------------------------------------
+      - name: Build and push Docker image
+        id: build-and-push
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: ./Dockerfile
+          # 多平台构建 - 支持 AMD64 和 ARM64
+          platforms: linux/amd64,linux/arm64
+          # 仅在非 PR 且非手动禁用时推送
+          push: ${{ github.event_name != 'pull_request' && github.event.inputs.push_image != 'false' }}
+          # 使用元数据动作生成的标签
+          tags: ${{ steps.meta.outputs.tags }}
+          # 使用元数据动作生成的标签
+          labels: ${{ steps.meta.outputs.labels }}
+          # 注释 (用于镜像索引)
+          annotations: ${{ steps.meta.outputs.annotations }}
+          # 缓存配置 - 使用 GitHub Actions 缓存
+          cache-from: type=gha,scope=${{ github.workflow }}
+          cache-to: type=gha,mode=max,scope=${{ github.workflow }}
+          # 构建参数 - 优化构建
+          build-args: |
+            BUILDKIT_INLINE_CACHE=1
+          # 构建摘要输出
+          #  provenance: false  # 禁用 provenance 以减少镜像大小 (可选)
+
+      # ----------------------------------------------------------------------
+      # 7. 输出镜像摘要
+      # ----------------------------------------------------------------------
+      - name: Output image digest
+        if: github.event_name != 'pull_request' && github.event.inputs.push_image != 'false'
+        run: |
+          echo "## 🐳 Docker 镜像构建成功" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**镜像地址**: \`${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}\`" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**标签**:" >> $GITHUB_STEP_SUMMARY
+          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+          echo "${{ steps.meta.outputs.tags }}" >> $GITHUB_STEP_SUMMARY
+          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**摘要**: \`${{ steps.build-and-push.outputs.digest }}\`" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**使用方法**:" >> $GITHUB_STEP_SUMMARY
+          echo "\`\`\`bash" >> $GITHUB_STEP_SUMMARY
+          echo "# 拉取镜像" >> $GITHUB_STEP_SUMMARY
+          echo "docker pull ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "# 运行容器" >> $GITHUB_STEP_SUMMARY
+          echo "docker run -d -p 8080:8080 --name java-evolved ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest" >> $GITHUB_STEP_SUMMARY
+          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+
+  # --------------------------------------------------------------------------
+  # 安全扫描 (可选但推荐)
+  # --------------------------------------------------------------------------
+  security-scan:
+    name: Security Scan
+    runs-on: ubuntu-24.04
+    needs: build-and-push
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/v')
+    timeout-minutes: 15
+
+    permissions:
+      contents: read
+      packages: read
+      security-events: write
+
+    env:
+      REGISTRY: ghcr.io
+      IMAGE_NAME: ${{ github.repository }}
+
+    steps:
+      - name: Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+          format: 'sarif'
+          output: 'trivy-results.sarif'
+          severity: 'CRITICAL,HIGH'
+          ignore-unfixed: true
+
+      - name: Upload Trivy scan results to GitHub Security
+        uses: github/codeql-action/upload-sarif@v3
+        if: always()
+        with:
+          sarif_file: 'trivy-results.sarif'
