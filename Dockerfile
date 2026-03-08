@@ -8,13 +8,20 @@
 # ----------------------------------------------------------------------------
 FROM docker.io/eclipse-temurin:25-jdk-noble AS builder
 
-# 安装 JBang
-# 使用官方安装脚本，指定最新稳定版本
-RUN curl -sL https://sh.jbang.dev | bash -s - app setup
+# 安装必要工具
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    curl \
+    ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
 
-# 设置 JBang 环境变量
-ENV PATH="/root/.jbang/bin:${PATH}"
-ENV JBANG_DOWNLOAD_VERSION=0.125.1
+# 下载并安装 JBang 到 /usr/local/bin (全局可用)
+RUN JBANG_VERSION=0.125.1 \
+    && curl -sL "https://github.com/jbangdev/jbang/releases/download/v${JBANG_VERSION}/jbang-${JBANG_VERSION}.tar.gz" \
+    | tar -xz -C /usr/local \
+    && ln -sf /usr/local/jbang/bin/jbang /usr/local/bin/jbang
+
+# 验证安装
+RUN jbang version
 
 WORKDIR /workspace
 
@@ -52,7 +59,6 @@ HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
 EXPOSE 8080
 
 # 使用环境变量配置 static-web-server
-# SERVER_ROOT 默认为 /public，不需要显式设置
 ENV SERVER_PORT=8080 \
     SERVER_LOG_LEVEL=info \
     SERVER_COMPRESSION=true \
