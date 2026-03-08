@@ -71,5 +71,5 @@ ENV SERVER_PORT=8080 \
     SERVER_CORS_ALLOW_ORIGINS=* \
     SERVER_CORS_ALLOW_METHODS="GET, HEAD, OPTIONS"
 
-# 启动命令 (使用镜像默认入口点)
-CMD ["static-web-server"]
+# static-web-server 镜像的 ENTRYPOINT 已经是 static-web-server
+# 无需指定 CMD，使用镜像默认值即可
