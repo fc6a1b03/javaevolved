@@ -38,7 +38,7 @@ RUN rm -f site/*.html.bak site/**/*.html.bak 2>/dev/null || true
 # ----------------------------------------------------------------------------
 # Stage 2: 运行阶段 - 使用轻量级静态文件服务器
 # ----------------------------------------------------------------------------
-FROM docker.io/static-web-server:2
+FROM docker.io/joseluisq/static-web-server:2
 
 # 使用非 root 用户运行 (安全最佳实践)
 USER root
