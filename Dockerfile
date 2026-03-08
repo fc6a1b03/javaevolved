@@ -40,20 +40,11 @@ RUN rm -f site/*.html.bak site/**/*.html.bak 2>/dev/null || true
 # ----------------------------------------------------------------------------
 FROM docker.io/joseluisq/static-web-server:2
 
-# 使用非 root 用户运行 (安全最佳实践)
-USER root
-
-# 创建网站目录并设置权限
-RUN mkdir -p /var/www/html && chown -R static-web-server:static-web-server /var/www/html
-
-# 从构建阶段复制生成的静态文件
-COPY --from=builder --chown=static-web-server:static-web-server /workspace/site/ /var/www/html/
-
-# 切换回非 root 用户
-USER static-web-server
+# static-web-server 镜像默认使用 UID 1000 (非 root)
+# 直接复制文件到默认的 /public 目录
+COPY --from=builder --chown=1000:1000 /workspace/site/ /public/
 
 # 健康检查 - 检查根路径是否可访问
-# static-web-server 镜像基于 busybox，支持 wget
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
     CMD wget -qO- http://localhost:8080/ > /dev/null 2>&1 || exit 1
 
@@ -61,8 +52,8 @@ HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
 EXPOSE 8080
 
 # 使用环境变量配置 static-web-server
+# SERVER_ROOT 默认为 /public，不需要显式设置
 ENV SERVER_PORT=8080 \
-    SERVER_ROOT=/var/www/html \
     SERVER_LOG_LEVEL=info \
     SERVER_COMPRESSION=true \
     SERVER_COMPRESSION_LEVEL=best_compression \
