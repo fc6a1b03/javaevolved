@@ -12,7 +12,7 @@ whyModernWins:
   title: "Tek çağrı"
   desc: "Elle ArrayList oluşturma ve sarmalama gerekmez."
 - icon: "🛡️"
-  title: "Savunmacı kopya"
-  desc: "Orijinaldeki değişiklikler kopyayı etkilemez."
+  title: "Her Collection"
+  desc: "Herhangi bir Collection'ı girdi olarak kabul eder—ara ArrayList dönüşümü gerekmez."
 support:
   description: JDK 10'dan itibaren geniş çapta kullanılabilir (Mart 2018)

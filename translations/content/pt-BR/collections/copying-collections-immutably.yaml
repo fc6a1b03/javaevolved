@@ -13,7 +13,7 @@ whyModernWins:
   title: Uma chamada
   desc: Sem construção manual de ArrayList + encapsulamento.
 - icon: "🛡️"
-  title: Cópia defensiva
-  desc: Alterações na coleção original não afetam a cópia.
+  title: Qualquer Collection
+  desc: Aceita qualquer Collection como entrada—sem conversão intermediária para ArrayList.
 support:
   description: Amplamente disponível desde o JDK 10 (março de 2018)

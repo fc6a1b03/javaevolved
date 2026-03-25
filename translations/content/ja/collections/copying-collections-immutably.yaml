@@ -11,7 +11,7 @@ whyModernWins:
   title: 1回の呼び出し
   desc: "ArrayListの手動構築＋ラッピングは不要です。"
 - icon: "🛡️"
-  title: 防御的コピー
-  desc: "元のコレクションへの変更はコピーに影響しません。"
+  title: あらゆるCollectionに対応
+  desc: "ArrayListへの中間変換なしに、あらゆるCollectionを入力として受け付けます。"
 support:
   description: "JDK 10（2018年3月）以降、広く利用可能"
