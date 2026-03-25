@@ -1,6 +1,6 @@
 ---
 title: "toArray tipado en streams"
-oldApproach: "Copia manual de array"
+oldApproach: "Filtro manual + copia"
 modernApproach: "toArray(generator)"
 summary: "Convierte streams en arrays tipados con una referencia a método."
 explanation: "El método toArray(IntFunction) crea un array correctamente tipado a\

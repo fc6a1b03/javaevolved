@@ -1,6 +1,6 @@
 ---
 title: টাইপড স্ট্রিমকে অ্যারেতে রূপান্তর (Typed Stream toArray)
-oldApproach: ম্যানুয়াল অ্যারে কপি
+oldApproach: ম্যানুয়াল ফিল্টার + কপি
 modernApproach: toArray(generator)
 summary: একটি মেথড রেফারেন্স (method reference) ব্যবহার করে স্ট্রিমকে টাইপড অ্যারেতে রূপান্তর করুন।
 explanation: toArray(IntFunction) মেথডটি একটি স্ট্রিম থেকে সঠিক টাইপের অ্যারে তৈরি করে। এখানে জেনারেটর (যেমন String[]::new) স্ট্রিমকে বলে দেয় কোন ধরনের অ্যারে তৈরি করতে হবে।

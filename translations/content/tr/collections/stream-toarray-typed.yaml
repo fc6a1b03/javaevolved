@@ -1,6 +1,6 @@
 ---
 title: Tiplendirilmiş stream toArray
-oldApproach: Elle Dizi Kopyalama
+oldApproach: Elle Filtreleme + Kopyalama
 modernApproach: toArray(generator)
 summary: "Stream'leri metot referansıyla tiplendirilmiş dizilere dönüştürün."
 explanation: "toArray(IntFunction) metodu, bir stream'den düzgün tiplendirilmiş bir dizi oluşturur. Üretici (String[]::new), stream'e hangi türde dizi oluşturacağını söyler."
