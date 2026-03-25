@@ -11,7 +11,7 @@ whyModernWins:
     title: Jedno wywołanie
     desc: Bez ręcznej konstrukcji ArrayList i opakowywania.
   - icon: 🛡️
-    title: Kopia defensywna
-    desc: Zmiany w oryginale nie wpływają na kopię.
+    title: Dowolna kolekcja
+    desc: Przyjmuje dowolną kolekcję jako wejście—bez pośredniej konwersji do ArrayList.
 support:
   description: Szeroko dostępne od JDK 10 (marzec 2018)

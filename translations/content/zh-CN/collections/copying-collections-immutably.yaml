@@ -12,7 +12,7 @@ whyModernWins:
   title: 真正不可变
   desc: "结果集合结构上不可修改。"
 - icon: 📏
-  title: 简洁
-  desc: "一行代码替代多行手动复制和包装。"
+  title: 支持任意 Collection
+  desc: "接受任意 Collection 作为输入，无需中间转换为 ArrayList。"
 support:
   description: 自 JDK 10 起广泛可用（2018 年 3 月）

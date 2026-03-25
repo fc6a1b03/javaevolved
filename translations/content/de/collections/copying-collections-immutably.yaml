@@ -13,7 +13,7 @@ whyModernWins:
   title: Ein einziger Aufruf
   desc: Kein manuelles ArrayList-Erstellen und Verpacken.
 - icon: "🛡️"
-  title: Defensive Kopie
-  desc: Änderungen am Original wirken sich nicht auf die Kopie aus.
+  title: Jede Collection
+  desc: Nimmt jede Collection als Eingabe entgegen – keine ArrayList-Zwischenkonvertierung nötig.
 support:
   description: Weitgehend verfügbar seit JDK 10 (März 2018)

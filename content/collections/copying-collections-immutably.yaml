@@ -29,8 +29,8 @@ whyModernWins:
   title: "One call"
   desc: "No manual ArrayList construction + wrapping."
 - icon: "🛡️"
-  title: "Defensive copy"
-  desc: "Changes to the original don't affect the copy."
+  title: "Any Collection"
+  desc: "Accepts any Collection as input—no intermediate ArrayList conversion needed."
 support:
   state: "available"
   description: "Widely available since JDK 10 (March 2018)"

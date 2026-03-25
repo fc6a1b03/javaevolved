@@ -14,7 +14,7 @@ whyModernWins:
   title: "Una sola llamada"
   desc: "Sin construcción manual de ArrayList + envoltorio."
 - icon: "🛡️"
-  title: "Copia defensiva"
-  desc: "Los cambios en el original no afectan a la copia."
+  title: "Cualquier Collection"
+  desc: "Acepta cualquier Collection como entrada, sin conversión intermedia a ArrayList."
 support:
   description: "Ampliamente disponible desde JDK 10 (marzo 2018)"
