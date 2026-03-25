@@ -1,5 +1,5 @@
 title: Typisiertes Stream-toArray
-oldApproach: Manuelle Array-Kopie
+oldApproach: Manuelle Filterung + Kopie
 modernApproach: "toArray(generator)"
 summary: Streams mit einer Methodenreferenz in typisierte Arrays umwandeln.
 explanation: "Die Methode toArray(IntFunction) erstellt ein korrekt typisiertes Array\

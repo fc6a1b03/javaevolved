@@ -1,6 +1,6 @@
 ---
 title: "toArray typé dans les streams"
-oldApproach: "Copie manuelle de tableau"
+oldApproach: "Filtrage manuel + copie"
 modernApproach: "toArray(generator)"
 summary: "Convertit des streams en tableaux typés avec une référence de méthode."
 explanation: "La méthode toArray(IntFunction) crée un tableau correctement typé à partir d'un stream. Le générateur (String[]::new) indique au stream quel type de tableau créer."

@@ -1,5 +1,5 @@
 title: Typowana konwersja strumienia do tablicy
-oldApproach: Ręczne kopiowanie tablicy
+oldApproach: Ręczne filtrowanie + kopiowanie
 modernApproach: toArray(generator)
 summary: Konwertuj strumienie do typowanych tablic za pomocą referencji do metody.
 explanation: Metoda toArray(IntFunction) tworzy poprawnie typowaną tablicę ze strumienia. Generator (String[]::new) mówi strumieniowi, jakiego typu tablicę utworzyć.

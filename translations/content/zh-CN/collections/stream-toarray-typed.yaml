@@ -1,6 +1,6 @@
 ---
 title: 类型化流 toArray
-oldApproach: 手动数组复制
+oldApproach: 手动过滤 + 复制
 modernApproach: toArray(generator)
 summary: "使用方法引用将流转换为类型化数组。"
 explanation: "toArray(IntFunction) 方法从流创建正确类型化的数组。传递 String[]::new 获取 String[]，而非 Object[]。"

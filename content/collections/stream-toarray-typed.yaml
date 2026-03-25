@@ -7,7 +7,7 @@ difficulty: "beginner"
 jdkVersion: "8"
 oldLabel: "Pre-Streams"
 modernLabel: "Java 8+"
-oldApproach: "Manual Array Copy"
+oldApproach: "Manual Filter + Copy"
 modernApproach: "toArray(generator)"
 oldCode: |-
   List<String> list = getNames();
@@ -22,10 +22,11 @@ modernCode: |-
   String[] arr = getNames().stream()
       .filter(n -> n.length() > 3)
       .toArray(String[]::new);
-summary: "Convert streams to typed arrays with a method reference."
-explanation: "The toArray(IntFunction) method creates a properly typed array from\
-  \ a stream. The generator (String[]::new) tells the stream what type of array to\
-  \ create."
+summary: "Filter a collection and collect the results to a typed array using a single stream expression."
+explanation: "When you need to filter a collection before converting it to a typed array,\
+  \ streams let you chain the operations without an intermediate list. The toArray(IntFunction)\
+  \ generator (String[]::new) creates the correctly typed array directly at the end\
+  \ of the pipeline, eliminating the manual loop and temporary ArrayList."
 whyModernWins:
 - icon: "🎯"
   title: "Type-safe"
@@ -35,7 +36,7 @@ whyModernWins:
   desc: "Works at the end of any stream pipeline."
 - icon: "📏"
   title: "Concise"
-  desc: "One expression replaces the manual loop."
+  desc: "No intermediate list — one expression replaces the manual loop and copy."
 support:
   state: "available"
   description: "Widely available since JDK 8 (March 2014)"
