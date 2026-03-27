@@ -11,7 +11,7 @@ whyModernWins:
   title: "한 번의 호출"
   desc: "ArrayList 수동 생성과 래핑이 필요 없습니다."
 - icon: "🛡️"
-  title: "방어적 복사"
-  desc: "원본을 변경해도 복사본에 영향을 주지 않습니다."
+  title: "모든 Collection 지원"
+  desc: "ArrayList로 중간 변환 없이 모든 Collection을 입력으로 받습니다."
 support:
   description: "JDK 10 (2018년 3월) 이후 널리 사용 가능"

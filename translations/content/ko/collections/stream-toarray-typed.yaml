@@ -1,5 +1,5 @@
 title: "타입이 지정된 스트림 toArray"
-oldApproach: "수동 배열 복사"
+oldApproach: "수동 필터 + 복사"
 modernApproach: "toArray(생성자)"
 summary: "메서드 참조로 스트림을 타입이 지정된 배열로 변환합니다."
 explanation: "toArray(IntFunction) 메서드는 스트림에서 올바르게 타입이 지정된 배열을 만듭니다. 생성자(String[]::new)는 스트림에 생성할 배열 타입을 알려줍니다."

@@ -1,5 +1,5 @@
 title: "تحويل Stream إلى مصفوفة محدّدة النوع"
-oldApproach: "نسخ المصفوفة يدوياً"
+oldApproach: "تصفية يدوية + نسخ"
 modernApproach: "toArray(generator)"
 summary: "حوّل Stream إلى مصفوفة محدّدة النوع باستخدام مرجع دالة."
 explanation: "تُنشئ الدالة toArray(IntFunction) مصفوفةً محدّدة النوع من Stream. يُخبر المولّد (String[]::new) التدفقَ بنوع المصفوفة المراد إنشاؤها."

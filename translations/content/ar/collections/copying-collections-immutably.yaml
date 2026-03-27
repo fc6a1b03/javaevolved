@@ -11,7 +11,7 @@ whyModernWins:
   title: "استدعاء واحد"
   desc: "لا حاجة لإنشاء ArrayList يدوياً ثم تغليفه."
 - icon: "🛡️"
-  title: "نسخة دفاعية"
-  desc: "التغييرات في المصدر لا تؤثر على النسخة."
+  title: "أي مجموعة"
+  desc: "يقبل أي Collection كمدخل، دون الحاجة إلى تحويل ArrayList وسيط."
 support:
   description: "متاح على نطاق واسع منذ JDK 10 (مارس 2018)"

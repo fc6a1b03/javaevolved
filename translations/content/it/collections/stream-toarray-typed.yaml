@@ -1,6 +1,6 @@
 ---
 title: Stream toArray tipizzato
-oldApproach: Copia manuale dell'array
+oldApproach: Filtraggio manuale + copia
 modernApproach: toArray(generatore)
 summary: "Converti gli stream in array tipizzati con un riferimento a metodo."
 explanation: "Il metodo toArray(IntFunction) crea un array correttamente tipizzato da uno stream. Il generatore (String[]::new) indica allo stream quale tipo di array creare."

@@ -1,5 +1,5 @@
 title: 型付きストリームのtoArray
-oldApproach: 手動配列コピー
+oldApproach: 手動フィルタリング + コピー
 modernApproach: toArray(ジェネレータ)
 summary: "メソッド参照を使ってストリームを型付き配列に変換する。"
 explanation: "toArray(IntFunction)メソッドはストリームから適切に型付けされた配列を作成します。ジェネレータ（String[]::new）は、ストリームが作成する配列の型を指定します。"

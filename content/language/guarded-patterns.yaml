@@ -10,7 +10,8 @@ modernLabel: "Java 21+"
 oldApproach: "Nested if"
 modernApproach: "when Clause"
 oldCode: |-
-  if (shape instanceof Circle c) {
+  if (shape instanceof Circle) {
+      Circle c = (Circle) shape;
       if (c.radius() > 10) {
           return "large circle";
       } else {
