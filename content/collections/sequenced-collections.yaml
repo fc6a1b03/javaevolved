@@ -11,9 +11,9 @@ oldApproach: "Index Arithmetic"
 modernApproach: "getFirst/getLast"
 oldCode: |-
   // Get last element
-  var last = list.get(list.size() - 1);
+  Object last = list.get(list.size() - 1);
   // Get first
-  var first = list.get(0);
+  Object first = list.get(0);
   // Reverse iteration: manual
 modernCode: |-
   var last = list.getLast();
