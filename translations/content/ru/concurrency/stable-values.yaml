@@ -1,0 +1,19 @@
+title: Stable Values
+oldApproach: Двойная проверка блокировки
+modernApproach: StableValue
+summary: Потокобезопасная ленивая инициализация без volatile или synchronized.
+explanation: "StableValue предоставляет лениво инициализируемое неизменяемое значение\
+  \ со встроенной потокобезопасностью. Никакой двойной проверки блокировки, volatile-полей,\
+  \ synchronized-блоков. JVM может даже оптимизировать путь чтения после инициализации."
+whyModernWins:
+- icon: "🧹"
+  title: Нулевой шаблонный код
+  desc: "Никаких volatile, synchronized или проверок на null."
+- icon: "⚡"
+  title: Оптимизировано JVM
+  desc: JVM может свернуть значение после инициализации.
+- icon: "🛡️"
+  title: Гарантировано однократное выполнение
+  desc: "Supplier выполняется ровно один раз, даже при конкуренции."
+support:
+  description: "Preview в JDK 25 (JEP 502). Требует --enable-preview."
