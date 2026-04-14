@@ -9,10 +9,13 @@ This document lists the GitHub repository secrets configured in **Settings → S
 | Secret | Purpose |
 |--------|---------|
 | `COPILOT_GITHUB_TOKEN` | GitHub token used by Copilot for automated workflows |
-| `TWITTER_CONSUMER_KEY` | X (Twitter) API v2 OAuth 1.0a consumer key |
-| `TWITTER_CONSUMER_KEY_SECRET` | X (Twitter) API v2 OAuth 1.0a consumer secret |
+| `TWITTER_APP_CONSUMER_KEY` | X (Twitter) API v2 OAuth 1.0a consumer key |
+| `TWITTER_APP_SECRET_KEY` | X (Twitter) API v2 OAuth 1.0a consumer secret |
 | `TWITTER_ACCESS_TOKEN` | X (Twitter) API v2 user access token |
 | `TWITTER_ACCESS_TOKEN_SECRET` | X (Twitter) API v2 user access token secret |
+| `TWITTER_APP_BEARER_TOKEN` | X (Twitter) API v2 OAuth 2.0 App-Only bearer token |
+| `TWITTER_CLIENT_ID` | X (Twitter) OAuth 2.0 client ID |
+| `TWITTER_CLIENT_SECRET` | X (Twitter) OAuth 2.0 client secret |
 
 ## Usage
 
