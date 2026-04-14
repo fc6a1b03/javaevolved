@@ -1,0 +1,19 @@
+title: Stream.iterate() с предикатом
+oldApproach: iterate + limit
+modernApproach: iterate(seed, pred, op)
+summary: Использование предиката для завершения итерации — как цикл for в виде Stream.
+explanation: "Трёхаргументный Stream.iterate(seed, hasNext, next) работает как цикл\
+  \ for: seed — начальное значение, hasNext определяет остановку, next генерирует\
+  \ следующее значение."
+whyModernWins:
+- icon: 🎯
+  title: Естественная остановка
+  desc: Остановка по условию, а не по произвольному ограничению.
+- icon: 📐
+  title: Эквивалент цикла for
+  desc: Та же семантика, что у for(seed; hasNext; next).
+- icon: 🛡️
+  title: Нет риска бесконечного Stream
+  desc: Предикат гарантирует завершение.
+support:
+  description: Широко доступно с JDK 9 (сент. 2017)

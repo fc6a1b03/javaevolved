@@ -1,0 +1,19 @@
+title: Stream.toList()
+oldApproach: Collectors.toList()
+modernApproach: .toList()
+summary: Терминальный toList() заменяет многословный collect(Collectors.toList()).
+explanation: "Stream.toList() возвращает неизменяемый список. Это эквивалент\
+  \ .collect(Collectors.toUnmodifiableList()), но гораздо короче. Примечание: результат\
+  \ неизменяем, в отличие от Collectors.toList()."
+whyModernWins:
+- icon: 📏
+  title: 7 символов против 24
+  desc: .toList() заменяет .collect(Collectors.toList()).
+- icon: 🔒
+  title: Неизменяемый
+  desc: Результирующий список нельзя изменить.
+- icon: 📖
+  title: Fluent
+  desc: Читается естественно в конце пайплайна.
+support:
+  description: Широко доступно с JDK 16 (март 2021)

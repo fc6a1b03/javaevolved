@@ -1,0 +1,19 @@
+title: Optional.ifPresentOrElse()
+oldApproach: if/else с Optional
+modernApproach: ifPresentOrElse()
+summary: Обработка обоих случаев Optional — наличие и отсутствие значения — в одном
+  вызове.
+explanation: ifPresentOrElse() принимает Consumer для случая наличия значения и Runnable
+  для случая пустого Optional. Устраняет антипаттерн isPresent/get.
+whyModernWins:
+- icon: 📏
+  title: Единое выражение
+  desc: Оба случая обрабатываются в одном вызове метода.
+- icon: 🚫
+  title: Без get()
+  desc: Устраняет опасный паттерн isPresent() + get().
+- icon: 🔗
+  title: Цепочный
+  desc: Естественно связывается после findUser() или любого метода, возвращающего Optional.
+support:
+  description: Широко доступно с JDK 9 (сент. 2017)
