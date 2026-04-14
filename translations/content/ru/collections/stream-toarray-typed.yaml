@@ -1,0 +1,19 @@
+title: Типизированный Stream-toArray
+oldApproach: Ручная фильтрация + копирование
+modernApproach: "toArray(generator)"
+summary: Преобразование Stream в типизированные массивы с помощью ссылки на метод.
+explanation: "Метод toArray(IntFunction) создаёт правильно типизированный массив\
+  \ из Stream. Генератор (String[]::new) сообщает Stream, какой тип массива\
+  \ нужно создать."
+whyModernWins:
+- icon: "🎯"
+  title: Типобезопасный
+  desc: "Без приведения к Object[] — тип массива правильный."
+- icon: "🔗"
+  title: Цепочечный
+  desc: Работает в конце любого потокового конвейера.
+- icon: "📏"
+  title: Лаконично
+  desc: Одно выражение заменяет ручной цикл.
+support:
+  description: Широко доступно начиная с JDK 8 (март 2014)

@@ -1,0 +1,17 @@
+title: Duration и Period
+oldApproach: Арифметика в миллисекундах
+modernApproach: Duration / Period
+summary: Вычисляйте разницу во времени типобезопасно с помощью Duration и Period.
+explanation: Duration представляет временные величины (часы, минуты, секунды). Period представляет календарные величины (годы, месяцы, дни). ChronoUnit.between() подходит для простых разниц. Все классы корректно обрабатывают граничные случаи.
+whyModernWins:
+- icon: 🎯
+  title: Типобезопасность
+  desc: "Duration для времени, Period для даты — никакой путаницы."
+- icon: 🛡️
+  title: Корректные вычисления
+  desc: "Обрабатывает переход на летнее время, високосные годы и секунды координации."
+- icon: 📖
+  title: Читаемость
+  desc: ChronoUnit.DAYS.between() читается как естественный язык.
+support:
+  description: Широко доступен начиная с JDK 8 (март 2014)

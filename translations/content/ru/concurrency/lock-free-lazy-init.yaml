@@ -1,0 +1,19 @@
+title: Ленивая инициализация без блокировок
+oldApproach: synchronized + volatile
+modernApproach: StableValue
+summary: Замена двойной проверки блокировки на StableValue для ленивых синглтонов.
+explanation: "StableValue инкапсулирует паттерн ленивой инициализации с корректной\
+  \ потокобезопасностью. JVM может оптимизировать путь чтения после инициализации,\
+  \ делая его потенциально быстрее, чем volatile-чтения."
+whyModernWins:
+- icon: "🧹"
+  title: Нет шаблонного кода
+  desc: "Никаких volatile, synchronized или двойных проверок на null."
+- icon: "⚡"
+  title: Быстрое чтение
+  desc: JVM может свернуть значение в константу после инициализации.
+- icon: "✅"
+  title: Гарантированная корректность
+  desc: "Никаких тонких ошибок порядка — JVM берёт это на себя."
+support:
+  description: "Preview в JDK 25 (JEP 502, StableValue). Требует --enable-preview."

@@ -1,0 +1,19 @@
+title: "Фабрика Map.entry()"
+oldApproach: SimpleEntry
+modernApproach: "Map.entry()"
+summary: Создание записей Map с помощью чистого фабричного метода.
+explanation: "Map.entry() заменяет многословный конструктор AbstractMap.SimpleEntry.\
+  \ Возвращает неизменяемую запись, идеально подходящую для Map.ofEntries()\
+  \ и операций со Stream."
+whyModernWins:
+- icon: "📏"
+  title: Лаконично
+  desc: Одна строка вместо трёх с более чётким намерением.
+- icon: "🔒"
+  title: Неизменяемый
+  desc: Возвращаемую запись нельзя изменить.
+- icon: "🧩"
+  title: Комбинируемый
+  desc: "Отлично работает с Map.ofEntries() для больших Map."
+support:
+  description: Широко доступно начиная с JDK 9 (сент. 2017)

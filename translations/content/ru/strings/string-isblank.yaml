@@ -1,0 +1,18 @@
+title: String.isBlank()
+oldApproach: trim().isEmpty()
+modernApproach: isBlank()
+summary: Проверка пустых строк одним вызовом метода.
+explanation: isBlank() возвращает true, если строка пуста или содержит только
+  пробельные символы, включая Unicode-пробелы, которые trim() не учитывает.
+whyModernWins:
+- icon: 📖
+  title: Самодокументирующийся
+  desc: isBlank() точно описывает то, что проверяет.
+- icon: 🌐
+  title: Поддержка Unicode
+  desc: Обрабатывает все пробельные символы Unicode, а не только ASCII.
+- icon: ⚡
+  title: Без аллокаций
+  desc: Не создаёт промежуточную обрезанную строку.
+support:
+  description: Широко доступно с JDK 11 (сентябрь 2018)

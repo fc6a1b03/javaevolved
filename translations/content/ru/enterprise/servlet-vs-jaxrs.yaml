@@ -1,0 +1,17 @@
+title: Servlet против JAX-RS
+oldApproach: HttpServlet
+modernApproach: JAX-RS-ресурс
+summary: Замените многословный шаблонный код HttpServlet декларативными классами ресурсов JAX-RS.
+explanation: "JAX-RS (Jakarta RESTful Web Services) позволяет предоставлять REST-эндпоинты с помощью простых аннотаций, таких как @GET, @Path и @Produces. Никакого ручного разбора параметров запроса или установки Content-Type в ответе — среда выполнения берёт на себя маршализацию и маршрутизацию автоматически."
+whyModernWins:
+- icon: 📐
+  title: Декларативная маршрутизация
+  desc: Аннотации определяют HTTP-метод, путь и Content-Type вместо императивного if/else-диспатчинга.
+- icon: 🔄
+  title: Автоматическая маршализация
+  desc: "Возвращайте POJO напрямую; среда выполнения сериализует их в JSON или XML на основе @Produces."
+- icon: 🧪
+  title: Упрощённое тестирование
+  desc: Классы ресурсов — это простые Java-объекты, тестируемые без Servlet-контейнера.
+support:
+  description: Широко доступно начиная с Jakarta EE 8 / Java 11

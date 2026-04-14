@@ -1,0 +1,19 @@
+title: Генерация надёжных случайных чисел
+oldApproach: new SecureRandom()
+modernApproach: getInstanceStrong()
+summary: Получение наиболее надёжной реализации SecureRandom на платформе.
+explanation: getInstanceStrong() возвращает реализацию SecureRandom, настроенную
+  как наиболее надёжная на платформе. Это управляется свойством безопасности
+  securerandom.strongAlgorithms.
+whyModernWins:
+- icon: 🛡️
+  title: Наиболее надёжный
+  desc: Автоматически выбирает лучший алгоритм для платформы.
+- icon: 📖
+  title: Явное намерение
+  desc: Явно указывает, что требуется высокая степень случайности.
+- icon: 🔧
+  title: Настраиваемый
+  desc: Администраторы могут изменить надёжный алгоритм через свойства безопасности.
+support:
+  description: Широко доступно с JDK 9 (сент. 2017)

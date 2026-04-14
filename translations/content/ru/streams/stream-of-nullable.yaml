@@ -1,0 +1,19 @@
+title: Stream.ofNullable()
+oldApproach: Проверка на null
+modernApproach: ofNullable()
+summary: Создание Stream с нулём или одним элементом из nullable-значения.
+explanation: Stream.ofNullable() возвращает однопоточный Stream, если значение не
+  null, или пустой Stream, если оно null. Устраняет паттерн тернарной проверки на
+  null.
+whyModernWins:
+- icon: 📏
+  title: Краткость
+  desc: Один вызов заменяет тернарное выражение.
+- icon: 🔗
+  title: flatMap-совместимый
+  desc: Отлично подходит внутри flatMap для пропуска null-значений.
+- icon: 🛡️
+  title: Null-безопасный
+  desc: Нет риска NPE — null превращается в пустой Stream.
+support:
+  description: Широко доступно с JDK 9 (сент. 2017)

@@ -1,0 +1,19 @@
+title: Функции формирования ключей
+oldApproach: Ручной PBKDF2
+modernApproach: KDF API
+summary: Формирование криптографических ключей с помощью стандартного KDF API.
+explanation: KDF API предоставляет стандартный интерфейс для функций формирования
+  ключей, включая HKDF. Он заменяет неудобный шаблон SecretKeyFactory + PBEKeySpec
+  на чистый строительный API.
+whyModernWins:
+- icon: 📐
+  title: Чистый API
+  desc: Шаблон строителя вместо неудобных конструкторов KeySpec.
+- icon: 🔧
+  title: Поддержка HKDF
+  desc: Современный алгоритм HKDF наряду с PBKDF2.
+- icon: 🛡️
+  title: Стандарт
+  desc: Единый API для всех алгоритмов формирования ключей.
+support:
+  description: Финализировано в JDK 25 LTS (JEP 510, сент. 2025).

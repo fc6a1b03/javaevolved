@@ -1,0 +1,19 @@
+title: String.repeat()
+oldApproach: Цикл с StringBuilder
+modernApproach: repeat()
+summary: Повторение строки n раз без цикла.
+explanation: "String.repeat(int) возвращает строку, объединённую с собой n раз.\
+  \ Обрабатывает граничные случаи: repeat(0) возвращает пустую строку, repeat(1)\
+  \ возвращает ту же строку."
+whyModernWins:
+- icon: 📏
+  title: Однострочник
+  desc: Заменяет 5 строк кода с StringBuilder одним вызовом.
+- icon: ⚡
+  title: Оптимизировано
+  desc: Внутренняя реализация оптимизирована для большого числа повторений.
+- icon: 📖
+  title: Ясное намерение
+  desc: repeat(3) сразу передаёт цель.
+support:
+  description: Широко доступно с JDK 11 (сентябрь 2018)

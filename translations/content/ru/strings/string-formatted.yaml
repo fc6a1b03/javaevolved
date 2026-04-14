@@ -1,0 +1,19 @@
+title: String.formatted()
+oldApproach: String.format()
+modernApproach: formatted()
+summary: Вызов formatted() непосредственно на строке-шаблоне.
+explanation: String.formatted() — это метод экземпляра, аналогичный String.format(),
+  но вызываемый на строке форматирования. Он читается более естественно в потоке
+  слева направо.
+whyModernWins:
+- icon: 📖
+  title: Естественная читаемость
+  desc: "Template.formatted(args) воспринимается лучше, чем String.format(template, args)."
+- icon: 🔗
+  title: Цепочки вызовов
+  desc: Можно объединять в цепочку с другими строковыми методами.
+- icon: 📏
+  title: Меньше кода
+  desc: Устраняет избыточный статический вызов String.format().
+support:
+  description: Широко доступно с JDK 15 (сентябрь 2020)
