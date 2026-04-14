@@ -1,0 +1,17 @@
+title: Singleton EJB vs. CDI @ApplicationScoped
+oldApproach: "@Singleton EJB"
+modernApproach: "@ApplicationScoped CDI"
+summary: Замените Singleton-EJB на CDI-бины с @ApplicationScoped для более простого управления общим состоянием.
+explanation: "Singleton-EJB объединяет управление параллелизмом (@Lock, @ConcurrencyManagement) и раннюю инициализацию (@Startup) в EJB-контейнере. CDI-бин с @ApplicationScoped достигает того же жизненного цикла с одним экземпляром при значительно меньших усилиях. Когда требуется управление параллелизмом, стандартные утилиты java.util.concurrent обеспечивают более тонкий контроль, чем Lock-аннотации EJB."
+whyModernWins:
+- icon: 🪶
+  title: Меньше аннотационного шума
+  desc: "Никаких @ConcurrencyManagement, @Lock или @Startup — только одна аннотация @ApplicationScoped."
+- icon: 🔧
+  title: Гибкий параллелизм
+  desc: Используйте блокировки java.util.concurrent или volatile для точно необходимой потокобезопасности.
+- icon: 🧪
+  title: Простое тестирование
+  desc: Простые CDI-бины можно напрямую инстанциировать в тестах без EJB-контейнера.
+support:
+  description: Широко доступно начиная с Jakarta EE 8 / Java 11

@@ -1,0 +1,17 @@
+title: JPA против Jakarta Data
+oldApproach: JPA EntityManager
+modernApproach: Jakarta Data Repository
+summary: Объявите интерфейс репозитория и позвольте Jakarta Data автоматически сгенерировать реализацию DAO.
+explanation: Jakarta Data (Jakarta EE 11) превращает доступ к данным в чистое объявление интерфейса. Вы аннотируете интерфейс с @Repository и расширяете встроенный тип репозитория, например CrudRepository. Среда выполнения генерирует реализацию — включая производные запросы по именам методов, таким как findByName — так что не нужно ни шаблонного кода EntityManager, ни JPQL-строк, ни написанных вручную методов save/find.
+whyModernWins:
+- icon: 🪄
+  title: Ноль шаблонного кода
+  desc: Объявите интерфейс; контейнер генерирует полную реализацию DAO во время развёртывания.
+- icon: 🔍
+  title: Производные запросы
+  desc: Имена методов вроде findByNameAndStatus разбираются автоматически — никакого JPQL или SQL не требуется.
+- icon: 🔌
+  title: Переносимость
+  desc: Любая Jakarta EE 11-совместимая среда выполнения предоставит реализацию репозитория без привязки к поставщику.
+support:
+  description: "Доступно начиная с Jakarta EE 11 / Java 21 (2024)"
