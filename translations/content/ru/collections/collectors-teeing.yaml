@@ -1,0 +1,19 @@
+title: "Collectors.teeing()"
+oldApproach: Два прохода
+modernApproach: "teeing()"
+summary: Вычисление двух агрегаций за один проход по потоку.
+explanation: "Collectors.teeing() направляет каждый элемент в два дочерних Collector\
+  \ и объединяет результаты. Это позволяет избежать двукратного обхода данных или\
+  \ использования изменяемого аккумулятора."
+whyModernWins:
+- icon: "⚡"
+  title: Один проход
+  desc: Обработать поток один раз вместо двух.
+- icon: "🧩"
+  title: Комбинируемый
+  desc: Соединить два произвольных Collector с функцией слияния.
+- icon: "🔒"
+  title: Неизменяемый результат
+  desc: Сразу объединить в Record или Value-Object.
+support:
+  description: Широко доступно начиная с JDK 12 (март 2019)
