@@ -1,0 +1,17 @@
+title: "Цепочки Optional"
+oldApproach: "Вложенные проверки null"
+modernApproach: "Конвейер Optional"
+summary: "Замена вложенных проверок null на конвейер Optional."
+explanation: "Optional.map() связывает допускающие null значения и прерывает цепочку при первом null. orElse() возвращает значение по умолчанию. Это устраняет пирамиду вложенных проверок null."
+whyModernWins:
+- icon: "🔗"
+  title: "Цепочки"
+  desc: "Каждый шаг .map() прозрачно обрабатывает null."
+- icon: "📖"
+  title: "Линейный поток"
+  desc: "Чтение слева направо вместо вложенных блоков if."
+- icon: "🛡️"
+  title: "Защита от NPE"
+  desc: "null обрабатывается на каждом шаге — сбои невозможны."
+support:
+  description: "Доступно с JDK 8+ (улучшено в 9+)"

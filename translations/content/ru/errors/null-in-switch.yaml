@@ -1,0 +1,17 @@
+title: "Случай null в switch"
+oldApproach: "Проверка перед switch"
+modernApproach: "case null"
+summary: "Обрабатывать null непосредственно как case в switch — без отдельной проверки."
+explanation: "Switch с сопоставлением шаблонов может сопоставлять null как метку case. Это устраняет необходимость проверки null перед switch, делая обработку null явной и наглядной."
+whyModernWins:
+- icon: "🎯"
+  title: "Явность"
+  desc: "Обработка null видна непосредственно в switch."
+- icon: "🛡️"
+  title: "Нет NPE"
+  desc: "Switch на значение null не выбрасывает NullPointerException."
+- icon: "📐"
+  title: "Всё в одном"
+  desc: "Все случаи, включая null, в одном выражении switch."
+support:
+  description: "Доступно в JDK 21 LTS (сент. 2023)"
