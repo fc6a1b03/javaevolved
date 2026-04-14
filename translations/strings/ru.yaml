@@ -67,10 +67,10 @@ stats:
   modernPatterns: Современных шаблонов
   jdkVersions: Охваченных версий JDK
   categories: Категорий
-  linesOfPython: Строк на Python потребовалось бы
+  linesOfPython: Строк Python кода понадобилось бы
 footer:
   tagline: Java эволюционировал. Ваш код тоже может.
-  madeWith: Сделано с ❤️ от
+  madeWith: Сделано с ❤️
   and: и
   inspiredBy: Вдохновлено
   viewOnGitHub: Посмотреть на GitHub
