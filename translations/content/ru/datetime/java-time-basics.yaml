@@ -1,0 +1,17 @@
+title: Основы API java.time
+oldApproach: Date + Calendar
+modernApproach: java.time.*
+summary: Используйте неизменяемые и понятные типы даты/времени вместо Date и Calendar.
+explanation: "java.time предоставляет LocalDate, LocalTime, LocalDateTime, Instant и ZonedDateTime — все неизменяемые и потокобезопасные. Месяцы индексируются с 1. Больше никакой путаницы с Calendar.JANUARY = 0."
+whyModernWins:
+- icon: 🔒
+  title: Неизменяемость
+  desc: Значения даты/времени не могут быть случайно изменены.
+- icon: 📖
+  title: Понятный API
+  desc: "Month.JANUARY вместо 0. DayOfWeek.MONDAY вместо 2."
+- icon: 🛡️
+  title: Потокобезопасность
+  desc: "Синхронизация не требуется — можно свободно использовать между потоками."
+support:
+  description: Широко доступен начиная с JDK 8 (март 2014)

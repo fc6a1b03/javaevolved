@@ -1,0 +1,17 @@
+title: Форматирование дат
+oldApproach: SimpleDateFormat
+modernApproach: DateTimeFormatter
+summary: Форматируйте значения дат с помощью потокобезопасного неизменяемого DateTimeFormatter.
+explanation: DateTimeFormatter неизменяем и потокобезопасен, в отличие от SimpleDateFormat. Его можно сохранять как константу и использовать совместно. Для стандартных форматов доступны предопределённые форматтеры, такие как ISO_LOCAL_DATE.
+whyModernWins:
+- icon: 🛡️
+  title: Потокобезопасность
+  desc: Форматтеры можно использовать между потоками без синхронизации.
+- icon: 📋
+  title: Встроенные форматы
+  desc: "ISO_LOCAL_DATE, ISO_INSTANT и другие для стандартных форматов."
+- icon: 🔒
+  title: Неизменяемость
+  desc: Можно безопасно хранить как static final константу.
+support:
+  description: Широко доступен начиная с JDK 8 (март 2014)
