@@ -1,0 +1,95 @@
+site:
+  title: java.evolved
+  tagline: Java эволюционировал. Ваш код тоже может.
+  tagline_line1: Java эволюционировал.
+  tagline_line2: Ваш код тоже может.
+  description: Коллекция современных фрагментов кода на Java. Каждый устаревший шаблон
+    рядом с его чистой, современной заменой — бок о бок.
+  heroSnippetCount: ✦ {{snippetCount}} современных шаблонов · Java 8 → Java 25
+  heroOld: Старый
+  heroModern: Современный
+  allComparisons: Все сравнения
+  snippetsBadge: '{{snippetCount}} сниппетов'
+nav:
+  allPatterns: ← Все шаблоны
+  toggleTheme: Переключить тему
+  viewOnGitHub: Посмотреть на GitHub
+  selectLanguage: Выбрать язык
+breadcrumb:
+  home: Главная
+sections:
+  codeComparison: Сравнение кода
+  whyModernWins: Почему современный подход лучше
+  oldApproach: Старый подход
+  modernApproach: Современный подход
+  sinceJdk: Начиная с JDK
+  difficulty: Сложность
+  jdkSupport: Поддержка JDK
+  howItWorks: Как это работает
+  relatedDocs: Связанная документация
+  proof: Доказательство
+  proofLink: Посмотреть исходник доказательства
+  relatedPatterns: Похожие шаблоны
+filters:
+  show: 'Показать:'
+  all: Все
+  jdk: 'JDK:'
+  category: 'Категория:'
+  noResults: Шаблоны кода для этого фильтра не найдены.
+difficulty:
+  beginner: Начинающий
+  intermediate: Средний
+  advanced: Продвинутый
+search:
+  placeholder: Поиск сниппетов…
+  noResults: Результаты не найдены.
+  esc: ESC
+  searchTrigger: Поиск…
+  navigate: навигация
+  open: открыть
+  close: закрыть
+cards:
+  old: Старый
+  modern: Современный
+  hoverHint: наведите, чтобы увидеть современный →
+  hoverHintRelated: Наведите, чтобы увидеть современный ➜
+  touchHint: 👆 нажмите или смахните →
+  learnMore: подробнее
+copy:
+  copy: Копировать
+  copied: Скопировано!
+share:
+  label: Поделиться
+view:
+  expandAll: Развернуть все
+  collapseAll: Свернуть все
+stats:
+  modernPatterns: Современных шаблонов
+  jdkVersions: Охваченных версий JDK
+  categories: Категорий
+  linesOfPython: Строк Python кода понадобилось бы
+footer:
+  tagline: Java эволюционировал. Ваш код тоже может.
+  madeWith: Сделано с ❤️
+  and: и
+  inspiredBy: Вдохновлено
+  viewOnGitHub: Посмотреть на GitHub
+copilot:
+  headline: Модернизируйте вашу кодовую базу Java с GitHub Copilot.
+  description: Позвольте Copilot помочь вам перенести устаревшие шаблоны на современный Java — автоматически.
+  appModernization: Модернизация приложений →
+  javaGuide: Руководство по Java →
+support:
+  available: Доступно
+  preview: Предварительный просмотр
+  experimental: Экспериментально
+contribute:
+  button: Внести вклад
+  codeIssue: Сообщить о проблеме в коде
+  translationIssue: Сообщить о проблеме с переводом
+  suggestPattern: Предложить новый шаблон
+  seeIssue: "Заметили проблему в этом коде?"
+  reportIt: "Сообщите нам."
+untranslated:
+  notice: Эта страница ещё не переведена на {{localeName}}.
+  viewInEnglish: Просмотреть на английском

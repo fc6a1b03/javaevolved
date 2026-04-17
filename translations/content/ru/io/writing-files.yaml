@@ -1,0 +1,17 @@
+title: "Запись файлов"
+oldApproach: "FileWriter + BufferedWriter"
+modernApproach: "Files.writeString()"
+summary: "Запись строки в файл одной строкой кода."
+explanation: "Files.writeString() записывает содержимое в файл с кодировкой UTF-8 по умолчанию. Для добавления содержимого, создания файла и т.п. можно передавать опции."
+whyModernWins:
+- icon: "📏"
+  title: "Одна строка"
+  desc: "Не нужна обёртка Writer или try-with-resources."
+- icon: "🛡️"
+  title: "Безопасные значения по умолчанию"
+  desc: "Кодировка UTF-8, корректное закрытие дескриптора файла."
+- icon: "🔧"
+  title: "Опции"
+  desc: "Флаги OpenOption для добавления содержимого, создания файла и т.д."
+support:
+  description: "Доступно в JDK 11 (сент. 2018)"

@@ -1,0 +1,19 @@
+title: Scoped Values
+oldApproach: ThreadLocal
+modernApproach: ScopedValue
+summary: Безопасный обмен данными по стеку вызовов без ловушек ThreadLocal.
+explanation: "ScopedValue предоставляет неизменяемый, наследуемый, ограниченный\
+  \ контекст. В отличие от ThreadLocal, Scoped Values автоматически очищаются,\
+  \ работают с виртуальными потоками и не могут быть изменены вызываемыми методами."
+whyModernWins:
+- icon: "🔒"
+  title: Неизменяемость
+  desc: "Вызываемые методы могут читать Scoped Value, но не могут его изменить."
+- icon: "🧹"
+  title: Автоматическая очистка
+  desc: "Нет ручного remove() — значение ограничено блоком."
+- icon: "⚡"
+  title: Совместимость с виртуальными потоками
+  desc: Эффективно работает с миллионами виртуальных потоков.
+support:
+  description: "Финализировано в JDK 25 LTS (JEP 506, сент. 2025)."

@@ -1,0 +1,20 @@
+title: Цепочки CompletableFuture
+oldApproach: "Блокирующий Future.get()"
+modernApproach: CompletableFuture
+summary: Объединение асинхронных операций в цепочки без блокировки с помощью CompletableFuture.
+explanation: "CompletableFuture позволяет строить неблокирующие асинхронные конвейеры.\
+  \ Операции объединяются с помощью thenApply, thenCompose, thenAccept. Ошибки\
+  \ обрабатываются через exceptionally(). Несколько Future можно комбинировать\
+  \ с allOf/anyOf."
+whyModernWins:
+- icon: "🔗"
+  title: Цепочки
+  desc: Объединение асинхронных шагов в читаемый конвейер.
+- icon: "🚫"
+  title: Без блокировок
+  desc: Ни один поток не ждёт результатов впустую.
+- icon: "🛡️"
+  title: Обработка ошибок
+  desc: "exceptionally() и handle() для надёжного восстановления после ошибок."
+support:
+  description: Широко доступно с JDK 8 (март 2014)

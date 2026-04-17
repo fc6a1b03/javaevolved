@@ -1,0 +1,20 @@
+title: String.strip() vs trim()
+oldApproach: trim()
+modernApproach: strip()
+summary: Unicode-совместимое удаление пробелов с помощью strip(), stripLeading(),
+  stripTrailing().
+explanation: trim() удаляет только символы ≤ U+0020 (управляющие символы ASCII
+  и пробел). strip() использует Character.isWhitespace(), который обрабатывает
+  Unicode-пробелы, такие как неразрывный пробел, идеографический пробел и др.
+whyModernWins:
+- icon: 🌐
+  title: Корректная работа с Unicode
+  desc: Обрабатывает все пробельные символы из всех систем письма.
+- icon: 🎯
+  title: Направленность
+  desc: stripLeading() и stripTrailing() для одностороннего удаления.
+- icon: 🛡️
+  title: Меньше ошибок
+  desc: Нет неожиданных пробелов в интернациональном тексте.
+support:
+  description: Широко доступно с JDK 11 (сентябрь 2018)

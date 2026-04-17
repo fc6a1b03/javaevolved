@@ -1,0 +1,19 @@
+title: Символы строки как поток
+oldApproach: Ручной цикл
+modernApproach: Поток chars()
+summary: Обработка символов строки в виде конвейера потока.
+explanation: String.chars() возвращает IntStream значений символов, обеспечивая
+  функциональную обработку. Для поддержки Unicode метод codePoints() корректно
+  обрабатывает дополнительные символы.
+whyModernWins:
+- icon: 🔗
+  title: Цепочки вызовов
+  desc: Применяйте filter, map, collect к потокам символов.
+- icon: 📐
+  title: Декларативный стиль
+  desc: Описывает что делать, а не как итерировать.
+- icon: 🌐
+  title: Поддержка Unicode
+  desc: codePoints() корректно обрабатывает эмодзи и дополнительные символы.
+support:
+  description: Доступно с JDK 8+ (улучшено в 9+)

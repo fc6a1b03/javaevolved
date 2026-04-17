@@ -1,0 +1,18 @@
+title: Создание неизменяемых Map
+oldApproach: Паттерн Map-Builder
+modernApproach: "Map.of()"
+summary: Создание неизменяемых Map встроенно без Builder.
+explanation: "Map.of() принимает пары ключ-значение встроенно и возвращает неизменяемую\
+  \ Map. Для более чем 10 записей использовать Map.ofEntries() с парами Map.entry()."
+whyModernWins:
+- icon: "📏"
+  title: Встроенное создание
+  desc: Не требует временной изменяемой Map.
+- icon: "🔒"
+  title: Неизменяемый результат
+  desc: Map нельзя изменить после создания.
+- icon: "🚫"
+  title: Без null-ключей/значений
+  desc: Null-записи немедленно отклоняются.
+support:
+  description: Широко доступно начиная с JDK 9 (сент. 2017)

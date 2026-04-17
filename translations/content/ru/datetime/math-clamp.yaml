@@ -1,0 +1,17 @@
+title: Math.clamp()
+oldApproach: Вложенные min/max
+modernApproach: Math.clamp()
+summary: Ограничьте значение диапазоном с помощью единственного понятного вызова.
+explanation: "Math.clamp(value, min, max) ограничивает значение диапазоном [min, max]. Понятнее, чем вложенные Math.min/Math.max, и доступен для int, long, float и double."
+whyModernWins:
+- icon: 📖
+  title: Самодокументируемый
+  desc: "clamp(value, min, max) однозначен."
+- icon: 🛡️
+  title: Меньше ошибок
+  desc: Больше никакой случайной перестановки порядка min и max.
+- icon: 🎯
+  title: Все числовые типы
+  desc: "Работает с int, long, float и double."
+support:
+  description: Широко доступен начиная с JDK 21 LTS (сентябрь 2023)

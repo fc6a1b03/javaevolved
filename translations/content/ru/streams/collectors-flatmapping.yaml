@@ -1,0 +1,19 @@
+title: Collectors.flatMapping()
+oldApproach: Вложенный flatMap
+modernApproach: flatMapping()
+summary: Использование flatMapping() для сглаживания внутри группирующего Collector.
+explanation: Collectors.flatMapping() применяет отображение «один ко многим» в качестве
+  нижестоящего Collector. Это эквивалент Collector для Stream.flatMap() — полезен
+  внутри groupingBy или partitioningBy.
+whyModernWins:
+- icon: 🧩
+  title: Компонуемый
+  desc: Работает как нижестоящий Collector внутри groupingBy.
+- icon: 📐
+  title: Один проход
+  desc: Сглаживание и группировка за один проход Stream.
+- icon: 🔗
+  title: Вкладываемый
+  desc: Сочетается с другими нижестоящими Collectors.
+support:
+  description: Широко доступно с JDK 9 (сент. 2017)

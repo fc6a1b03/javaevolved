@@ -1,0 +1,19 @@
+title: Stream Gatherers
+oldApproach: Пользовательский Collector
+modernApproach: gather()
+summary: Использование Gatherers для пользовательских промежуточных операций Stream.
+explanation: Gatherers — это новая промежуточная операция Stream, позволяющая выражать
+  сложные преобразования, такие как скользящие окна, группы фиксированного размера
+  и операции сканирования, которые были невозможны со стандартными операциями Stream.
+whyModernWins:
+- icon: 🧩
+  title: Компонуемый
+  desc: Gatherers сочетаются с другими операциями Stream.
+- icon: 📦
+  title: Встроенные операции
+  desc: "windowFixed, windowSliding, fold, scan доступны из коробки."
+- icon: 🔧
+  title: Расширяемый
+  desc: Написание собственных Gatherers для любых промежуточных преобразований.
+support:
+  description: "Финализировано в JDK 24 (JEP 485, март 2025)."
