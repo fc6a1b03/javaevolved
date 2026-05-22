@@ -1,12 +1,12 @@
-# Automated Weekly Social Posts — Specification
+# Automated Twice-Weekly Social Posts — Specification
 
 ## Problem
-Post one pattern per week to X/Twitter, covering all 113+ patterns (~2.2 years of content). Fully automated via GitHub Actions with no manual steps.
+Post one pattern twice a week to X/Twitter, covering all 113+ patterns. Fully automated via GitHub Actions with no manual steps.
 
 ## Approach
 Use a **GitHub Actions scheduled workflow** that:
 1. Reads a pre-shuffled queue file (`social/queue.txt`) listing all pattern keys
-2. Each Monday, picks the next unposted pattern, posts to X/Twitter
+2. Each Monday and Thursday, picks the next unposted pattern, posts to X/Twitter
 3. Commits the updated state back to the repo to track progress
 4. When all patterns are exhausted, reshuffles and starts over
 
@@ -56,7 +56,7 @@ JBang script that:
 ### 3. GitHub Actions Workflow
 **File:** `.github/workflows/social-post.yml`
 
-- Schedule: every Monday at 14:00 UTC (10 AM ET)
+- Schedule: every Monday and Thursday at 14:00 UTC (10 AM ET)
 - Manual dispatch support (`workflow_dispatch`)
 - Concurrency group prevents double-posts
 - Commits updated state back to repo

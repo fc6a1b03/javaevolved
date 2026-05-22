@@ -25,8 +25,8 @@ Used by GitHub Copilot integrations. Not currently referenced in any workflow fi
 
 ### Twitter / X Secrets
 
-Used for automated weekly social media posting of Java pattern updates to X (Twitter) via the X API v2.
+Used for automated twice-weekly social media posting of Java pattern updates to X (Twitter) via the X API v2.
 
-- **Workflow:** [`.github/workflows/social-post.yml`](.github/workflows/social-post.yml) — runs every Monday at 14:00 UTC
+- **Workflow:** [`.github/workflows/social-post.yml`](.github/workflows/social-post.yml) — runs every Monday and Thursday at 14:00 UTC
 - **Post script:** [`html-generators/socialpost.java`](html-generators/socialpost.java)
 - **Spec:** [`specs/social-posts-spec.md`](specs/social-posts-spec.md)

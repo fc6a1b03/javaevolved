@@ -12,11 +12,13 @@ modernApproach: "Pattern Variable"
 oldCode: |-
   if (obj instanceof String) {
       String s = (String) obj;
-      System.out.println(s.length());
+      int length = s.length();
+      // do something with 'length'
   }
 modernCode: |-
   if (obj instanceof String s) {
-      IO.println(s.length());
+     int length = s.length();
+      // do something with 'length'
   }
 summary: "Combine type check and cast in one step with pattern matching."
 explanation: "Pattern matching for instanceof eliminates the redundant cast after\

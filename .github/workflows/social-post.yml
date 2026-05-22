@@ -1,8 +1,8 @@
-name: Weekly Social Post
+name: Twice-Weekly Social Post
 
 on:
   schedule:
-    - cron: '0 14 * * 1'  # Every Monday at 14:00 UTC (10 AM ET)
+    - cron: '0 14 * * 1,4'  # Every Monday and Thursday at 14:00 UTC (10 AM ET)
   workflow_dispatch:       # Manual trigger
 
 permissions:
